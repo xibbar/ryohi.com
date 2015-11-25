@@ -1,4 +1,3 @@
-
 <div class="h4 text-primary"><%= t 'label.schedules' %></div>
 <div class="h4 hidden-print">
   <div id='newSchedule'>
@@ -10,22 +9,20 @@
 <div id='scheduleFlash' style="display:none;"></div>
 <div id='scheduleForm' style="display:none;"></div>
 <div id='schedulesTable'>
-  <%= render 'schedules' %>
+  <%= render 'target_months/schedules' %>
 </div>
 
 <div id='tripExpenseFlash' style="display: none;"></div>
 <div id='tripExpenseForm' style="display: none;"></div>
-<% unless @target_month.order_trip_expenses.empty? %> 
-  <div class='row'>
-    <div class="col-sm-6 h4 text-primary"><%= t 'label.trip_expenses' %></div>
-  </div>
-  <div id='tripExpensesTable'>
-    <%= render 'trip_expenses' %>
-  </div>
-<% end %>
+<div class='row'>
+  <div class="col-sm-6 h4 text-primary"><%= t 'label.trip_expenses' %></div>
+</div>
+<div id='tripExpensesTable'>
+  <%= render 'target_months/trip_expenses' %>
+</div>
 
 <div id='totalTable'>
-  <%= render 'total_table' %>
+  <%= render 'target_months/total_table' %>
 </div>
 
 <%= javascript_tag <<-JAVASCRIPT

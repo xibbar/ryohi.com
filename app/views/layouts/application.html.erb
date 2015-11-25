@@ -106,8 +106,9 @@
       </div>
     <% end %>
     <div class="container">
-      <%= bootstrap_flash %>
-      <span id='bodyFlash'></span>
+      <span id='bodyFlash' class="hidden-print">
+        <%= bootstrap_flash %>
+      </span>
       <%= yield %>
 
 
