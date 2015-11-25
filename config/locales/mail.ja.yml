@@ -1,0 +1,9 @@
+ja:
+  mail:
+    user:
+      activation:
+        needed: 'メールアドレスの確認'
+        complete: '登録完了のお知らせ'
+        email: 'メールアドレスの確認'
+      forgot_password: 'パスワード再設定'
+

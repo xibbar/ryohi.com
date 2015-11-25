@@ -1,0 +1,177 @@
+ja:
+  activerecord:
+    models:
+      user:             'アカウント情報'
+      company:          '企業情報'
+      email:            '変更メールアドレス'
+      password:         'パスワードリセット'
+      employee:         '社員情報'
+      target_month:     '旅費清算書'
+      schedule:         '出張'
+      trip_expense:     '交通費'
+      expense_template: '旅費テンプレート'
+      bridge:           '関連企業'
+
+    attributes:
+      user:
+        login:                            'ログインID'
+        email:                            'メールアドレス'
+        crypted_password:                 'パスワード'
+        current_password:                 '現在のパスワード'
+        password:                         'パスワード'
+        password_confirmation:            'パスワード（確認）'
+        salt:                             'キー'
+        state:                            '状態'
+        activation_token:                 'アクティベートキー'
+        activation_token_expires_at:      'キーの有効期限'
+        reset_password_token:             'パスワードリセットキー'
+        reset_password_token_expires_at:  'キーの有効期限'
+        reset_password_email_sent_at:     'キーの送信日時'
+        name:                             '氏名'
+        created_at:                       '登録日時'
+        updated_at:                       '更新日時'
+        staff_restrict:                   'スタッフ数上限'
+        expires_at:                       '有効期限'
+        employees:                        'スタッフ数'
+      company:
+        name:                             '企業名'
+        created_at:                       '登録日時'
+        updated_at:                       '更新日時'
+        daily_allowance:                   '日帰り出張の日当'
+      email:
+        company_id:                       '企業情報'
+        activate_key:                     'アクチベートキー'
+        email:                            '新メールアドレス'
+        deleted_at:                       '削除日時'
+        created_at:                       '登録日時'
+        updated_at:                       '更新日時'
+      password:
+        company_id:                       '企業情報'
+        reset_key:                        'リセットキー'
+        deleted_at:                       '削除日時'
+        created_at:                       '問い合わせ日時'
+        updated_at:                       '再問い合わせ日時'
+        email:                            'メールアドレス'
+      employee:
+        company_id:                       '企業情報'
+        name:                             '氏名'
+        daily_allowance:                   '日当'
+        accommodation_charges:            '宿泊料'
+        deleted_at:                       '削除日時'
+        created_at:                       '登録日時'
+        updated_at:                       '更新日時'
+      target_month:
+        company_id:                       '企業情報'
+        employee_id:                      '社員情報'
+        employee_name:                    '社員名'
+        year:                             '年'
+        month:                            '月'
+        date:                             '年月'
+        created_at:                       '登録日時'
+        updated_at:                       '更新日時'
+        schedule_total:                   '日当・宿泊費'
+        trip_expense_total:               '交通費'
+        total:                            '合計'
+      schedule:
+        target_month_id:                  '旅費清算書'
+        date:                             '日付'
+        trip_date:                        '開始日'
+        days:                             '出張日数'
+        destination:                      '訪問先'
+        business:                         '用件'
+        daily_allowance:                   '日当'
+        accommodation_charges:            '宿泊料'
+        created_at:                       '登録日時'
+        updated_at:                       '更新日時'
+        total:                            '合計'
+      trip_expense:
+        schedule_id:                      '出張の種類'
+        section:                          '区間'
+        round:                            '往復'
+        way:                              '移動手段'
+        price:                            '金額'
+        created_at:                       '登録日時'
+        updated_at:                       '更新日時'
+        total:                            '合計'
+      expense_template:
+        employee:                         '社員情報'
+        position:                         '並び'
+        section:                          '区間'
+        round:                            '往復'
+        way:                              '移動手段'
+        price:                            '金額'
+        created_at:                       '登録日時'
+        updated_at:                       '更新日時'
+        view:                             '見出し'
+      bridge:
+        company:                          '企業'
+        position:                         '並び'
+        target_company:                   '関連企業'
+        bridge_company:                   '関連企業'
+        login:                            '関連企業ログインID'
+        password:                         '関連企業パスワード'
+
+
+  examples:
+    user:
+      login:                            '半角英数字で入力してください。'
+      email:                            'メールアドレスを入力してください。'
+      current_password:                 '現在のパスワードを入力してください。'
+      password:                         '半角英数字で入力してください。'
+      password_confirmation:            '確認の為、コピー&ペーストは行わずに入力してください。'
+      name:                             '氏名を入力してください。'
+      staff_restrict:                   'スタッフの上限数を入力してください。'
+      expires_at:                       'アカウントの有効期限を選択してください。'
+    company:
+      name:                             '企業名を入力してください。'
+    email:
+      email:                            '新しいメールアドレスを入力してください。'
+    password:
+      email:                            '登録されているメールアドレスを入力してください。'
+    employee:
+      name:                             '社員の氏名を入力してください。'
+      daily_allowance:                   '半角数字で入力してください。'
+      accommodation_charges:            '半角数字で入力してください。'
+    target_month:
+      employee_id:                      '旅費清算書を作成する社員を選択してください。'
+      year:                             '登録する年を選択してください。'
+      month:                            '登録する月を選択してください。'
+      date:                             '登録する年月を選択してください。'
+    schedule:
+      trip_date:
+      days:
+      destination:                      '例）東北株式会社'
+      business:                         '例）月例ミーティング'
+    trip_expense:
+      schedule_id:                      '選択してください。'
+      section:                          '例）福島ー東京'
+      round:                            '往復か片道を選んでください'
+      way:                              '電車・飛行機など'
+      price:                            '半角数字で入力してください。'
+    expense_template:
+      section:                          '例）福島ー東京'
+      round:                            '往復か片道を選んでください'
+      way:                              '電車・飛行機など'
+      price:                            '半角数字で入力してください。'
+    bridge:
+      login:                            '関連企業アカウントのログインIDを入力してください。'
+      password:                         '関連企業アカウントのパスワードを入力してください。'
+  simple_form:
+    hints:
+      schedule:
+        trip_date:                        '出張の開始日を選択してください'
+        days:                             '出張の日数を選択してください（日間）'
+        destination:                      '出張の訪問先を入力してください'
+        business:                         '出張の要件を入力してください'
+      trip_expense:
+        schedule_id:                      '選択してください。'
+        section:                          '例）福島ー東京'
+        round:                            '往復か片道を選んでください'
+        way:                              '電車・飛行機など'
+        price:                            '半角数字で入力してください。'
+    placeholders:
+      schedule:
+        trip_date:
+        days:
+        destination:                      '例）東北株式会社'
+        business:                         '例）月例ミーティング'

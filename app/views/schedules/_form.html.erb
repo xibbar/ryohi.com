@@ -1,0 +1,24 @@
+<div class='panel panel-info'>
+  <div class='panel-heading'>
+          <%= link_to content_tag(:span, "",class: 'glyphicon glyphicon-remove'), close_company_target_month_schedules_path(@company, @target_month), remote: true, class: "btn btn-default pull-right" %>
+    <div class="panel-title h4">
+      <div class="h4 text-left">
+        <%= t 'link.create_schedules' %>
+        <span class="pull-right">
+        </span>
+      </div>
+  </div>
+  </div>
+    <%= simple_form_for @schedule, url: @post_url, method: @method, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f| %>
+      <div class='panel-body'>
+        <span id="form_flash"></span>
+        <%= f.input :trip_date, collection: (1..31).map{|n|[t('label.date', month: @target_month.month, day: n), n]}, selected: 1 %>
+        <%= f.input :days, collection: (1..30).map{|n|[t('label.date_period', days: n), n]}, selected: 1 %>
+        <%= f.input :destination %>
+        <%= f.input :business %>
+      </div>
+      <div class='panel-footer text-right'>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+</div>

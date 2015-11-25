@@ -1,0 +1,5 @@
+<%= simple_form_for @user, url: update_expires_rabbix_user_path( @user ), method: :put, data: { remote: true }, html: { id: "expires_form_#{ @user.id }", class: 'form-horizontal' } do |f| %>
+  <%= f.input :expires_at, as: :date, label: t('examples.user.expires_at'), use_month_numbers: true, date_separator: '/', start_year: @now.year, end_year: @now.year + 1, discard_day: true, include_blank: true %>
+  <%= f.button :submit, t('button.update'), class: 'btn-warning btn-xs' %>
+  <%= link_to t('link.close'), update_user_rabbix_user_path(@user), class: 'btn btn-default btn-xs', method: :put, remote: true %>
+<% end %>

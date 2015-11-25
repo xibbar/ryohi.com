@@ -1,0 +1,26 @@
+<%= form_for current_user, url: email_index_path, method: :post do |f| %>
+<table class='formT'>
+  <%= f.fields_for :emails do |ff| %>
+  <tr>
+    <th><%= ff.label :email %></th>
+    <td>
+      <%= ff.text_field :email %>
+      <%= error_messages_on ff.object, :email %>
+      <div class='examples'><%= enter_convert t("examples.email.email") %></div>
+    </td>
+  </tr>
+<% end %>
+  <tr>
+    <th><%= f.label :current_password %></th>
+    <td>
+      <%= f.password_field :current_password %>
+      <%= error_messages_on f.object, :current_password %>
+      <div class='examples'><%= enter_convert t("examples.company.current_password") %></div>
+    </td>
+  </tr>
+</table>
+<p class='submit'><%= f.submit t('button.update') %></p>
+<% end %>
+
+<p class='back'><%= link_to t('link.back'), target_months_path %></p>
+

@@ -1,0 +1,31 @@
+<%= simple_form_for @expense_template, url: [ @company, @employee, @expense_template ] do |f| %>
+  <table class='table'>
+    <tr>
+      <td>
+        <%= f.input :section %>
+        <%= enter_convert t("examples.expense_template.section") %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.radio_button :round, 'true' %> <%= label_tag "expense_template_round_true", t('round.true') %>
+        <%= f.radio_button :round, 'false' %> <%= label_tag "expense_template_round_false", t('round.false') %>
+        <div class='examples'><%= enter_convert t("examples.expense_template.round") %></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.input :way %>
+        <%= enter_convert t("examples.expense_template.way") %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.input :price %> <%=t 'number.currency.format.unit' %>
+        <div class='examples'><%= enter_convert t("examples.expense_template.price") %></div>
+      </td>
+    </tr>
+  </table>
+
+  <%= f.button :submit, class: 'btn-primary' %>
+<% end %>

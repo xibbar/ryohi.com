@@ -1,0 +1,15 @@
+<div>
+  <h2><%=t "#{@page_name}.title" %></h2>
+</div>
+
+
+<%= simple_form_for @company do |f| %>
+  <%= f.input :name %>
+  <%= enter_convert t("examples.company.name") %>
+  <p>
+  <%= f.button :submit, t('button.update'), class: 'btn-success' %>
+  <%= link_to t('link.back'), companies_path, class: 'btn btn-default' %>
+  </p>
+<% end %>
+
+

@@ -1,0 +1,30 @@
+<h2><%= @company.name %></h2>
+<h3><%=t "#{@page_name}.title" %></h3>
+<% unless current_user.staff_restrict_over? || current_user.expired?( @now ) -%>
+  <p>
+  <div id='newLink'>
+    <%= link_to t('link.new'), new_company_employee_path( @company ), remote: true, title: t('link.new'), class: 'btn btn-primary' %>
+  </div>
+  </p>
+<% end -%>
+
+
+<div id='form' class='form'></div>
+
+<div class='table-responsive'>
+  <table id='employeesTable' class='table'>
+    <tr>
+      <th><%=f Employee, :name %></th>
+      <th><%=f Employee, :daily_allowance %></th>
+      <th><%=f Employee, :accommodation_charges %></th>
+      <th><%=f ExpenseTemplate %></th>
+      <% unless current_user.expired?( @now ) -%>
+        <th></th>
+        <th></th>
+      <% end -%>
+    </tr>
+    <%= render @company.employees %>
+  </table>
+</div>
+
+<%= link_to t('link.back'), companies_path, class: 'btn btn-default' %>

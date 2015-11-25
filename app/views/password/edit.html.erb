@@ -1,0 +1,15 @@
+<h2><%=t "#{@page_name}.title" %></h2>
+
+<p><%= t("#{@page_name}.comment") %></p>
+
+<%= simple_form_for @user, url: password_path, method: :put, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f| %>
+  <%= hidden_field_tag :login_key, @user.login_key %>
+  <%= hidden_field_tag :reset_code, @password.reset_key %>
+  <%= f.input :password, hint: t("examples.user.password") %>
+  <%= f.input :password_confirmation, hint: t("examples.user.password_confirmation") %>
+
+  <%= f.button :submit, t('link.forgot_password_edit'), class: 'btn-primary' %>
+  <%= link_to t('link.back'), root_path, class: 'btn btn-default' %>
+<% end %>
+
+

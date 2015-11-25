@@ -1,0 +1,82 @@
+ja:
+  project:
+    title: 旅費com
+    logo: 旅費com
+    copyright: (C) 2015 rabbix ltd.
+    expired: 有効期限が切れています
+    expired_message: |-
+      ご利用のアカウントは有効期限が切れています。
+      そのため、旅費精算書の作成機能が一部
+      ご利用いただけない状態になっております。
+      現在は閲覧のみご利用可能です。
+      引き続きご利用になりたい方は
+      更新手続きをしてください。
+
+  button:
+    login: 'ログイン'
+    logout: 'ログアウト'
+    back: '戻る'
+    account_new: '旅費comにアカウントの新規登録をする'
+    create: '登録'
+    edit: '編集'
+    update: '更新'
+    show: '詳細'
+    destroy: '削除'
+    close: '閉じる'
+    search: '検索'
+    'ok': '○'
+    'no': '×'
+    add_template: 'テンプレート化'
+    template: 'テンプレート'
+    create_trip_expenses: '交通費'
+
+    titles:
+      add_template: 'テンプレートとして登録します。'
+
+  link:
+    login: 'ログイン'
+    logout: 'ログアウト'
+    back: '戻る'
+    new: '新規登録する'
+    create: '登録する'
+    edit: '編集する'
+    update: '更新する'
+    destroy: '削除する'
+    close: '閉じる'
+    manage: '管理'
+    menu: 'メニュー'
+    create_target_months: '旅費精算書を登録する'
+    create_employees: '社員を登録する'
+    create_schedules: '出張を登録する'
+    create_trip_expenses: '交通費を登録する'
+    target_month: '旅費精算書の管理'
+    target_month_description: '出張と交通費の管理'
+    employees: '社員の管理'
+    companies: '企業管理'
+    users: 'アカウント管理'
+    account_new: '新規登録'
+    account_edit: '企業名の変更'
+    account_password: 'パスワードの変更'
+    account_email: '連絡先の変更'
+    forgot_password: 'パスワードを忘れた方'
+    forgot_password_new: '送信する'
+    forgot_password_edit: '設定する'
+    change: '切替'
+    display: '表示'
+    up: "▲"
+    down: "▼"
+    about: "このシステムについて"
+    change_daily_allowance: '日帰り出張の日当の変更'
+
+  form:
+    require: 必須
+  label:
+    schedules: '出張の一覧' 
+    trip_expenses: '出張の交通費の一覧' 
+    total: '集計結果'
+    select_template: 'テンプレート選択'
+    date_period: '%{days}日間'
+    date: '%{month}月%{day}日'
+  hints:
+    select_template: 'テンプレートから値を転記できます'
+

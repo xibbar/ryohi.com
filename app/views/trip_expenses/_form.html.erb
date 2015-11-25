@@ -1,0 +1,45 @@
+<div class='panel panel-info'>
+  <div class="panel-heading">
+      <%= link_to content_tag(:span, "",class: 'glyphicon glyphicon-remove'), close_company_target_month_trip_expenses_path(@company, @target_month), remote: true, class: 'btn btn-default pull-right' %>
+    <div class="panel-title"><h4 class="text-primary"><%= t 'link.create_trip_expenses' %></h4></div>
+  </div>
+  <%= simple_form_for @trip_expense, url: @post_url, method: @method, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f| %>
+    <div class="panel-body">
+      <span id="form_flash"></span>
+    <%= f.input :schedule_id, collection: @schedules, value_method: :id, label_method: :select_view, include_blank: false %>
+      <div class="form-group select">
+        <label class='string col-sm-3 control-label'><%= t 'label.select_template' %></label>
+        <div class='col-sm-9'>
+          <%= select_tag "template_id", options_for_select( @target_month.employee.expense_templates.map { |expense_template| [ expense_template.view, expense_template.id ] }.unshift( [ "", "" ] ) ), class: 'form-control' %>
+          <p class="help-block"><%= t 'hints.select_template' %></p>
+        </div>
+      </div>
+      <%= f.input :section %>
+      <%= f.input :round, collection: [[t('round.true'),'true'], [t('round.false'),'false']], as: :radio_buttons, wrapper: :horizontal_radio_and_checkboxes, required: true %>
+
+      <%= f.input :way %>
+      <%= f.input :price %>
+    </div>
+
+    <div class='panel-footer text-right'>
+      <%= f.button :submit, class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+</div>
+
+<%= javascript_tag <<-JAVASCRIPT
+      $('#template_id').on('change', function(){
+        $.post(
+          '#{merge_template_company_target_month_trip_expenses_path( @company, @target_month )}',
+          { expense_template_id: $(this).val() },
+          function( data ){
+            $('#trip_expense_section').val( data.section );
+            $('#trip_expense_round_' + data.round)[0].checked = true;
+            $('#trip_expense_way').val( data.way );
+            $('#trip_expense_price').val( data.price );
+          }
+        )
+      });
+    JAVASCRIPT
+%>

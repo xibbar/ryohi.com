@@ -1,0 +1,25 @@
+<h2><%=t "#{@page_name}.title" %></h2>
+<% unless current_user.expired?( @now ) -%>
+  <p>
+  <%= link_to t('link.new'), new_company_employee_expense_template_path( @company, @employee ), title: t('link.new'), class: 'btn btn-primary' %>
+  </p>
+<% end -%>
+
+
+<div class='table-responsive'>
+  <table class='table'>
+    <tr>
+      <% unless current_user.expired?( @now ) -%>
+        <th colspan='2'></th>
+      <% end -%>
+      <th><%=f ExpenseTemplate, :view %></th>
+      <% unless current_user.expired?( @now ) -%>
+        <th></th>
+        <th></th>
+      <% end -%>
+    </tr>
+    <%= render @expense_templates %>
+  </table>
+</div>
+
+<%= link_to t('link.back'), company_employees_path( @company ), class: 'btn btn-default' %>

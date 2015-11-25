@@ -1,0 +1,23 @@
+defaults: &defaults
+  app_version: "0.0.1"
+  per_page: 20
+  default_from: "development@ryohi.sakura.ne.jp"
+  #  url: "http://ryohi.com"
+  url: "http://localhost:3000"
+  basic_name: <%= ENV['ADMIN_USER'] %>
+  basic_pass: <%= ENV['ADMIN_PASS']%>
+
+development:
+  <<: *defaults
+  subject: '【Dev】'
+
+test:
+  <<: *defaults
+  subject: '【Pre】'
+
+production:
+  <<: *defaults
+  subject: 
+  default_from: "support@ryohi.sakura.ne.jp"
+  url: "http://ryohi.com"
+

@@ -1,0 +1,22 @@
+ja:
+  notice:
+    'login_successfull': 'ログインしました。'
+    'logged_out': 'ログアウトしました。'
+    'create': '%{model_name}を登録しました。'
+    'update': '%{model_name}を変更しました。'
+    'destroy': '%{model_name}を削除しました。'
+    'activation': 'アカウント登録が完了しました。'
+    'send': '送信しました。'
+    'add': '%{model_name}を追加しました。'
+    'change_successfull': '企業を切り替えました。'
+
+  alert:
+    'cant_save': '入力内容に不備があります。'
+    'failer_login': 'ログインIDかパスワードが間違っています。'
+    'code_missing': 'URLが間違っています。'
+    'taken': '既に同じ情報が登録されています。'
+    'change_unsuccessfull': '企業を切り替えられませんでした。'
+    'dont_change': '既に指定のアカウントになっています。'
+    'staff_restrict_over': '登録できるスタッフ数を超えています。'
+    'expired': 'アカウントの有効期限が切れています。'
+

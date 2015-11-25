@@ -1,0 +1,19 @@
+<div>
+  <h2><%=t "#{@page_name}.title" %></h2>
+</div>
+
+
+<p>
+<%= enter_convert t("#{@page_name}.comment") %>
+</p>
+
+<%= simple_form_for @company, class: 'form-horizontal' do |f| %>
+  <%= f.input :name %>
+  <%= enter_convert t("examples.company.name") %>
+  <p>
+  <%= f.button :submit, t('link.create'), class: 'btn-primary' %>
+  <%= link_to t('link.back'), companies_path, class: 'btn btn-default' %>
+  </p>
+<% end %>
+
+

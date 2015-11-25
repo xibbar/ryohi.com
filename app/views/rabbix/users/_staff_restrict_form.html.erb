@@ -1,0 +1,5 @@
+<%= simple_form_for @user, url: update_staff_restrict_rabbix_user_path( @user ), method: :put, data: { remote: true } do |f| %>
+  <%= f.input :staff_restrict, label: t('examples.user.staff_restrict') %>
+  <%= f.button :submit, t('button.update'), class: 'btn-warning btn-xs' %>
+  <%= link_to t('link.close'), update_user_rabbix_user_path(@user), class: 'btn btn-default btn-xs', method: :put, remote: true %>
+<% end %>

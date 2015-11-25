@@ -1,0 +1,16 @@
+<%= simple_form_for @employee, url: [ @company, @employee ], remote: true do |f| %>
+  <%= f.input :name %>
+  <%= error_messages_on f.object, :name %>
+  <%= enter_convert t("examples.employee.name") %>
+  <%= f.input :daily_allowance %> <%=t 'number.currency.format.unit' %>
+  <%= error_messages_on f.object, :daily_allowance %>
+  <%= enter_convert t("examples.employee.daily_allowance") %>
+  <%= f.input :accommodation_charges %> <%=t 'number.currency.format.unit' %>
+  <%= error_messages_on f.object, :accommodation_charges %>
+  <%= enter_convert t("examples.employee.accommodation_charges") %>
+
+  <p>
+  <%= f.button :submit %>
+  <%= link_to t('link.close'), close_company_employees_path( @company ), remote: true, class: 'btn btn-default' %>
+  </p>
+<% end %>

@@ -1,0 +1,7 @@
+<%= @user.name %> 様
+
+旅費清算システムに御社の設定を作成致しました。
+以下のURLをクリックしてアカウントを有効にしてください。
+
+<%= Setting.url %><%= url_for activation_path(activation_token: @user.activation_token) %>
+

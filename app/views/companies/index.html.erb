@@ -1,0 +1,16 @@
+<div>
+  <h2><%=t "#{@page_name}.title" %></h2>
+</div>
+<% unless current_user.expired?( @now ) -%>
+  <p>
+  <%= link_to t('link.new'), new_company_path, class: 'btn btn-primary' %>
+  </p>
+<% end -%>
+
+<div class="row">
+  <% @companies.each do |company| %>
+    <div class="col-sm-6 col-md-4">
+      <%= render partial: "panel", locals: {company: company} %>
+    </div>
+  <% end %>
+</div>

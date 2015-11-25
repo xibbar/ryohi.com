@@ -1,0 +1,7 @@
+<tr id='<%= bridge.position %>'>
+  <td class='d_c'><%= link_to t('link.up'), move_bridge_path( bridge, 'up'), remote: true unless bridge.first? %></td>
+  <td class='d_c'><%= link_to t('link.down'), move_bridge_path( bridge, 'down' ), remote: true unless bridge.last? %></td>
+  <td><%= bridge.bridge_company.name %></td>
+  <td class='d_c btn des b_b'><%= link_to t('button.no'), bridge_path( bridge ), method: :delete, confirm: t('Are you sure?') %></td>
+</tr>
+

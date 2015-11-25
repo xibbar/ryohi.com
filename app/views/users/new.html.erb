@@ -1,0 +1,17 @@
+
+<h2><%=t "#{@page_name}.title" %></h2>
+
+<div class="container">
+  <%= simple_form_for @user, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f| %>
+    <%= f.input :login, placeholder: t('examples.user.login') %>
+    <%= f.input :name, placeholder: t("examples.user.name") %>
+    <%= f.input :password, placeholder: t("examples.user.password") %>
+    <%= f.input :password_confirmation, placeholder: t("examples.user.password_confirmation") %>
+    <%= f.input :email, placeholder: t("examples.user.email") %>
+
+    <%= f.button :submit, t('button.create'), class: 'btn-primary' %>
+    <%= link_to t('link.back'), root_path, class: 'btn btn-default' %>
+  <% end %>
+</div>
+
+

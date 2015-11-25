@@ -1,0 +1,11 @@
+<tr id='<%= expense_template.position %>'>
+  <% unless current_user.expired?( @now ) -%>
+    <td><%= link_to t('link.up'), move_company_employee_expense_template_path( @company, @employee, expense_template, 'up'), remote: true, class: 'btn btn-info' unless expense_template.first? %></td>
+    <td><%= link_to t('link.down'), move_company_employee_expense_template_path( @company, @employee, expense_template, 'down' ), remote: true, class: 'btn btn-info' unless expense_template.last? %></td>
+  <% end -%>
+  <td><%= expense_template.view %></td>
+  <% unless current_user.expired?( @now ) -%>
+    <td><%= link_to t('button.edit'), edit_company_employee_expense_template_path( @company, @employee, expense_template ), class: 'btn btn-warning' %></td>
+    <td><%= link_to t('button.destroy'), company_employee_expense_template_path( @company, @employee, expense_template ), method: :delete, confirm: t('Are you sure?'), class: 'btn btn-danger' %></td>
+  <% end -%>
+</tr>

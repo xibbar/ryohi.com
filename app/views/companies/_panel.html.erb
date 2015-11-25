@@ -1,0 +1,56 @@
+<div id='<%=dom_id company%>' class='panel panel-default'>
+  <div class="panel-heading">
+    <%= link_to t('button.destroy'), company_path( company ), method: :delete, data: { confirm: t('company_destroy', users: company.employees.count, month: distance_of_time_in_words_to_now( company.registed_months.count.size.months.ago ), count: company.schedules.count ) }, class: "btn btn-danger pull-right btn-xs#{expired_tag}", title: et('link.destroy') %>
+    <%= link_to t('button.edit'), edit_company_path( company ), class: "btn btn-warning btn-xs text-left#{expired_tag}", title: et('link.edit') %>
+    <div class="panel-title pull-left h4"><%= company.name %></div>
+  </div>
+  <div class="panel-body">
+    <p>
+    <div class="row">
+      <div class="col-sm-5 pull-left"><strong><%= t "#{@page_name}.total_employees" %></strong></div>
+      <div class="col-sm-4">
+        <%= company.employees.count %>
+      </div>
+      <div class="col-sm-3">
+        <%= link_to company_employees_path( company ), title: t('link.employees'), class: 'btn btn-info btn-xs pull-right' do %>
+          <%= content_tag(:span, " "+t('link.manage'), class: 'glyphicon glyphicon-user') %> 
+        <% end %>
+      </div>
+    </div>
+    </p>
+    <p>
+    <div class="row">
+      <div class="col-sm-5 pull-left"><strong><%= t "#{@page_name}.total_trip_expenses" %></strong></div>
+      <div class="col-sm-4">
+        <%= company.target_months.count %>
+      </div>
+      <div class="col-sm-3">
+        <%= link_to company_target_months_path( company ), title: t('link.target_month'), class: 'btn btn-info btn-xs pull-right' do  %>
+          <%= content_tag(:span, " "+t('link.manage'), class: 'glyphicon glyphicon-plane') %> 
+        <% end %>
+      </div>
+    </div>
+    </p>
+    <p>
+    <div class="row">
+      <div class="col-sm-5 pull-left"><strong><%= t "#{@page_name}.daily_allowance" %></strong></div>
+      <div class="col-sm-4">
+        <%= t "daily_allowance.#{ company.daily_allowance }" %>
+      </div>
+      <div class="col-sm-3">
+        <%= link_to change_daily_allowance_company_path( company ), method: :post, data: { remote: true }, title: t('link.change_daily_allowance'), class: "btn btn-info btn-xs pull-right#{expired_tag}" do%>
+          <%= content_tag(:span, " "+t('link.change'), class: "glyphicon glyphicon-transfer") %>
+        <% end %>
+      </div>
+    </div>
+    </p>
+    <p>
+    <div class="row">
+      <div class="col-sm-5 pull-left"><strong>登録日</strong></div>
+      <div class="col-sm-7">
+        <%=l company.created_at, format: :simple %>
+      </div>
+    </div>
+    </p>
+  </div>
+</div>

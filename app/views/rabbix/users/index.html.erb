@@ -1,0 +1,37 @@
+
+<h3>
+  <%=t "#{@page_name}.title" %>
+</h3>
+
+
+
+<p>
+<%= form_tag rabbix_users_path, class: 'form-inline' do %>
+  <div class='form-group'>
+    <%= text_field_tag 'name', '', class: 'form-control' %>
+    <%= submit_tag t('button.search'), class: 'btn btn-primary' %>
+  </div>
+<% end %>
+</p>
+
+<%= paginate @users %>
+
+<div class="table-responsive">
+  <table class='table table-striped'>
+    <tr>
+      <th><%=f User, :login %></th>
+      <th><%=f User, :name %></th>
+      <th><%=f User, :email %></th>
+      <th><%=f User, :employees%></th>
+      <th><%=f User, :staff_restrict %></th>
+      <th><%=f User, :created_at %></th>
+      <th>
+        <%=f User, :expires_at %>
+        <%= link_to t('link.up'), rabbix_users_path( name: params[:name], order: 'expires_at DESC' ) %>
+        <%= link_to t('link.down'), rabbix_users_path( name: params[:name], order: 'expires_at' ) %>
+      </th>
+    </tr>
+    <%= render @users %>
+  </table>
+
+</div>

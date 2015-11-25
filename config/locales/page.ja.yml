@@ -1,0 +1,170 @@
+ja:
+  session:
+    new:
+      title: 'ログイン'
+      comment: |-
+        旅費精算システムに登録したログインIDとパスワードでログインしてください。
+    create:
+      title: 'ログイン'
+      comment: |-
+        旅費精算システムに登録したログインIDとパスワードでログインしてください。
+    destroy:
+      title: 'ログアウト'
+      comment: |-
+        旅費精算システムからログアウトします。
+  users:
+    index:
+      title: 'アカウント情報'
+    new:
+      title: 'アカウント情報の登録'
+      comment: |-
+    create:
+      title: 'アカウント情報の登録'
+      comment: |-
+    edit:
+      title: 'アカウント情報の変更'
+      comment: |-
+    update:
+      title: 'アカウント情報の変更'
+      comment: |-
+    email:
+      title: 'メールアドレスの変更'
+      comment: |-
+    update_email:
+      title: 'メールアドレスの変更'
+      comment: |-
+    password:
+      title: 'パスワードの変更'
+      comment: |-
+    update_password:
+      title: 'パスワードの変更'
+      comment: |-
+    resent_code:
+      title: 'アクティベートキーの再送'
+      comment: |-
+    activation:
+      title: 'アカウントを有効にしました'
+      comment: |-
+  companies:
+    index: &companies_index
+      title: '企業管理'
+      total_employees: '登録社員数'
+      total_trip_expenses: '旅費精算書数'
+      daily_allowance: '日帰り出張の日当'
+    change_daily_allowance: *companies_index
+    new:
+      title: '企業情報の登録'
+      comment: |-
+        当システムをご利用いただくには企業登録が必要です。
+        企業情報を入力し、企業登録を行ってください。
+    create:
+      title: '企業情報の登録'
+      comment: |-
+        当システムを利用するには企業の登録が必要です。
+        企業情報を入力してください。
+    edit:
+      title: '企業情報の変更'
+      comment: |-
+    update:
+      title: '企業情報の変更'
+      comment: |-
+    destroy:
+      title: '企業情報の削除'
+      comment: |-
+  bridges:
+    index:
+      title: '関連企業一覧'
+      comment: |-
+    new:
+      title: '関連企業の登録'
+      comment: |-
+        関連企業のアカウントIDとパスワードを入力してください。
+        間違いがなければ関連企業として関連付けされます。
+    create:
+      title: '関連企業の登録'
+      comment: |-
+        関連企業のアカウントIDとパスワードを入力してください。
+        間違いがなければ関連企業として関連付けされます。
+  email:
+    new:
+      title: 'メールアドレスの変更'
+    create:
+      title: 'メールアドレスの変更'
+      comment: |-
+    activate:
+      title: 'メールアドレス変更が完了しました'
+      comment: |-
+  password:
+    new:
+      title: 'パスワードを忘れた方'
+      comment: |-
+        パスワードを忘れてしまった場合、パスワードを再度設定しなおす必要があります。
+        登録されているメールアドレス宛に再設定手順をお送りします。
+    create:
+      title: 'パスワード再設定の申請'
+      comment: |-
+        パスワードを忘れてしまった場合、パスワードを設定しなおす必要があります。
+        登録されているメールアドレス宛に再設定手順をお送りします。
+    edit:
+      title: 'パスワードの再設定'
+      comment: |-
+        パスワードを再設定できます。
+        新しいパスワードを入力してください。
+    update:
+      title: 'パスワードの再設定'
+      comment: |-
+        パスワードを再設定できます。
+        新しいパスワードを入力してください。
+
+  employees:
+    index:
+      title: '社員一覧'
+
+  target_months:
+    index:
+      title: '旅費精算書一覧'
+    show:
+      title: '旅費精算書'
+      comment: |-
+    new:
+      title: '旅費精算書の登録'
+    create:
+      title: '旅費精算書の登録'
+    edit:
+      title: '旅費精算書の変更'
+      comment: |-
+        旅費精算書の基本情報を変更します。
+    update:
+      title: '旅費精算書の変更'
+      comment: |-
+        旅費精算書の基本情報を変更します。
+
+  expense_templates:
+    index:
+      title: '旅費テンプレート'
+      comment: |-
+    new:
+      title: '旅費テンプレートの登録'
+      comment: |-
+    create:
+      title: '旅費テンプレートの登録'
+      comment: |-
+    edit:
+      title: '旅費テンプレートの変更'
+      comment: |-
+    update:
+      title: '旅費テンプレートの変更'
+      comment: |-
+
+  notice:
+    password: ※パスワードはセキュリティのため非表示です※
+    yet:
+      title:  '出張が登録されていません'
+      description:  '出張を登録し、出張の交通費を登録してください。'
+
+  rabbix:
+    users:
+      index:
+        title: 'アカウント管理'
+        comment: |-
+

@@ -1,0 +1,23 @@
+
+<div class='row'>
+  <div class='h3 col-xs-6'>
+    <%=t "#{@page_name}.title" %>
+  </div>
+  <div class='h3 col-xs-6 text-right'>
+    <%= @company.name %>
+  </div>
+</div>
+<div class='row'>
+  <div class='h4 col-xs-12 text-right'>
+    <%=@target_month.date %>
+    <%=@target_month.employee_name %>
+  </div>
+</div>
+
+<div id='contents'>
+  <%= render 'contents' %>
+</div>
+
+
+<%= link_to t('link.back'), company_target_months_path( @company ), class: 'btn btn-default hidden-print' %>
+

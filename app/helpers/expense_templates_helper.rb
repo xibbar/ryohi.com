@@ -1,0 +1,2 @@
+module ExpenseTemplatesHelper
+end

@@ -1,0 +1,7 @@
+<div class="jumbotron">
+  <%= image_tag 'ryohi3.png', class: 'img-responsive'%>
+</div>
+  <p>このシステムは旅費精算書を簡単に入力し、綺麗に印刷するためのシステムです。</p>
+  <div class="text-right">
+    <%= link_to(new_user_path, class: ''){content_tag(:li, t('button.account_new'), class: 'glyphicon glyphicon-plus')} %>
+  </div>

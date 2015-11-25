@@ -1,0 +1,44 @@
+<div>
+  <h2><%=t "#{@page_name}.title" %></h2>
+</div>
+
+<div class='table-responsive'>
+  <table class='table'>
+    <tr>
+      <th><%=f User, :name %></th>
+      <td><%= current_user.name %></td>
+      <td><%= link_to t('button.edit'), edit_user_path(current_user), class: 'btn btn-warning' %></td>
+    </tr>
+    <tr>
+      <th><%=f User, :login %></th>
+      <td><%= current_user.login %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th><%=f User, :email %></th>
+      <td><%= current_user.email %></td>
+      <td><%= link_to t('button.edit'), email_user_path(current_user), class: 'btn btn-warning' %></td>
+    </tr>
+    <tr>
+      <th><%=f User, :password %></th>
+      <td><small><%=t 'notice.password' %></small></td>
+      <td><%= link_to t('button.edit'), password_user_path(current_user), class: 'btn btn-warning' %></td>
+    </tr>
+    <tr>
+      <th><%=f User, :staff_restrict %></th>
+      <td><%=t 'number_to_restrict', count: current_user.staff_restrict, class: 'btn btn-warning' %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th><%=f User, :expires_at %></th>
+      <td><%=current_user.expires_at ? l(current_user.expires_at) : t("none")%></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th><%=f User, :created_at %></th>
+      <td><%=l current_user.created_at, format: :simple %></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+

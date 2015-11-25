@@ -1,0 +1,19 @@
+<div class='account'><%= link_to t('prefix.san', name: current_user.name), users_path, title: t('prefix.san', name: current_user.name) %></div>
+
+<div class='link'>
+  <ul>
+    <li><%= link_to t('users.index.title'), users_path, title: t('users.index.title') %></li>
+    <li><%= link_to t('button.logout'), signout_path, title: t('button.logout') %></li>
+  </ul>
+</div>
+
+<div class='company'>
+  <ul>
+    <% @companies.each do |company| -%>
+      <li class='<%= "current" if @company == company %>'><%= link_to company.name, change_company_path( next_id: company.id ), method: :post, title: company.name %></li>
+    <% end -%>
+  </ul>
+</div>
+
+<div class='close'><%= link_to t('link.close'), '', title: t('link.close') %></div>
+

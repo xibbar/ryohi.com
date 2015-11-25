@@ -1,0 +1,16 @@
+<div>
+  <h2><%=t "#{@page_name}.title" %></h2>
+</div>
+
+<%= simple_form_for @user, html: {class: 'form-horizontal'} do |f| %>
+  <%= f.input :name %>
+  <%= enter_convert t("examples.user.name") %>
+  <%= f.input :current_password %>
+  <%= enter_convert t("examples.user.current_password") %>
+  <p>
+  <%= f.button :submit, t('button.update'), class: 'btn-success' %>
+  <%= link_to t('link.back'), users_path, class: 'btn btn-default' %>
+  </p>
+<% end %>
+
+
