@@ -57,4 +57,10 @@ module ApplicationHelper
     current_user.expired?(@now) ? t('alert.expired') : t(str)
   end
 
+  def navigation
+    if @target_month.schedules.empty?
+      content_tag(:div, t(''))
+    end
+  end
+
 end
