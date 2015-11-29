@@ -68,6 +68,8 @@ Ryohiseisan::Application.routes.draw do
 
   get 'menu' => 'session#menu', as: :menu
 
+  get 'privacy_policy', to: 'web'
+
   namespace 'rabbix' do
     resources :users, only: [ :index ] do
       member do
