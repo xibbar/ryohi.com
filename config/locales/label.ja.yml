@@ -68,6 +68,7 @@ ja:
     about: "このシステムについて"
     change_daily_allowance: '日帰り出張の日当の変更'
     privacy_policy: 'プライバシーポリシー'
+    agreement: '利用規約'
 
   form:
     require: 必須
