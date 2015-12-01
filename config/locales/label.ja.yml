@@ -70,6 +70,7 @@ ja:
     privacy_policy: 'プライバシーポリシー'
     agreement: '利用規約'
     operating_company: '運営会社'
+    legal: '特定商取引法に基づく表記'
 
   form:
     require: 必須
