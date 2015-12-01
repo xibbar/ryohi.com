@@ -116,8 +116,9 @@
     <footer class='footer'>
       <div class='container small'>
         <hr />
-        <span class='text-muted'><%= t('project.copyright') %></span>
-        <%= link_to t('link.privacy_policy'), privacy_policy_path%> 
+        <span class='text-muted footer-padding'><%= t('project.copyright') %></span> | 
+        <%= link_to t('link.privacy_policy'), privacy_policy_path, class: 'footer-padding'%> | 
+        <%= link_to t('link.agreement'), agreement_path, class: 'footer-padding'%> | 
       </div>
     </footer>
 
