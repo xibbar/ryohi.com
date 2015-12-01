@@ -70,6 +70,7 @@ Ryohiseisan::Application.routes.draw do
 
   get 'privacy_policy', to: 'web'
   get 'agreement', to: 'web'
+  get 'operating_company', to: 'web'
 
   namespace 'rabbix' do
     resources :users, only: [ :index ] do
