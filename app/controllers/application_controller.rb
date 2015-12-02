@@ -32,4 +32,5 @@ class ApplicationController < ActionController::Base
   def redirect_back_or_default( default_url, options )
     redirect_to ( request.referer || default_url ), options
   end
+
 end

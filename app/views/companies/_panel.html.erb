@@ -25,8 +25,14 @@
         <%= company.target_months.count %>
       </div>
       <div class="col-sm-3">
-        <%= link_to company_target_months_path( company ), title: t('link.target_month'), class: 'btn btn-info btn-xs pull-right' do  %>
-          <%= content_tag(:span, " "+t('link.manage'), class: 'glyphicon glyphicon-plane') %> 
+        <% if company.employees.empty? %>
+          <%= link_to company_target_months_path( company ), title: t('link.target_month'), class: 'disabled btn btn-info btn-xs pull-right' do  %>
+            <%= content_tag(:span, " "+t('link.manage'), class: 'glyphicon glyphicon-plane') %> 
+          <% end %>
+        <% else %>
+          <%= link_to company_target_months_path( company ), title: t('link.target_month'), class: 'btn btn-info btn-xs pull-right' do  %>
+            <%= content_tag(:span, " "+t('link.manage'), class: 'glyphicon glyphicon-plane') %> 
+          <% end %>
         <% end %>
       </div>
     </div>

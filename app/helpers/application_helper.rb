@@ -57,9 +57,48 @@ module ApplicationHelper
     current_user.expired?(@now) ? t('alert.expired') : t(str)
   end
 
+  # 企業が登録されていなかったら登録を促す
+  # 社員が登録されていなかったら登録を促す
+  # 旅費精算書が登録されていなかったら登録を促す
+  # 出張が登録されていなかったら登録を促す
+  # 旅費が登録されていなかったら登録を促す
   def navigation
-    if @target_month.schedules.empty?
-      content_tag(:div, t(''))
+    if logged_in?
+      if current_user.companies.empty?
+        content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
+          content_tag(:div,  class: 'panel-heading') do
+            (t('navigation.no_company')+
+             link_to(t('link.companies'), companies_path, class: '')+
+             t('navigation.please_register')
+            ).html_safe
+          end
+        end
+      elsif current_user.employees.empty?
+        content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
+          content_tag(:div,  class: 'panel-heading') do
+            (t('navigation.no_employee')%{path: link_to(t('link.companies'), companies_path, class: '')}
+            ).html_safe
+          end
+        end
+      elsif current_user.target_months.empty?
+        content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
+          content_tag(:div,  class: 'panel-heading') do
+            (t('navigation.no_target_month')%{path: link_to(t('link.employees'), companies_path, class: '')}
+            ).html_safe
+          end
+        end
+      elsif current_user.schedules.empty?
+        content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
+          content_tag(:div,  class: 'panel-heading') do
+            (t('navigation.no_schedule')%{path: link_to(t('link.employees'), companies_path, class: '')}
+            ).html_safe
+          end
+        end
+      else
+        ''
+      end
+    else
+      ''
     end
   end
 

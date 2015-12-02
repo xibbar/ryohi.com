@@ -158,9 +158,6 @@ ja:
 
   notice:
     password: ※パスワードはセキュリティのため非表示です※
-  navigation:
-    no_schedule: '出張を登録し、出張の交通費を登録してください。'
-    no_trip_expense: '交通費を登録してください。'
 
   rabbix:
     users:

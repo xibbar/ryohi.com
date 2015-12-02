@@ -49,6 +49,7 @@ ja:
     create_employees: '社員を登録する'
     create_schedules: '出張を登録する'
     create_trip_expenses: '交通費を登録する'
+    create_company: '企業を登録する'
     target_month: '旅費精算書の管理'
     target_month_description: '出張と交通費の管理'
     employees: '社員の管理'
@@ -83,4 +84,12 @@ ja:
     date: '%{month}月%{day}日'
   hints:
     select_template: 'テンプレートから値を転記できます'
+  navigation:
+    please_register: 'のページから登録してください。'
+    no_company: 'まだ企業が登録されていません。最初に、企業を登録してください。'
+    no_employee: 'まだ社員が登録されていません。%{path}から社員を登録してください。'
+    no_target_month: '旅費精算書が登録されていません。ナビゲーションバーの旅費精算書の管理のプルダウン、もしくは%{path}から旅費精算書を登録してください。'
+    no_schedule: '出張を登録し、出張の交通費を登録してください。'
+    no_trip_expense: '交通費を登録してください。'
+
 
