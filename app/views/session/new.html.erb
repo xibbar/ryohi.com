@@ -1,7 +1,49 @@
+<div class='page-header'>
+  <h1>
+    旅費com <small>ベータ版</small>
+  </h1>
+</div>
+<p class='text-warning'>
+現在このシステムはβ版です。不具合が潜在している可能性があります。不具合を発見した場合はお知らせください。
+</p>
 <div class="jumbotron">
   <%= image_tag 'ryohi3.png', class: 'img-responsive'%>
 </div>
-  <p>このシステムは旅費精算書を簡単に入力し、綺麗に印刷するためのシステムです。</p>
-  <div class="text-right">
-    <%= link_to(new_user_path, class: ''){content_tag(:li, t('button.account_new'), class: 'glyphicon glyphicon-plus')} %>
-  </div>
+
+
+<p class='lead'>このシステムについて</p>
+<p>このシステムは旅費精算書を簡単に入力し、綺麗に印刷するためのシステムです。１つのアカウントで複数の会社、複数の人の旅費を簡単に登録し、綺麗に印刷できることを目標にしています。</p>
+
+<p class='lead'>旅費精算書を作るのに苦労していませんか？</p>
+<p>
+複数の会社を持っている役員の場合、旅費精算書を作ることは非常に手間で時間がかかります。 
+私も最初は表計算ソフトであるエクセルを使ってやっていました。 
+しかし、エクセルはデータベースでないため、月ごとに保存していくとシートがどんどん増えていきます。 
+例えば合計金額の一覧を表示するのは合計金額を表示するシートを作成しなければなりません。
+</p>
+
+<p class='lead'>旅費comを使うと</p>
+<ul>
+  <li>出張の日当を自動で計算できる</li>
+  <li>出張の宿泊費を自動で計算できる</li>
+  <li>出張の交通費をテンプレートにして、わざわざその都度調べなくても計算できる</li>
+  <li>綺麗な旅費計算書を印刷することができる</li>
+  <li>大きな節税になる</li>
+</ul>
+
+<p class='lead'>特にこのような人に向いています。</p>
+<ul>
+  <li>会社のオーナー役員の人</li>
+  <li>出張が多い人</li>
+  <li>旅費精算書を作るのが面倒な人</li>
+</ul>
+
+<p class='lead'>旅費精算書は大きな節税になります</p>
+<p>
+なぜ節税になるのかわからない方はこのシステムの最大のメリットをわかっていません。
+知りたい方は <strong>藤岡(xibbar@gmail.com)</strong> までお問い合わせください。
+</p>
+
+<div class="text-right">
+  <%= link_to(new_user_path, class: ''){content_tag(:li, t('button.account_new'), class: 'glyphicon glyphicon-plus')} %>
+</div>
