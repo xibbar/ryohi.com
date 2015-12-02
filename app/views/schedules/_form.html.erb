@@ -12,8 +12,8 @@
     <%= simple_form_for @schedule, url: @post_url, method: @method, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f| %>
       <div class='panel-body'>
         <span id="form_flash"></span>
-        <%= f.input :trip_date, collection: (1..31).map{|n|[t('label.date', month: @target_month.month, day: n), n]}, selected: 1 %>
-        <%= f.input :days, collection: (1..30).map{|n|[t('label.date_period', days: n), n]}, selected: 1 %>
+        <%= f.input :trip_date, collection: (1..31).map{|n|[t('label.date', month: @target_month.month, day: n), n]} %>
+        <%= f.input :days, collection: (1..30).map{|n|[t('label.date_period', days: n), n]} %>
         <%= f.input :destination %>
         <%= f.input :business %>
       </div>

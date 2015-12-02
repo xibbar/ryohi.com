@@ -6,7 +6,7 @@ class SchedulesController < ApplicationController
   before_action :set_schedule, only: [:edit, :update, :destroy]
 
   def new
-    @schedule = @target_month.schedules.build( trip_date: 1 )
+    @schedule = @target_month.schedules.build( trip_date: 1, days: 1 )
     @post_url = company_target_month_schedules_path(@company, @target_month)
     @method   = :post
   end
