@@ -6,10 +6,52 @@
 <p class='text-warning'>
 現在このシステムはβ版です。不具合が潜在している可能性があります。不具合を発見した場合はお知らせください。
 </p>
-<div class="jumbotron">
-  <%= image_tag 'ryohi3.png', class: 'img-responsive'%>
+<div id="carousel_sample" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+
+    <!--
+        Carouselのid名を合わせる、スライダーの数だけ用意する
+            data-slide-toで何番目のスライドへ移動するか指定する、0から始めるので１つめのスライドなら0を指定
+     -->
+    <li data-target="#carousel_sample" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel_sample" data-slide-to="1" class=""></li>
+    <li data-target="#carousel_sample" data-slide-to="2" class=""></li>
+    <li data-target="#carousel_sample" data-slide-to="3" class=""></li>
+    <li data-target="#carousel_sample" data-slide-to="4" class=""></li>
+
+  </ol>
+    <!-- ここからCarouselの中身 -->
+  <div class="carousel-inner">
+
+    <!-- item = １ページ、activeを入れたところが最初に表示される -->
+    <div class="item active">
+      <%= image_tag 'ryohi3.png', class: 'img-responsive'%>
+    </div>
+    <div class="item">
+      <%= image_tag 'ryohi4.png', class: 'img-responsive'%>
+    </div>
+    <div class="item">
+      <%= image_tag 'ryohi5.png', class: 'img-responsive'%>
+    </div>
+    <div class="item">
+      <%= image_tag 'ryohi6.png', class: 'img-responsive'%>
+    </div>
+    <div class="item">
+      <%= image_tag 'ryohi7.png', class: 'img-responsive'%>
+    </div>
+
+  </div>
+
+  <!-- ページ送りボタン、ここもCarouselのid名を合わせる -->
+  <a class="left carousel-control" href="#carousel_sample" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel_sample" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
 </div>
 
+<p />
 
 <p class='lead'>このシステムについて</p>
 <p>このシステムは旅費精算書を簡単に入力し、綺麗に印刷するためのシステムです。１つのアカウントで複数の会社、複数の人の旅費を簡単に登録し、綺麗に印刷できることを目標にしています。</p>
