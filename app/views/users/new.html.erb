@@ -8,6 +8,7 @@
     <%= f.input :password, placeholder: t("examples.user.password") %>
     <%= f.input :password_confirmation, placeholder: t("examples.user.password_confirmation") %>
     <%= f.input :email, placeholder: t("examples.user.email") %>
+    <%= f.input :prefecture, prompt: t("examples.user.prefecture"), collection: Setting.prefectures %>
 
     <%= f.button :submit, t('button.create'), class: 'btn-primary' %>
     <%= link_to t('link.back'), root_path, class: 'btn btn-default' %>

@@ -50,6 +50,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def prefecture
+    @user = current_user
+  end
+
+  def update_prefecture
+    @user = current_user
+    @user.attributes = params[:user].permit(:prefecture, :current_password)
+    if @user.valid?(:prefecture)
+      @user.save!
+      redirect_to users_path, notice: t('notice.update', model_name: f(User))
+    else
+      flash.now[:alert] = t('alert.cant_save')
+      render 'prefecture'
+    end
+  end
+
   def password
   end
 
@@ -80,6 +96,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit( :login, :email, :password, :password_confirmation, :name )
+    params.require(:user).permit( :login, :email, :password, :password_confirmation, :name, :prefecture )
   end
 end

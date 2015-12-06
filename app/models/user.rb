@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   validates :password, format: { with: /[0-9]/, message: :invalid_charactors }, allow_blank: true
   validates :password, confirmation: true
   validates :staff_restrict, presence: true, numericality: true
+  validates :prefecture, presence: true
 
   email_name_regex  = '[\w\.%\+\-]+'.freeze
   domain_head_regex = '(?:[A-Z0-9\-]+\.)+'.freeze

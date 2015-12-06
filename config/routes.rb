@@ -8,6 +8,8 @@ Ryohiseisan::Application.routes.draw do
       patch 'update_email'
       get 'password'
       patch 'update_password'
+      get 'prefecture'
+      patch 'update_prefecture'
     end
   end
   get 'activation/:activation_token' => 'users#activation', as: :activation

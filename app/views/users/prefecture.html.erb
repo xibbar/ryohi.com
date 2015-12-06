@@ -1,0 +1,19 @@
+<div>
+  <h2><%=t "#{@page_name}.title" %></h2>
+</div>
+
+
+<%= simple_form_for @user, url: update_prefecture_user_path( @user ), method: :patch, class: 'form-horizontal' do |f| %>
+  <%= f.input :prefecture, collection: Setting.prefectures %>
+  <%= enter_convert t("examples.user.prefecture") %>
+
+  <%= f.input :current_password %>
+  <%= enter_convert t("examples.user.current_password") %>
+
+  <p>
+  <%= f.button :submit, t('button.update'), class: 'btn-success' %>
+  <%= link_to t('link.back'), users_path, class: 'btn btn-default' %>
+  </p>
+<% end %>
+
+

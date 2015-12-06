@@ -31,6 +31,7 @@ ja:
         created_at:                       '登録日時'
         updated_at:                       '更新日時'
         staff_restrict:                   'スタッフ数上限'
+        prefecture:                       '居住地'
         expires_at:                       '有効期限'
         employees:                        'スタッフ数'
       company:
@@ -121,6 +122,7 @@ ja:
       password_confirmation:            '確認の為、コピー&ペーストは行わずに入力してください。'
       name:                             '氏名を入力してください。'
       staff_restrict:                   'スタッフの上限数を入力してください。'
+      prefecture:                       '居住地を選択してください。'
       expires_at:                       'アカウントの有効期限を選択してください。'
     company:
       name:                             '企業名を入力してください。'

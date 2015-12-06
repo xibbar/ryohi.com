@@ -33,6 +33,12 @@ ja:
     update_email:
       title: 'メールアドレスの変更'
       comment: |-
+    prefecture:
+      title: '居住地の変更'
+      comment: |-
+    update_prefecture:
+      title: '居住地の変更'
+      comment: |-
     password:
       title: 'パスワードの変更'
       comment: |-
