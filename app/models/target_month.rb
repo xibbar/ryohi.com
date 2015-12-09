@@ -48,6 +48,16 @@ class TargetMonth < ActiveRecord::Base
     self.class.where( company_id: company_id, employee_id: employee_id ).order( :year, :month )
   end
 
+  def employee_next_target_month
+    time = Time.mktime(year, month).next_month
+    self.class.where(employee_id: employee_id).where(year: time.year).where(month: time.month).first
+  end
+
+  def employee_previous_target_month
+    time = Time.mktime(year, month).last_month
+    self.class.where(employee_id: employee_id).where(year: time.year).where(month: time.month).first
+  end
+
   private
 
   def insert_employee_name
