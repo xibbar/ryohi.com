@@ -1,43 +1,63 @@
-<div class='table-responsive'>
-  <table class='table table-bordered'>
-    <tr>
+<% @target_month.schedules.each do |schedule| -%>
+  <div class='panel panel-info'>
+    <div class='panel-heading clearfix'>
+      <div class='pull-left'>
+        <span class='h4'>
+          <small><%= f Schedule, :date %></small>
+          <%= schedule.date %>
+          <small><%= f Schedule, :destination %></small>
+          <%= schedule.destination %>
+          <small><%= f Schedule, :business %></small>
+          <%= schedule.business %>
+        </span>
+      </div>
       <% unless current_user.expired?( @now ) -%>
-        <th class="hidden-print"></th>
+        <div class='hidden-print pull-right'>
+          <%= link_to( t('button.create_trip_expenses'), new_company_target_month_trip_expense_path(@company, @target_month, {schedule: schedule.id}), remote: :true, class: 'btn btn-info btn-xs' ) unless current_user.expired?( @now ) %>
+          <%= link_to t('button.edit'), edit_company_target_month_schedule_path(@company, @target_month, schedule), remote: true, class: 'btn btn-warning btn-xs' %>
+          <%= link_to t('button.destroy'), company_target_month_schedule_path(@company, @target_month, schedule), method: :delete, data: { confirm: t('Are you sure?') }, remote: true, class: 'btn btn-danger btn-xs'%>
+        </div>
       <% end -%>
-      <th><%=f Schedule, :date %></th>
-      <th><%=f Schedule, :destination %> / <%=f Schedule, :business %></th>
-      <th><%=f Schedule, :daily_allowance %></th>
-      <th><%=f Schedule, :accommodation_charges %></th>
-    </tr>
-    <% @target_month.schedules.each do |schedule| -%>
-      <tr>
-        <% unless current_user.expired?( @now ) -%>
-          <td class="hidden-print">
-            <%= link_to( t('button.create_trip_expenses'), new_company_target_month_trip_expense_path(@company, @target_month, {schedule: schedule.id}), remote: :true, class: 'btn btn-info btn-xs' ) unless current_user.expired?( @now ) %>
-            <%= link_to t('button.edit'), edit_company_target_month_schedule_path(@company, @target_month, schedule), remote: true, class: 'btn btn-warning btn-xs' %>
-            <%= link_to t('button.destroy'), company_target_month_schedule_path(@company, @target_month, schedule), method: :delete, data: { confirm: t('Are you sure?') }, remote: true, class: 'btn btn-danger btn-xs'%>
-          </td>
-        <% end -%>
-        <td><%= schedule.date %></td>
-        <td>
-          <div class="strong">
-            <strong>
-              <%= schedule.destination %>
-            </strong>
+    </div>
+    <ul class='list-group'>
+      <% schedule.trip_expenses.each do |trip_expense| %>
+        <li class='list-group-item clearfix'>
+          <div class='pull-left'>
+            <small><%=f TripExpense, :section %></small>
+            <%= trip_expense.section_view %>
+            <small><%=f TripExpense, :way %></small>
+            <%= trip_expense.way %>
           </div>
-          <div><%= schedule.business %></div>
-        </td>
-        <td class="text-right"><%= number_with_delimiter schedule.daily_allowance %> <%=t 'number.currency.format.unit' %></td>
-        <td class="text-right"><%= number_with_delimiter schedule.accommodation_charges %> <%=t 'number.currency.format.unit' %></td>
-      </tr>
-    <% end -%>
-    <tr class="text-danger h5">
-      <% unless current_user.expired?( @now ) -%>
-        <th class="hidden-print"></th>
-      <% end -%>
-      <th colspan="2"><%=f Schedule, :total %></th>
-      <td class="text-right"><%= number_with_delimiter @target_month.total_daily_allowance %> <%=t 'number.currency.format.unit' %></td>
-      <td class="text-right"><%= number_with_delimiter @target_month.total_accommodation_charges %> <%=t 'number.currency.format.unit' %></td>
-    </tr>
-  </table>
-</div>
+          <div class='pull-right'>
+            <small><%=f TripExpense, :price %></small>
+            <%= number_with_delimiter trip_expense.price %><%=t 'number.currency.format.unit' %>
+            <% unless current_user.expired?( @now ) -%>
+              <span class='hidden-print'>
+                <%= link_to add_template_company_target_month_trip_expense_path(@company, @target_month, trip_expense), data: { confirm: t('add_confirm') }, title: t('button.titles.add_template'), class: 'btn btn-info btn-xs hidden-print' do %>
+                  <%= content_tag(:i, t("button.add_template"),class: 'glyphicon glyphicon-save') -%>
+                <% end %>
+                <%= link_to t('button.edit'), edit_company_target_month_trip_expense_path(@company, @target_month, trip_expense), remote: true, class: 'btn btn-warning btn-xs hidden-print' %>
+                <%= link_to t('button.destroy'), company_target_month_trip_expense_path(@company, @target_month, trip_expense), method: :delete, data: { confirm: t('Are you sure?') }, remote: true, class: 'btn btn-danger btn-xs hidden-print' %>
+              </span>
+            <% end -%>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <div class='panel-footer clearfix'>
+      <div class='h4 pull-left'>
+        <small><%= f Schedule, :daily_allowance %></small>
+        <%= number_with_delimiter schedule.daily_allowance %> <%=t 'number.currency.format.unit' %>
+        <small><%= f Schedule, :accommodation_charges %></small>
+        <%= number_with_delimiter schedule.accommodation_charges %> <%=t 'number.currency.format.unit' %>
+        <small><%= f TripExpense %></small>
+        <%= number_with_delimiter schedule.trip_expenses.sum(:price) %> <%=t 'number.currency.format.unit' %>
+      </div>
+      <div class='h4 pull-right'>
+        <small><%= f Schedule, :total %></small>
+        <%= number_with_delimiter schedule.total %> <%=t 'number.currency.format.unit' %>
+      </div>
+    </div>
+
+  </div>
+<% end -%>
