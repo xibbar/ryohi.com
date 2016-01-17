@@ -3,7 +3,7 @@ defaults: &defaults
   per_page: 20
   default_from: "development@ryohi.sakura.ne.jp"
   #  url: "http://ryohi.com"
-  url: "http://localhost:3000"
+  url: "http://localhost:3030"
   basic_name: <%= ENV['ADMIN_USER'] %>
   basic_pass: <%= ENV['ADMIN_PASS']%>
   prefectures:
