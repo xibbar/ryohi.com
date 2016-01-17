@@ -23,6 +23,9 @@ class Schedule < ActiveRecord::Base
       "#{start_date.month}/#{start_date.day}-#{end_date.month}/#{end_date.day}"
     end
   end
+  def total
+    daily_allowance + accommodation_charges + trip_expenses.sum(:price)
+  end
 
   private
 
