@@ -1,10 +1,12 @@
 <tr id='<%= dom_id user %>'>
   <td><%= user.login %></td>
   <td><%= user.name %></td>
-  <td><%= user.email %></td>
   <td><%= user.prefecture %></td>
-  <td><%= user.employees.count %></td>
-  <td class='staff_restrict'><%= link_to t( "number_to_restrict", count: user.staff_restrict ), edit_staff_restrict_rabbix_user_path( user ), data: { remote: true } %></td>
-  <td><%=l user.created_at, format: :simple %></td>
+  <td>
+    <%= user.employees.count %>
+    （<span class='staff_restrict'><%= link_to t( "number_to_restrict", count: user.staff_restrict ), edit_staff_restrict_rabbix_user_path( user ), data: { remote: true } %></span>）
+  </td>
+  <td><%= user.schedules.count %> / <%= user.trip_expenses.count %></td>
+  <td><%=l user.created_at, format: :date%></td>
   <td class='expires'><%= link_to user.expires_at_view, edit_expires_rabbix_user_path( user ), data: { remote: true } %></td>
 </tr>

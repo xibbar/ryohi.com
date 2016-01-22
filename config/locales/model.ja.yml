@@ -34,6 +34,7 @@ ja:
         prefecture:                       '居住地'
         expires_at:                       '有効期限'
         employees:                        'スタッフ数'
+        schedules:                        '出張数'
       company:
         name:                             '企業名'
         created_at:                       '登録日時'

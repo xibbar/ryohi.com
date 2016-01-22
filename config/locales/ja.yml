@@ -230,6 +230,7 @@ ja:
       middle: ! '%Y年%m月%d日(%a) %H:%M'
       short: ! '%Y年%m月%d日 %H:%M'
       simple: ! '%Y/%m/%d(%a) %H:%M'
+      date: ! '%Y/%m/%d(%a)'
     pm: 午後
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:

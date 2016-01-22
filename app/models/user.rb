@@ -78,6 +78,10 @@ class User < ActiveRecord::Base
     Schedule.joins(:target_month=>{:employee=>{:company=>:user}}).where("users.id = ?",self.id)
   end
 
+  def trip_expenses
+    TripExpense.joins(:schedule=>{:target_month=>{:employee=>{:company=>:user}}}).where("users.id = ?",self.id)
+  end
+
   private
 
   def create_login_key
