@@ -39,6 +39,7 @@ class SchedulesController < ApplicationController
       @post_url = company_target_month_schedule_path(@company, @target_month, @schedule)
       @method   = :put
       flash[:alert] = t('alert.cant_save')
+      @formid = "scheduleForm"
       render 'session/show_alert'
     end
   end
@@ -64,6 +65,6 @@ class SchedulesController < ApplicationController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:target_month_id, :trip_date, :days, :destination, :business)
+    params.require(:schedule).permit(:target_month_id, :trip_date, :days, :destination, :business, :trip_expense_only)
   end
 end

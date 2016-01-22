@@ -85,6 +85,7 @@ ja:
         created_at:                       '登録日時'
         updated_at:                       '更新日時'
         total:                            '合計'
+        trip_expense_only:                '交通費のみ'
       trip_expense:
         schedule_id:                      '出張の種類'
         section:                          '区間'
@@ -111,7 +112,6 @@ ja:
         bridge_company:                   '関連企業'
         login:                            '関連企業ログインID'
         password:                         '関連企業パスワード'
-
 
   examples:
     user:
@@ -165,6 +165,7 @@ ja:
         days:                             '出張の日数を選択してください（日間）'
         destination:                      '出張の訪問先を入力してください'
         business:                         '出張の要件を入力してください'
+        trip_expense_only:                '交通費のみの精算の場合はチェックを入れてください'
       trip_expense:
         schedule_id:                      '選択してください。'
         section:                          '例）福島ー東京'
