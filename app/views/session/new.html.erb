@@ -3,9 +3,6 @@
     旅費com <small>ベータ版</small>
   </h1>
 </div>
-<p class='text-warning'>
-現在このシステムはβ版です。不具合が潜在している可能性があります。不具合を発見した場合はお知らせください。
-</p>
 <div id="carousel_sample" class="carousel slide" data-ride="carousel" data-interval="7000">
   <ol class="carousel-indicators">
 
@@ -54,6 +51,19 @@
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div>
+<p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class='text-warning'>リリースノート</h3>
+  </div>
+  <div class="panel-body">
+    <% Setting.release_notes.each do |note| %>
+      <h5><span class="label label-default"><%= note['date'] %></span>ver.<%= note['version'] %></h5>
+      <p><%= note['description'] %></p>
+    <% end %>
+  </div>
+</div>
+</p>
 
 <p />
 

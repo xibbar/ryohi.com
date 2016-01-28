@@ -58,6 +58,19 @@ defaults: &defaults
     --
     旅費com http://ryohi.com/ 旅費精算書作成システム
     株式会社ラビックス
+  release_notes:
+    - version: '0.4'
+      date: 2016-01-28
+      description: "リリースノートを表示するようにしました。"
+    - version: '0.3'
+      date: 2016-01-22
+      description: "日当や宿泊費をオフにして、交通費だけを精算できるオプションを追加しました。"
+    - version: '0.2'
+      date: 2015-12-15
+      description: "出張ごとにかかった出張費をまとめて表示するように修正しました。"
+    - version: '0.1'
+      date: 2015-12-07
+      description: "ベータ版をリリースしました。"
 
 development:
   <<: *defaults
