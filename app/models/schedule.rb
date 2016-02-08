@@ -1,37 +1,21 @@
 class Schedule < ActiveRecord::Base
   belongs_to :target_month
+  belongs_to :employee
   has_many :trip_expenses, -> { order created_at: :asc }, dependent: :destroy
 
-  after_initialize :set_default
-  before_validation :create_charges
+  before_validation :create_charges#, :set_date
 
-  validates :target_month_id, :trip_date, :days, :destination, :business, :daily_allowance, :accommodation_charges, presence: true
+  validates :target_month_id, :days, :destination, :business, :daily_allowance, :accommodation_charges, :date, presence: true
 
   def select_view
     "#{trip_date}#{I18n.t('date.day')} : #{destination} : #{business}"
   end
 
-  def date
-    start_date = Date.new(target_month.year, target_month.month, trip_date)
-    end_date = start_date + (days - 1).days
-
-    if start_date == end_date
-      "#{start_date.month}/#{start_date.day}"
-    elsif start_date.month == end_date.month
-      "#{start_date.month}/#{start_date.day}-#{end_date.day}"
-    else
-      "#{start_date.month}/#{start_date.day}-#{end_date.month}/#{end_date.day}"
-    end
-  end
   def total
     daily_allowance + accommodation_charges + trip_expenses.sum(:price)
   end
 
   private
-
-  def set_default
-    self.trip_date = Time.zone.now.day if new_record? && trip_date.blank?
-  end
 
   def create_charges
     if target_month && target_month.employee && !trip_expense_only && ( target_month.employee.company.daily_allowance || days > 1 )
@@ -42,4 +26,15 @@ class Schedule < ActiveRecord::Base
       self.accommodation_charges = 0
     end
   end
+
+   def set_date
+#     if date===String
+#       date = Date.parse(date)
+#       trip_date = date.day
+#     end
+#   end
+     if date && trip_date.blank?
+       trip_date = date.day
+     end
+   end
 end
