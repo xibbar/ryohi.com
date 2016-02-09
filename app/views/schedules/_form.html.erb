@@ -1,0 +1,9 @@
+<%= simple_form_for @schedule, class: 'form-horizontal' do |f| %>
+  <%= f.input :date, as: :date_picker %>
+  <%= f.input :days, as: :select, collection: 1..30, include_blank: false %>
+  <%= f.input :employee_id, as: :radio_buttons, collection: @employees.map{|e|["#{e.name} （#{e.company.name}）", e.id]} %>
+  <%= f.input :destination %>
+  <%= f.input :business, as: :text, input_html: {rows: 5}%>
+  <%= f.input :trip_expense_only %>
+  <%= f.button :submit, class: 'btn-success' %>
+<% end %>

@@ -1,0 +1,40 @@
+<div class='h2'>
+  出張の詳細
+</div>
+<p>
+<%= link_to t("button.edit"), edit_schedule_path(@schedule), class: 'btn btn-warning' %>
+<%= link_to t("button.destroy"), schedule_path(@schedule), method: :delete, confirm: t('Are you sure?'), class: 'btn btn-danger' %>
+</p>
+<div class='table-responsive'>
+  <table class='table'>
+      <tr>
+        <th><%= f Employee, :name %></th>
+        <td><%= @schedule.employee.name %></td>
+      </tr>
+      <tr>
+        <th><%= f Schedule, :date %></th>
+        <td><%= @schedule.date %></td>
+      </tr>
+      <tr>
+        <th><%= f Schedule, :days %></th>
+        <td><%= @schedule.days %></td>
+      </tr>
+      <tr>
+        <th><%= f Schedule, :destination %></th>
+        <td><%= @schedule.destination %></td>
+      </tr>
+      <tr>
+        <th><%= f Schedule, :trip_expense_only %></th>
+        <td><%= t("trip_expense_only.#{@schedule.trip_expense_only}") %></td>
+      </tr>
+      <tr>
+        <th><%= f Schedule, :total %></th>
+        <td><%= number_with_delimiter @schedule.total%>円</td>
+      </tr>
+      <tr>
+        <th><%= f Company, :name %></th>
+        <td><%= @schedule.employee.company.name %></td>
+      </tr>
+  </table>
+</div>
+<%= link_to t('link.back'), :schedules, class: 'btn btn-default'%>

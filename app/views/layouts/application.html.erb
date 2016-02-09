@@ -49,6 +49,11 @@
             <strong><%= link_to t('project.title'), root_path, class: 'navbar-brand'%></strong>
           </div>
           <div class="collapse navbar-collapse" id="navbar">
+            <%= menu_group do %>
+              <% if logged_in? %>
+                <%= content_tag(:li, class: active_current_controller?("schedules")){link_to t('link.schedules'), schedules_path }%>
+              <% end %>
+            <% end %>
             <%= menu_group pull: :right do %>
               <% if logged_in? %>
                 <%= content_tag(:li, class: active_current_controller?("companies")){link_to t('link.companies'), companies_path }%>

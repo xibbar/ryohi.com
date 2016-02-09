@@ -18,7 +18,6 @@ Ryohiseisan::Application.routes.draw do
     member do
       post 'change_daily_allowance'
     end
-    resources :schedules
 
     resources :employees, except: [:show] do
       collection do
@@ -32,6 +31,7 @@ Ryohiseisan::Application.routes.draw do
       end
     end
   end
+  resources :schedules
 
   post 'change_company' => "companies#change_company", as: :change_company
 #  post 'resent_code' => 'companies#resent_code', as: :resent_code

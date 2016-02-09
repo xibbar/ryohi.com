@@ -5,7 +5,7 @@ class Schedule < ActiveRecord::Base
 
   before_validation :create_charges#, :set_date
 
-  validates :target_month_id, :days, :destination, :business, :daily_allowance, :accommodation_charges, :date, presence: true
+  validates :employee_id, :days, :destination, :business, :daily_allowance, :accommodation_charges, :date, presence: true
 
   def select_view
     "#{trip_date}#{I18n.t('date.day')} : #{destination} : #{business}"
