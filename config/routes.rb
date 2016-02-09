@@ -18,29 +18,7 @@ Ryohiseisan::Application.routes.draw do
     member do
       post 'change_daily_allowance'
     end
-
-    resources :target_months do
-      resources :schedules, except: [:index, :show] do
-        collection do
-          get 'close'
-        end
-      end
-      resources :trip_expenses, except: [:index, :show] do
-        collection do
-          post 'merge_template'
-          get 'close'
-        end
-        member do
-          get 'add_template'
-        end
-      end
-    end
-
-    resources :bridges, except: [:show, :edit, :update] do
-      member do
-        get 'move/:move_type', to: 'bridges#move', as: :move
-      end
-    end
+    resources :schedules
 
     resources :employees, except: [:show] do
       collection do

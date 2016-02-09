@@ -268,3 +268,10 @@ ja:
 
   number_to_restrict: "%{count} 名まで"
   none: "設定なし"
+  datepicker:
+    dformat: '%Y/%m/%d'             # display format of the date (this is the default, can be ommited)
+    pformat: 'YYYY/MM/DD'           # picking format of the date (this is the default, can be ommited)
+  timepicker:
+    dformat: '%R'                   # display format of the time (this is the default, can be ommited)
+    pformat: 'HH:mm'                # picking format of the time (this is the default, can be ommited)
+  dayViewHeaderFormat: 'YYYY MMMM'  # picking format of the time (this is the default, can be ommited)
