@@ -88,6 +88,7 @@ ja:
         total:                            '合計'
         trip_expense_only:                '交通費のみ'
         employee_id:                      '社員選択'
+        trip_expense_total:               '交通費'
       trip_expense:
         schedule_id:                      '出張の種類'
         section:                          '区間'

@@ -1,0 +1,17 @@
+<div class='panel-body'>
+  <div class="form-group select">
+    <label class='string col-sm-3 control-label'><%= t 'label.select_template' %></label>
+    <div class='col-sm-9'>
+      <%= select_tag "template_id", options_for_select( @schedule.employee.expense_templates.map { |expense_template| [ expense_template.view, expense_template.id ] }.unshift( [ "", "" ] ) ), class: 'form-control' %>
+      <p class="help-block"><%= t 'hints.select_template' %></p>
+    </div>
+  </div>
+  <%= f.input :section %>
+  <%= f.input :way %>
+  <%= f.input :round, collection: [[t('round.true'),'true'], [t('round.false'),'false']], as: :radio_buttons, wrapper: :horizontal_radio_and_checkboxes, required: true %>
+  <%= f.input :price %>
+</div>
+<div class='panel-footer'>
+  <%= f.button :submit, class: 'btn-success' %>
+  <%= link_to t('link.back'), schedule_path(@schedule), class: 'btn btn-default'%> 
+</div>

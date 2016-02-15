@@ -1,0 +1,31 @@
+<div class='panel panel-default'>
+  <div class='panel-heading'>
+    <div class='panel-title'>
+      <div class='h3'>
+        出張の交通費の更新
+      </div>
+    </div>
+  </div>
+  <%= simple_form_for @trip_expense, url: schedule_trip_expense_path(@schedule, @trip_expense), method: :patch, class: 'form-horizontal' do |f| %>
+    <%= render "trip_expense", f: f %>
+  <% end %>
+</div>
+<%= javascript_tag <<-JAVASCRIPT
+      $('#template_id').on('change', function(){
+        $.post(
+          '#{merge_template_schedule_trip_expenses_path( @schedule)}',
+          { expense_template_id: $(this).val() },
+          function( data ){
+            $('#trip_expense_section').val( data.section );
+            $('#trip_expense_round_' + data.round)[0].checked = true;
+            $('#trip_expense_way').val( data.way );
+            $('#trip_expense_price').val( data.price );
+          }
+        )
+      });
+JAVASCRIPT
+%>
+
+<%= render 'schedules/schedule' %>
+<%= render "trip_expenses" %>
+

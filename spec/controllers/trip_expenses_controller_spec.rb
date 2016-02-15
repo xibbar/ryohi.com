@@ -1,5 +1,5 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe TripExpensesController do
+RSpec.describe TripExpensesController, type: :controller do
 
 end

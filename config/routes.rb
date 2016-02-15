@@ -31,7 +31,16 @@ Ryohiseisan::Application.routes.draw do
       end
     end
   end
-  resources :schedules
+  resources :schedules do
+    resources :trip_expenses do
+      member do
+        get 'add_template'
+      end
+      collection do
+        post 'merge_template'
+      end
+    end
+  end
 
   post 'change_company' => "companies#change_company", as: :change_company
 #  post 'resent_code' => 'companies#resent_code', as: :resent_code
