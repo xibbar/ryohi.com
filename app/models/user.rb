@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :employees, through: :companies
   has_many :target_months, through: :companies
   has_many :schedules, through: :employees
+  has_many :expense_templates, through: :employees
 
   before_create :create_login_key
 
