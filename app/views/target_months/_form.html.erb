@@ -1,8 +1,0 @@
-<%= simple_form_for(@target_month, url: [ @company, @target_month ] ) do |f| %>
-  <%= f.input :employee_id, collection: @employees.map{ |employee| [employee.name, employee.id] }, hint: t("examples.target_month.employee_id"), include_blank: false %>
-  <%= f.input :year, collection: ( ( @now.year - 2 )..@now.year ) %>
-  <%= f.input :month, collection: ( 1..12 ), hint: t("examples.target_month.date") %>
-
-  <%= f.button :submit, class: 'btn-primary' %>
-  <%= link_to t('link.back'), company_target_months_path( @company ), class: 'btn btn-default' %>
-<% end %>

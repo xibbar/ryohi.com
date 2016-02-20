@@ -7,11 +7,9 @@
   <div class="panel-body">
     <p>
     <div class="row">
-      <div class="col-sm-5 pull-left"><strong><%= t "#{@page_name}.total_employees" %></strong></div>
-      <div class="col-sm-4">
+      <div class="col-sm-7 pull-left"><strong><%= t "#{@page_name}.total_employees" %></strong></div>
+      <div class="col-sm-5">
         <%= company.employees.count %>
-      </div>
-      <div class="col-sm-3">
         <%= link_to company_employees_path( company ), title: t('link.employees'), class: 'btn btn-info btn-xs pull-right' do %>
           <%= content_tag(:span, " "+t('link.manage'), class: 'glyphicon glyphicon-user') %> 
         <% end %>
@@ -20,41 +18,25 @@
     </p>
     <p>
     <div class="row">
-      <div class="col-sm-5 pull-left"><strong><%= t "#{@page_name}.total_trip_expenses" %></strong></div>
-      <div class="col-sm-4">
-        <%= company.target_months.count %>
-      </div>
-      <div class="col-sm-3">
-        <% if company.employees.empty? %>
-          <%= link_to company_target_months_path( company ), title: t('link.target_month'), class: 'disabled btn btn-info btn-xs pull-right' do  %>
-            <%= content_tag(:span, " "+t('link.manage'), class: 'glyphicon glyphicon-plane') %> 
-          <% end %>
-        <% else %>
-          <%= link_to company_target_months_path( company ), title: t('link.target_month'), class: 'btn btn-info btn-xs pull-right' do  %>
-            <%= content_tag(:span, " "+t('link.manage'), class: 'glyphicon glyphicon-plane') %> 
-          <% end %>
-        <% end %>
+      <div class="col-sm-7 pull-left"><strong>交通費テンプレート</strong></div>
+      <div class="col-sm-5">
+        <%= company.expense_templates.count %>
       </div>
     </div>
     </p>
     <p>
     <div class="row">
-      <div class="col-sm-5 pull-left"><strong><%= t "#{@page_name}.daily_allowance" %></strong></div>
-      <div class="col-sm-4">
+      <div class="col-sm-7 pull-left"><strong><%= t "#{@page_name}.daily_allowance" %></strong></div>
+      <div class="col-sm-5">
         <%= t "daily_allowance.#{ company.daily_allowance }" %>
       </div>
-      <div class="col-sm-3">
-        <%= link_to change_daily_allowance_company_path( company ), method: :post, data: { remote: true }, title: t('link.change_daily_allowance'), class: "btn btn-info btn-xs pull-right#{expired_tag}" do%>
-          <%= content_tag(:span, " "+t('link.change'), class: "glyphicon glyphicon-transfer") %>
-        <% end %>
-      </div>
     </div>
     </p>
     <p>
     <div class="row">
-      <div class="col-sm-5 pull-left"><strong>登録日</strong></div>
-      <div class="col-sm-7">
-        <%=l company.created_at, format: :simple %>
+      <div class="col-sm-7 pull-left"><strong>登録日</strong></div>
+      <div class="col-sm-5">
+        <%=l company.created_at, format: :date %>
       </div>
     </div>
     </p>

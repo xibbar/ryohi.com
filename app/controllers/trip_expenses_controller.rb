@@ -1,52 +1,45 @@
 class TripExpensesController < ApplicationController
   before_action :require_login
-  before_action :expired_confirm
-  before_action :set_company
-  before_action :set_target_month
-  before_action :set_trip_expense, only: [:edit, :update, :destroy, :add_template]
+  # before_action :expired_confirm, except: [ :index, :change_company ]
+  before_action :set_schedule
 
   def new
-    @trip_expense = TripExpense.new( schedule_id: params[:schedule] )
-    @post_url = company_target_month_trip_expenses_path(@company, @target_month)
-    @schedules = @target_month.schedules
-    @method   = :post
+    # @trip_expense = TripExpense.new(schedule: @schedule)
+    @trip_expense = @schedule.trip_expenses.build
   end
 
   def create
-    @trip_expense = TripExpense.new(trip_expense_params)
-
+    @trip_expense = TripExpense.new(trip_expense_params.merge(schedule: @schedule))
     if @trip_expense.save
       flash[:notice] = t('notice.create', model_name: f(TripExpense))
+      redirect_to schedule_path(@schedule)
     else
-      @post_url = company_target_month_trip_expenses_path(@company, @target_month)
-      @schedules = @target_month.schedules
-      @method   = :post
-      flash[:alert] = t('alert.cant_save')
-      @formid = "tripExpenseForm"
-      render 'session/show_alert'
+      render action: 'new'
     end
   end
 
   def edit
-    @post_url = company_target_month_trip_expense_path(@company, @target_month, @trip_expense)
-    @schedules = @target_month.schedules
-    @method   = :put
-    render 'new'
+    @trip_expense = @schedule.trip_expenses.find(params[:id])
   end
 
   def update
-    if @trip_expense.update_attributes(trip_expense_params)
-      flash[:notice] = t('notice.update', model_name: f(TripExpense))
-      render 'create'
+    @trip_expense = @schedule.trip_expenses.find(params[:id])
+    if @trip_expense.update(trip_expense_params)
+      redirect_to @schedule, notice: t('notice.update', model_name: f(TripExpense)) 
     else
-      @post_url = company_target_month_trip_expense_path(@company, @target_month, @trip_expense)
-      @schedules = @target_month.schedules
-      @method   = :put
-      flash[:alert] = t('alert.cant_save')
-      render 'session/show_alert'
+      render action: 'edit'
     end
   end
-  
+
+  def destroy
+    @trip_expense = @schedule.trip_expenses.find(params[:id])
+    if @trip_expense.destroy
+      redirect_to schedule_path(@schedule) , notice: t('notice.destroy', model_name: f(TripExpense)) 
+    else
+      redirect_to schedule_path(@schedule) , alert: t('alert.destroy') 
+    end
+  end
+
   def merge_template
     expense_template = ExpenseTemplate.where( id: params[:expense_template_id] ).first
     if expense_template
@@ -57,35 +50,23 @@ class TripExpensesController < ApplicationController
     render json: return_data
   end
 
-  def destroy
-    @trip_expense.destroy
-    flash[:notice] = t('notice.destroy', model_name: f(TripExpense))
-  end
-
   def add_template
-    if @trip_expense.add_template( @target_month )
+    @trip_expense = @schedule.trip_expenses.find(params[:id])
+    if @trip_expense.add_template( @schedule )
       flash[:notice] = t('notice.add', model_name: f(ExpenseTemplate))
     else
       flash[:alert] = t('alert.taken')
     end
-    redirect_to company_target_month_path( @company, @target_month )
+    redirect_to schedule_path( @schedule )
   end
 
   private
 
-  def set_company
-    @company = current_user.companies.find(params[:company_id])
-  end
-
-  def set_target_month
-    @target_month = @company.target_months.find(params[:target_month_id])
-  end
-
-  def set_trip_expense
-    @trip_expense = @target_month.trip_expenses.find(params[:id])
+  def set_schedule
+    @schedule = current_user.schedules.find(params[:schedule_id])
   end
 
   def trip_expense_params
-    params.require(:trip_expense).permit(:schedule_id, :section, :round, :way, :price)
+    params.require(:trip_expense).permit(:section, :round, :way, :price)
   end
 end

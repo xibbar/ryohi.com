@@ -1,0 +1,36 @@
+<div class='h2'>
+  出張の一覧
+</div>
+<p>
+<%= link_to t('link.new'), new_schedule_path, class: 'btn btn-default'%>
+</p>
+<%= paginate @schedules %>
+<div class='table-responsive'>
+  <table class='table'>
+      <tr>
+        <th></th>
+        <th><%= f Employee, :name %></th>
+        <th><%= f Schedule, :date %></th>
+        <th><%= f Schedule, :days %></th>
+        <th><%= f Schedule, :destination %></th>
+        <th><%= f Schedule, :trip_expense_only %></th>
+        <th class='text-right'><%= f Schedule, :total %>　</th>
+        <th><%= f Company, :name %></th>
+      </tr>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= link_to content_tag(:span, "詳細", class: 'glyphicon glyphicon-file'), schedule_path(schedule), class: 'btn btn-info btn-sm' %></td>
+        <td><%= schedule.employee.name %></td>
+        <td><%= schedule.date %></td>
+        <td><%= schedule.days %></td>
+        <td>
+          <%= schedule.destination %>
+        </td>
+        <td><%= t("trip_expense_only.#{schedule.trip_expense_only}") %></td>
+        <td class='text-right'><%= number_with_delimiter schedule.total%>円</td>
+        <td><%= schedule.employee.company.name %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<%= paginate @schedules %>

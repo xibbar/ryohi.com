@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :companies, -> { order id: :asc }, dependent: :destroy
   has_many :employees, through: :companies
   has_many :target_months, through: :companies
+  has_many :schedules, through: :employees
+  has_many :expense_templates, through: :employees
 
   before_create :create_login_key
 
@@ -74,9 +76,9 @@ class User < ActiveRecord::Base
     users.order( id: :desc ).page( page ).per( Setting.per_page )
   end
 
-  def schedules
-    Schedule.joins(:target_month=>{:employee=>{:company=>:user}}).where("users.id = ?",self.id)
-  end
+#  def schedules
+#    Schedule.joins(:employee=>{:company=>:user}).where("users.id = ?",self.id)
+#  end
 
   def trip_expenses
     TripExpense.joins(:schedule=>{:target_month=>{:employee=>{:company=>:user}}}).where("users.id = ?",self.id)

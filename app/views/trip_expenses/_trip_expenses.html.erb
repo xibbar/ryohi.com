@@ -1,0 +1,19 @@
+<div class='h3'>出張の交通費</div>
+<div class='table-responsive'>
+  <table class='table'>
+      <tr>
+        <th><%= f(TripExpense, :section) %></td>
+        <th><%= f(TripExpense, :round) %></td>
+        <th><%= f(TripExpense, :way) %></td>
+        <th><%= f(TripExpense, :price) %></td>
+      </tr>
+    <% @schedule.trip_expenses.each do |trip_expense| %>
+      <tr>
+        <td><%= trip_expense.section %></td>
+        <td><%= t "round.#{trip_expense.round}" %></td>
+        <td><%= trip_expense.way %></td>
+        <td><%= number_with_delimiter trip_expense.price %>円</td>
+      </tr>
+    <% end %>
+  </table>
+</div>

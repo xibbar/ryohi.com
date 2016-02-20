@@ -51,14 +51,7 @@
           <div class="collapse navbar-collapse" id="navbar">
             <%= menu_group do %>
               <% if logged_in? %>
-                <%= content_tag(:li, class: "#{active_current_controller?("target_months")} dropdown") do%>
-                  <%= link_to (t("link.target_month")+content_tag(:b, '', class: 'caret')).html_safe, "#", class: 'dropdown-toggle', 'data-toggle': 'dropdown' %>
-                  <ul class='dropdown-menu'>
-                    <% current_user.companies.each do |company| %>
-                      <%= menu_item company.name, company_target_months_path(company) if company.id %>
-                    <% end %>
-                  </ul>
-                <% end %>
+                <%= content_tag(:li, class: active_current_controller?("schedules")){link_to t('link.schedules'), schedules_path }%>
               <% end %>
             <% end %>
             <%= menu_group pull: :right do %>

@@ -1,25 +1,10 @@
-<div class='panel panel-info'>
-  <div class='panel-heading'>
-          <%= link_to content_tag(:span, "",class: 'glyphicon glyphicon-remove'), close_company_target_month_schedules_path(@company, @target_month), remote: true, class: "btn btn-default pull-right" %>
-    <div class="panel-title h4">
-      <div class="h4 text-left">
-        <%= t 'link.create_schedules' %>
-        <span class="pull-right">
-        </span>
-      </div>
-  </div>
-  </div>
-  <%= simple_form_for @schedule, url: @post_url, method: @method, remote: true, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f| %>
-      <div class='panel-body'>
-        <span id="form_flash"></span>
-        <%= f.input :trip_date, collection: (1..31).map{|n|[t('label.date', month: @target_month.month, day: n), n]} %>
-        <%= f.input :days, collection: (1..30).map{|n|[t('label.date_period', days: n), n]} %>
-        <%= f.input :destination %>
-        <%= f.input :business %>
-        <%= f.input :trip_expense_only, as: :boolean%>
-      </div>
-      <div class='panel-footer text-right'>
-        <%= f.button :submit, class: 'btn btn-primary' %>
-      </div>
-    <% end %>
-</div>
+<%= simple_form_for @schedule, class: 'form-horizontal' do |f| %>
+  <%= f.input :date, as: :date_picker %>
+  <%= f.input :days, as: :select, collection: 1..30, include_blank: false %>
+  <%= f.input :employee_id, as: :radio_buttons, collection: @employees.map{|e|["#{e.name} （#{e.company.name}）", e.id]} %>
+  <%= f.input :destination %>
+  <%= f.input :business, as: :text, input_html: {rows: 5}%>
+  <%= f.input :trip_expense_only %>
+  <%= f.button :submit, class: 'btn-success' %>
+  <%= link_to t('link.back'), @schedule, class: 'btn btn-default'%>
+<% end %>

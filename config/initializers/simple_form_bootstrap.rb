@@ -138,6 +138,7 @@ SimpleForm.setup do |config|
   # buttons and other elements.
   config.default_wrapper = :horizontal_form
   config.wrapper_mappings = {
-    boolean: :horizontal_boolean
+    boolean: :horizontal_boolean, 
+    radio_buttons: :horizontal_radio_and_checkboxes
   }
 end

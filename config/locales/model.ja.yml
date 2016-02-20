@@ -87,6 +87,8 @@ ja:
         updated_at:                       '更新日時'
         total:                            '合計'
         trip_expense_only:                '交通費のみ'
+        employee_id:                      '社員選択'
+        trip_expense_total:               '交通費'
       trip_expense:
         schedule_id:                      '出張の種類'
         section:                          '区間'
@@ -163,6 +165,7 @@ ja:
     hints:
       schedule:
         trip_date:                        '出張の開始日を選択してください'
+        date:                             '出張の初日を選択してください'
         days:                             '出張の日数を選択してください（日間）'
         destination:                      '出張の訪問先を入力してください'
         business:                         '出張の要件を入力してください'

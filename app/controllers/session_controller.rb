@@ -6,7 +6,7 @@ class SessionController < ApplicationController
 
   def create
     if login(params[:login], params[:password])
-      redirect_to companies_path, notice: t('notice.login_successfull')
+      redirect_to schedules_path, notice: t('notice.login_successfull')
     else
       flash.now[:alert] = t('alert.failer_login')
       render 'new'
