@@ -4,7 +4,7 @@
 <p>
 <%= link_to t('link.new'), new_schedule_path, class: 'btn btn-default'%>
 </p>
-<%= paginate @schedules, outer_window: 4 %>
+<%= paginate @schedules %>
 <div class='table-responsive'>
   <table class='table'>
       <tr>
@@ -33,3 +33,4 @@
     <% end %>
   </table>
 </div>
+<%= paginate @schedules %>

@@ -4,7 +4,8 @@ class TripExpensesController < ApplicationController
   before_action :set_schedule
 
   def new
-    @trip_expense = TripExpense.new(schedule: @schedule)
+    # @trip_expense = TripExpense.new(schedule: @schedule)
+    @trip_expense = @schedule.trip_expenses.build
   end
 
   def create

@@ -6,4 +6,5 @@
   <%= f.input :business, as: :text, input_html: {rows: 5}%>
   <%= f.input :trip_expense_only %>
   <%= f.button :submit, class: 'btn-success' %>
+  <%= link_to t('link.back'), @schedule, class: 'btn btn-default'%>
 <% end %>
