@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'ユーザーの作成' do
+    user =  create(:user, login: 'xibbar')
+    expect(user.login).to eq("xibbar")
+  end
 end

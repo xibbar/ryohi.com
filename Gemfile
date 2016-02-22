@@ -45,6 +45,7 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -59,17 +60,6 @@ group :development do
   gem 'rails-footnotes'
   gem 'bullet'
 
-end
-
-group :test do
-  gem 'capybara-webkit'#, '0.12.1'
-  gem 'headless'
-  gem 'launchy'
-
-  gem 'database_cleaner'
-  gem 'factory_girl_rails'
-
-  gem 'guard-rspec'
 end
 
 group :production, :sample, :private_sample do
