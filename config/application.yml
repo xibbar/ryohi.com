@@ -59,6 +59,9 @@ defaults: &defaults
     旅費com http://ryohi.com/ 旅費精算書作成システム
     株式会社ラビックス
   release_notes:
+    - version: '0.5'
+      date: 2016-02-19
+      description: "出張を月単位ではなく、1回毎の出張単位で管理するように変更しました。"
     - version: '0.4'
       date: 2016-01-28
       description: "リリースノートを表示するようにしました。"
