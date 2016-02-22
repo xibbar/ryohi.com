@@ -20,9 +20,9 @@ class Schedule < ActiveRecord::Base
   private
 
   def create_charges
-    if target_month && target_month.employee && !trip_expense_only && ( target_month.employee.company.daily_allowance || days > 1 )
-      self.daily_allowance = target_month.employee.daily_allowance * days
-      self.accommodation_charges = target_month.employee.accommodation_charges * (days - 1)
+    if employee && !trip_expense_only && ( employee.company.daily_allowance || days > 1 )
+      self.daily_allowance = employee.daily_allowance * days
+      self.accommodation_charges = employee.accommodation_charges * (days - 1)
     else
       self.daily_allowance = 0
       self.accommodation_charges = 0
