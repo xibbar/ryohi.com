@@ -32,4 +32,12 @@ FactoryGirl.define do
     price 8500
     schedule
   end
+  factory :expense_template do
+    employee
+    section '福島ー仙台'
+    way '新幹線'
+    round true
+    price 8500
+    schedule
+  end
 end

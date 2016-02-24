@@ -52,7 +52,7 @@ class TripExpensesController < ApplicationController
 
   def add_template
     @trip_expense = @schedule.trip_expenses.find(params[:id])
-    if @trip_expense.add_template( @schedule )
+    if @trip_expense.add_template
       flash[:notice] = t('notice.add', model_name: f(ExpenseTemplate))
     else
       flash[:alert] = t('alert.taken')

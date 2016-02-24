@@ -33,4 +33,20 @@ RSpec.describe Schedule, type: :model do
       expect(schedule.accommodation_charges).to eq(5000)
     end
   end
+  describe "旅費の登録" do
+    it "2日" do
+      company = create(:company)
+      company.update_attributes(daily_allowance: true)
+      employee = create(:employee, company: company, daily_allowance: 1500, accommodation_charges: 5000 )
+      schedule = create(:schedule, employee: employee, days: 2)
+      trip_expense = create(:trip_expense, schedule: schedule)
+      expect(schedule.daily_allowance).to eq(3000)
+      expect(schedule.accommodation_charges).to eq(5000)
+      expect(trip_expense.price).to eq(8500)
+      expect(schedule.total).to eq(16500)
+      expect(employee.expense_templates.count).to eq(0)
+      trip_expense.add_template
+      expect(employee.expense_templates.count).to eq(1)
+    end
+  end
 end

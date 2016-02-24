@@ -12,8 +12,8 @@ class TripExpense < ActiveRecord::Base
     section + (round ? '（往復）' : '')
   end
 
-  def add_template( target_month )
-    expense_template = target_month.employee.expense_templates.build
+  def add_template
+    expense_template = schedule.employee.expense_templates.build
     expense_template.merge( self )
   end
 end
