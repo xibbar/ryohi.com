@@ -6,20 +6,6 @@ GIT
       railties (>= 3.1)
 
 GIT
-  remote: git://github.com/k-tsj/power_assert.git
-  revision: c7bd33f86b8666f1c0afb7efdfbb897b2128c292
-  specs:
-    power_assert (0.2.8dev)
-
-GIT
-  remote: git://github.com/k-tsj/test-unit-power_assert.git
-  revision: 84cc7c36b37fa6ad2be6148ebf60cec418b93de5
-  specs:
-    test-unit-power_assert (0.1.2dev)
-      power_assert
-      test-unit
-
-GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 1d93c5a77049b3d21d17c847ad0531d7714fa229
   branch: bootstrap3
@@ -68,6 +54,7 @@ GEM
       tzinfo (~> 0.3.37)
     acts_as_list (0.7.2)
       activerecord (>= 3.0)
+    addressable (2.4.0)
     arel (4.0.2)
     bcrypt (3.1.10)
     builder (3.1.4)
@@ -81,7 +68,13 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
     capistrano_colors (0.5.5)
-    coderay (1.1.0)
+    capybara (2.6.2)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -91,7 +84,6 @@ GEM
     coffee-script-source (1.9.1.1)
     commonjs (0.2.7)
     daemons (1.2.3)
-    diff-lcs (1.2.5)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
@@ -104,22 +96,10 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.10)
-    formatador (0.2.5)
-    guard (2.13.0)
-      formatador (>= 0.2.4)
-      listen (>= 2.7, <= 4.0)
-      lumberjack (~> 1.0)
-      nenv (~> 0.1)
-      notiffany (~> 0.0)
-      pry (>= 0.9.12)
-      shellany (~> 0.0)
-      thor (>= 0.18.1)
     guard-compat (1.2.1)
-    guard-rspec (4.6.4)
-      guard (~> 2.1)
-      guard-compat (~> 1.1)
-      rspec (>= 2.99.0, < 4.0)
+    guard-test (2.0.6)
+      guard-compat (~> 1.2)
+      test-unit (~> 3.0)
     highline (1.7.8)
     hike (1.2.3)
     http-cookie (1.0.2)
@@ -153,10 +133,6 @@ GEM
       tilt
     libv8 (3.16.14.13)
     libxml-ruby (2.8.0)
-    listen (3.0.4)
-      rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9)
-    lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mail-iso-2022-jp (2.0.4)
@@ -170,14 +146,12 @@ GEM
       nokogiri (~> 1.4)
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
-    method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile (0.6.2)
     minitest (4.7.5)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    nenv (0.2.0)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
     net-scp (1.2.1)
@@ -189,9 +163,6 @@ GEM
       net-ssh (>= 2.6.5)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-    notiffany (0.0.8)
-      nenv (~> 0.1)
-      shellany (~> 0.0)
     ntlm-http (0.1.1)
     oauth (0.4.7)
     oauth2 (1.0.0)
@@ -203,10 +174,7 @@ GEM
     paranoia (2.0.5)
       activerecord (~> 4.0)
     pg (0.18.3)
-    pry (0.10.3)
-      coderay (~> 1.1.0)
-      method_source (~> 0.8.1)
-      slop (~> 3.4)
+    power_assert (0.2.7)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rabl (0.11.6)
@@ -235,32 +203,9 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.5.0)
-    rb-fsevent (0.9.6)
-    rb-inotify (0.9.5)
-      ffi (>= 0.5.0)
     ref (2.0.0)
     remotipart (1.2.1)
-    rspec (3.3.0)
-      rspec-core (~> 3.3.0)
-      rspec-expectations (~> 3.3.0)
-      rspec-mocks (~> 3.3.0)
-    rspec-core (3.3.2)
-      rspec-support (~> 3.3.0)
-    rspec-expectations (3.3.1)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.3.0)
-    rspec-mocks (3.3.2)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.3.0)
-    rspec-rails (3.3.3)
-      actionpack (>= 3.0, < 4.3)
-      activesupport (>= 3.0, < 4.3)
-      railties (>= 3.0, < 4.3)
-      rspec-core (~> 3.3.0)
-      rspec-expectations (~> 3.3.0)
-      rspec-mocks (~> 3.3.0)
-      rspec-support (~> 3.3.0)
-    rspec-support (3.3.0)
+    rr (1.1.2)
     sass (3.2.19)
     sass-rails (4.0.5)
       railties (>= 4.0.0, < 5.0)
@@ -268,11 +213,9 @@ GEM
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
     settingslogic (2.0.9)
-    shellany (0.0.1)
     simple_form (3.2.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
-    slop (3.6.0)
     sorcery (0.9.1)
       bcrypt (~> 3.1)
       oauth (~> 0.4, >= 0.4.4)
@@ -289,6 +232,25 @@ GEM
     terminal-notifier-guard (1.7.0)
     test-unit (3.1.7)
       power_assert
+    test-unit-activesupport (1.0.5)
+      activesupport
+      test-unit
+    test-unit-capybara (1.0.5)
+      capybara (>= 2.1.0)
+      json
+      test-unit (>= 2.5.3)
+    test-unit-notify (1.0.4)
+      test-unit (>= 2.4.9)
+    test-unit-rails (5.0.1)
+      rails (>= 4.0.2)
+      test-unit (>= 3.1.7)
+      test-unit-activesupport (>= 1.0.2)
+      test-unit-capybara (>= 1.0.5)
+      test-unit-notify
+      test-unit-rr (>= 1.0.4)
+    test-unit-rr (1.0.5)
+      rr (>= 1.1.1)
+      test-unit (>= 2.5.2)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -310,6 +272,8 @@ GEM
     unf_ext (0.0.7.1)
     uniform_notifier (1.9.0)
     webrobots (0.1.1)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
     yajl-ruby (1.2.1)
 
 PLATFORMS
@@ -325,7 +289,7 @@ DEPENDENCIES
   datetimepicker-rails!
   execjs
   factory_girl_rails
-  guard-rspec
+  guard-test
   i18n-js
   i18n_generators
   jbuilder (~> 1.2)
@@ -338,20 +302,18 @@ DEPENDENCIES
   momentjs-rails (~> 2.9)!
   paranoia (~> 2.0.0)
   pg
-  power_assert!
   quiet_assets
   rabl
   rails (= 4.0.13)
   rails-footnotes
   rails_12factor
   remotipart
-  rspec-rails
   sass-rails (~> 4.0.0)
   settingslogic
   simple_form
   sorcery
   terminal-notifier-guard
-  test-unit-power_assert!
+  test-unit-rails
   therubyracer
   thin
   turbolinks
