@@ -48,6 +48,8 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'guard-rspec'
   gem 'terminal-notifier-guard'
+  gem 'power_assert', :git => 'git://github.com/k-tsj/power_assert.git'
+  gem 'test-unit-power_assert', :git => 'git://github.com/k-tsj/test-unit-power_assert.git'
 end
 
 group :development do
