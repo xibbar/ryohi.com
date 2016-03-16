@@ -6,20 +6,6 @@ GIT
       railties (>= 3.1)
 
 GIT
-  remote: git://github.com/k-tsj/power_assert.git
-  revision: c7bd33f86b8666f1c0afb7efdfbb897b2128c292
-  specs:
-    power_assert (0.2.8dev)
-
-GIT
-  remote: git://github.com/k-tsj/test-unit-power_assert.git
-  revision: 84cc7c36b37fa6ad2be6148ebf60cec418b93de5
-  specs:
-    test-unit-power_assert (0.1.2dev)
-      power_assert
-      test-unit
-
-GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 1d93c5a77049b3d21d17c847ad0531d7714fa229
   branch: bootstrap3
@@ -203,6 +189,7 @@ GEM
     paranoia (2.0.5)
       activerecord (~> 4.0)
     pg (0.18.3)
+    power_assert (0.2.7)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -338,7 +325,6 @@ DEPENDENCIES
   momentjs-rails (~> 2.9)!
   paranoia (~> 2.0.0)
   pg
-  power_assert!
   quiet_assets
   rabl
   rails (= 4.0.13)
@@ -351,7 +337,7 @@ DEPENDENCIES
   simple_form
   sorcery
   terminal-notifier-guard
-  test-unit-power_assert!
+  test-unit
   therubyracer
   thin
   turbolinks
