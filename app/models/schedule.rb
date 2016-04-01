@@ -7,7 +7,7 @@ class Schedule < ActiveRecord::Base
 
   validates :employee_id, :days, :destination, :business, :daily_allowance, :accommodation_charges, :date, presence: true
 
-  paginates_per 10
+  paginates_per 15
 
   def select_view
     "#{trip_date}#{I18n.t('date.day')} : #{destination} : #{business}"
