@@ -57,6 +57,14 @@ module ApplicationHelper
     current_user.expired?(@now) ? t('alert.expired') : t(str)
   end
 
+  def days_view(days)
+    if days == 1
+      "日帰り"
+    else
+      "#{days}日間"
+    end
+  end
+
   # 企業が登録されていなかったら登録を促す
   # 社員が登録されていなかったら登録を促す
   # 旅費精算書が登録されていなかったら登録を促す

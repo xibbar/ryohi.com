@@ -264,7 +264,7 @@ ja:
     "true": "はい"
     "false": "いいえ"
   trip_expense_only_view:
-    "true": "交通費のみ"
+    "true": "-"
     "false": ""
   "company_destroy": |-
     社員%{users}名、

@@ -18,23 +18,31 @@
 <div class='table-responsive'>
   <table class='table table-bordered'>
       <tr class='active'>
+        <th class='hidden-print'></th>
         <th><%= f Schedule, :date %></th>
-        <th><%= f Schedule, :destination %></th>
-        <th><%= f Schedule, :trip_expense_only %></th>
-        <th><%= f Schedule, :days %></th>
-        <th><%= f Schedule, :daily_allowance %></th>
-        <th><%= f Schedule, :accommodation_charges %></th>
+        <th><%= f Schedule, :daily_allowance %>/<%= f Schedule, :accommodation_charges %></th>
+        <th><%= f Schedule, :destination %>/<%= f Schedule, :business %></th>
       </tr>
-    <% @schedules.each do |schedule| %>
-      <tr>
-        <td><%= schedule.date %></td>
-        <td><%= schedule.destination %></td>
-        <td><%= t("trip_expense_only.#{schedule.trip_expense_only}") %></td>
-        <td><%= schedule.days %></td>
-        <td class='text-right'><%= number_with_delimiter schedule.daily_allowance%>円</td>
-        <td class='text-right'><%= number_with_delimiter schedule.accommodation_charges%>円</td>
-      </tr>
-    <% end %>
+      <% @schedules.each do |schedule| %>
+        <tr>
+          <td class='hidden-print'>
+            <%= link_to t("link.edit"), edit_schedule_path(schedule), class: 'btn btn-warning btn-xs hidden-print' %>
+          </td>
+          <td><%= schedule.date.strftime("%m/%d") %><small>（<%=days_view schedule.days %>）</small></td>
+          <% if schedule.trip_expense_only %>
+            <td><%= t("trip_expense_only_view.#{schedule.trip_expense_only}") %></td>
+          <% else %>
+            <td class='text-right'>
+              <%= number_with_delimiter schedule.daily_allowance%>円/
+              <%= number_with_delimiter schedule.accommodation_charges%>円
+            </td>
+          <% end %>
+          <td colspan="5">
+            <%= schedule.destination %>
+            <small><%= schedule.business %></small>
+          </td>
+        </tr>
+      <% end %>
   </table>
 </div>
 <br />
