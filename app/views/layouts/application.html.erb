@@ -52,6 +52,7 @@
             <%= menu_group do %>
               <% if logged_in? %>
                 <%= content_tag(:li, class: active_current_controller?("schedules")){link_to t('link.schedules'), schedules_path }%>
+                <%= content_tag(:li, class: active_current_controller?("monthly_reports")){link_to t('link.monthly_reports'), monthly_reports_path }%>
               <% end %>
             <% end %>
             <%= menu_group pull: :right do %>

@@ -1,4 +1,6 @@
 Ryohiseisan::Application.routes.draw do
+  get "monthly_report/:employee_id(/:year/:month)", to: 'monthly_reports#show', as: :monthly_report
+  get "monthly_reports", to: 'monthly_reports#index'
   resources :email, only: [:new, :create]
   resources :password, only: [:new, :create]
 

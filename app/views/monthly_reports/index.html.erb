@@ -1,0 +1,13 @@
+
+<div class="list-group">
+  <% @companies.each do |company| %>
+    <div class='list-group-item'>
+      <div class='list-group-item-heading'><%= company.name %></div>
+      <p class="list-group-item-text">
+       <% company.employees.each do |employee| %> 
+         <%= link_to employee.name, monthly_report_path(employee) %>
+       <% end %>
+      </p>
+    </div>
+  <% end %>
+</div>

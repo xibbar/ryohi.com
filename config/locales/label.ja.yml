@@ -55,6 +55,7 @@ ja:
     employees: '社員の管理'
     companies: '企業管理'
     schedules: '出張の管理'
+    monthly_reports: '月別集計表' 
     users: 'アカウント管理'
     account_new: '新規登録'
     account_edit: '企業名の変更'
