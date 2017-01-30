@@ -44,6 +44,7 @@ ja:
     destroy: '削除する'
     close: '閉じる'
     manage: '管理'
+    print: '印刷する'
     menu: 'メニュー'
     create_target_months: '旅費精算書を登録する'
     create_employees: '社員を登録する'

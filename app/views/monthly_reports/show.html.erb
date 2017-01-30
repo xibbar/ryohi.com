@@ -5,6 +5,9 @@
   </div>
   <div class='h4 text-right col-xs-6'>
     <div class='hidden-print h5'>
+  <%= button_tag t("link.print"), onclick: 'window.print();return false;', class: 'btn btn-info hidden-print text-right'%>
+    </div>
+    <div class='hidden-print h5'>
       <%= link_to @date.last_month.strftime("<<%Y-%m"), monthly_report_path(year: @date.last_month.year, month: @date.last_month.month) %>
       <%= link_to "今月", monthly_report_path(@employee) %>
       <%= link_to @date.next_month.strftime("%Y-%m>>"), monthly_report_path(year: @date.next_month.year, month: @date.next_month.month) %>

@@ -3,6 +3,7 @@
 </div>
 <div class='h3 col-sm-6'>出張の内容</div>
 <div class='col-sm-6 text-right'>
+<%= button_tag t("link.print"), onclick: 'window.print();return false;', class: 'btn btn-info hidden-print'%>
 <%= link_to t("link.edit"), edit_schedule_path(@schedule), class: 'btn btn-warning hidden-print' %>
 <%= link_to t("link.destroy"), schedule_path(@schedule), method: :delete, confirm: t('Are you sure?'), class: 'btn btn-danger hidden-print' %>
 </div>
