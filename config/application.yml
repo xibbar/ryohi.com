@@ -59,6 +59,9 @@ defaults: &defaults
     旅費com http://ryohi.com/ 旅費精算書作成システム
     株式会社ラビックス
   release_notes:
+    - version: '0.7'
+      date: 2017-02-01
+      description: "出張の詳細と月別集計表に印刷ボタンをつけました。"
     - version: '0.6'
       date: 2016-04-01
       description: "月別集計表を表示できるようにしました。"
