@@ -1,3 +1,4 @@
+<% breadcrumb :company_employees, @company %>
 <h2><%= @company.name %></h2>
 <h3><%=t "#{@page_name}.title" %></h3>
 <% unless current_user.staff_restrict_over? || current_user.expired?( @now ) -%>

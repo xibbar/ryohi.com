@@ -95,6 +95,8 @@ GEM
       railties (>= 3.0.0)
     faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
+    gretel (3.0.9)
+      rails (>= 3.1.0)
     guard-compat (1.2.1)
     guard-test (2.0.8)
       guard-compat (~> 1.2)
@@ -272,6 +274,7 @@ DEPENDENCIES
   datetimepicker-rails!
   execjs
   factory_girl_rails
+  gretel
   guard-test
   i18n-js
   i18n_generators
@@ -308,4 +311,4 @@ RUBY VERSION
    ruby 2.2.5p319
 
 BUNDLED WITH
-   1.13.5
+   1.13.6

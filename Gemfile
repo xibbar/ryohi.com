@@ -38,6 +38,9 @@ gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
 # 設定ファイルの一元化用
 gem 'settingslogic'
 
+# ぱんくずリスト
+gem 'gretel'
+
 gem 'sass-rails', '~> 4.0.0'
 group :assets do
   gem 'uglifier', '>= 1.3.0'
