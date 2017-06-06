@@ -92,6 +92,6 @@ test:
 production:
   <<: *defaults
   subject: 
-  default_from: "support@ryohi.sakura.ne.jp"
+  default_from: "support@ryohi.com"
   url: "https://ryohi.com"
 
