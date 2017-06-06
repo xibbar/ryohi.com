@@ -56,7 +56,7 @@ defaults: &defaults
     - 沖縄県
   signature: |
     --
-    旅費com http://ryohi.com/ 旅費精算書作成システム
+    旅費com https://ryohi.com/ 旅費精算書作成システム
     株式会社ラビックス
   release_notes:
     - version: '0.7'
