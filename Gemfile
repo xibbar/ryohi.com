@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '~> 2.2.3'
+# ruby '~> 2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.13'
@@ -37,6 +37,8 @@ gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
 
 # 設定ファイルの一元化用
 gem 'settingslogic'
+
+gem 'puma'
 
 gem 'sass-rails', '~> 4.0.0'
 group :assets do
