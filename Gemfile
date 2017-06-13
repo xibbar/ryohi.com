@@ -31,8 +31,8 @@ gem 'execjs'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem 'simple_form'
 
-gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
-gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
 
 # 設定ファイルの一元化用
