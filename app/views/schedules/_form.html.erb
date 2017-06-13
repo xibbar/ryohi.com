@@ -1,5 +1,5 @@
 <%= simple_form_for @schedule, class: 'form-horizontal' do |f| %>
-  <%= f.input :date, as: :date_picker %>
+  <%= f.input :date, as: :date_time_picker %>
   <%= f.input :days, as: :select, collection: 1..30, include_blank: false %>
   <%= f.input :employee_id, as: :radio_buttons, collection: @employees.map{|e|["#{e.name} （#{e.company.name}）", e.id]} %>
   <%= f.input :destination %>
@@ -8,3 +8,11 @@
   <%= f.button :submit, class: 'btn-success' %>
   <%= link_to t('link.back'), @schedule, class: 'btn btn-default'%>
 <% end %>
+
+<script>
+$(".form_datetime").datetimepicker({
+  locale: "ja",
+  format: "YYYY-MM-DD",
+  sideBySide: true
+});
+</script>
