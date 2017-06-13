@@ -8,3 +8,11 @@
   <%= f.button :submit, class: 'btn-success' %>
   <%= link_to t('link.back'), @schedule, class: 'btn btn-default'%>
 <% end %>
+
+<script>
+$(".form_datetime").datetimepicker({
+  locale: "ja",
+  format: "YYYY-MM-DD",
+  sideBySide: true
+});
+</script>
