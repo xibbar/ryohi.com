@@ -9,7 +9,13 @@
   <%= f.input :section %>
   <%= f.input :way %>
   <%= f.input :round, collection: [[t('round.true'),'true'], [t('round.false'),'false']], as: :radio_buttons, wrapper: :horizontal_radio_and_checkboxes, required: true %>
-  <%= f.input :price %>
+  <%= f.input :price, input_html: {min: 0} %>
+  <div class="col-sm-3">
+  </div>
+  <div class="col-sm-9">
+  <%= button_to_function t('2_times'), "var price=parseInt($('#trip_expense_price').val()*2); $('#trip_expense_price').val(price)",class: 'btn btn-info btn-sm'%>
+  <%= button_to_function t('divide_2'), "var price=parseInt($('#trip_expense_price').val()/2); $('#trip_expense_price').val(price)",class: 'btn btn-warning btn-sm'%>
+  </div>
 </div>
 <div class='panel-footer'>
   <%= f.button :submit, class: 'btn-success' %>
