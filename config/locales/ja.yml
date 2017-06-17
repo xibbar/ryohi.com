@@ -281,3 +281,5 @@ ja:
     dformat: '%R'                   # display format of the time (this is the default, can be ommited)
     pformat: 'HH:mm'                # picking format of the time (this is the default, can be ommited)
   dayViewHeaderFormat: 'YYYY MMMM'  # picking format of the time (this is the default, can be ommited)
+  2_times: '入力金額 × 2'
+  divide_2: '入力金額 ÷ 2'
