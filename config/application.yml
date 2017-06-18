@@ -59,6 +59,9 @@ defaults: &defaults
     旅費com https://ryohi.com/ 旅費精算書作成システム
     株式会社ラビックス
   release_notes:
+    - version: '1.0'
+      date: 2017-06-18
+      description: "トップページの文章を変更し、正式リリースしました。"
     - version: '0.8'
       date: 2017-06-17
       description: "交通費の金額の入力フォームに、入力された金額を2倍にするボタンと半分にするボタンをつけました。これにより、往復と片道の計算がしやすくなりました。"
