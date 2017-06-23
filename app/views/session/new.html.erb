@@ -145,7 +145,25 @@ xibbar@gmail.com までご連絡ください。
 ご意見でもいただければ幸いです。
 </p>
 
-
 <div class="text-right">
   <%= link_to(new_user_path, class: 'btn btn-primary btn-lg'){content_tag(:li, t('button.account_new'), class: 'glyphicon glyphicon-plus')} %>
 </div>
+
+<h2 class='text-warning'>開発者の方へ</h2>
+<p>
+このシステムはgithubにて公開しております。
+言語とフレームワークはRuby on Railsです。
+サーバは、herokuの有料プランを使って、SSLを導入しております。
+</p>
+<p>
+開発を手伝ってくれる方がいらっしゃいましたらば、
+githubでお手伝いいただければ幸いです。
+</p>
+<p>
+もちろん不具合を発見して、issueへの登録などでも十分ですので、よろしくお願いします。
+</p>
+
+<%= link_to '開発サイトへ', 'https://github.com/xibbar/ryohi.com', class: 'btn btn-warning btn-sm', roll: 'button', target: '_blank' %>
+
+
+
