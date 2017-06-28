@@ -1,0 +1,35 @@
+<h1>Listing daily_allowances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Name</th>
+      <th>One day allowance</th>
+      <th>Accommodation day allowance</th>
+      <th>Return day allowance</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @daily_allowances.each do |daily_allowance| %>
+      <tr>
+        <td><%= daily_allowance.company_id %></td>
+        <td><%= daily_allowance.name %></td>
+        <td><%= daily_allowance.one_day_allowance %></td>
+        <td><%= daily_allowance.accommodation_day_allowance %></td>
+        <td><%= daily_allowance.return_day_allowance %></td>
+        <td><%= link_to 'Show', [:rabbix, daily_allowance] %></td>
+        <td><%= link_to 'Edit', [:edit, :rabbix, daily_allowance] %></td>
+        <td><%= link_to 'Destroy', [:rabbix, daily_allowance], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Daily allowance', [:new, :rabbix, :daily_allowance] %>

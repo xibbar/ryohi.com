@@ -1,0 +1,26 @@
+<h2><%=t "#{@page_name}.title" %></h2>
+<% unless current_user.expired?( @now ) -%>
+  <p>
+  <%= link_to t('link.new'), [:new, @company, :daily_allowance], title: t('link.new'), class: 'btn btn-primary' %>
+  </p>
+<% end -%>
+
+
+<div class='table-responsive'>
+  <table class='table'>
+    <tr>
+      <th><%=f DailyAllowance, :name %></th>
+      <th><%=f DailyAllowance, :one_day_allowance %></th>
+      <th><%=f DailyAllowance, :accommodation_day_allowance %></th>
+      <th><%=f DailyAllowance, :return_day_allowance %></th>
+      <th></th>
+      <% unless current_user.expired?( @now ) -%>
+        <th></th>
+        <th></th>
+      <% end -%>
+    </tr>
+    <%= render @daily_allowances %>
+  </table>
+</div>
+
+<%= link_to t('link.back'), companies_path, class: 'btn btn-default' %>

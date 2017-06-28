@@ -1,0 +1,9 @@
+<tr id='<%= daily_allowance.id %>'>
+  <td><%= daily_allowance.name%></td>
+  <td><%= daily_allowance.one_day_allowance%></td>
+  <td><%= daily_allowance.accommodation_day_allowance%></td>
+  <td><%= daily_allowance.return_day_allowance%></td>
+  <td>
+    <%= link_to t('button.edit'), edit_company_daily_allowance_path( @company, daily_allowance ), class: 'btn btn-warning' %>  <%= link_to t('button.destroy'), company_daily_allowance_path( @company, daily_allowance ), method: :delete, confirm: t('Are you sure?'), class: 'btn btn-danger' %>
+  </td>
+</tr>

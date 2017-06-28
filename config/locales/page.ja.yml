@@ -162,6 +162,23 @@ ja:
       title: '旅費テンプレートの変更'
       comment: |-
 
+  daily_allowances:
+    index:
+      title: '日当'
+      comment: |-
+    new:
+      title: '日当の登録'
+      comment: |-
+    create:
+      title: '日当の登録'
+      comment: |-
+    edit:
+      title: '日当の変更'
+      comment: |-
+    update:
+      title: '日当の変更'
+      comment: |-
+
   notice:
     password: ※パスワードはセキュリティのため非表示です※
 

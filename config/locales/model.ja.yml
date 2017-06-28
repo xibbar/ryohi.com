@@ -11,6 +11,7 @@ ja:
       trip_expense:     '交通費'
       expense_template: '旅費テンプレート'
       bridge:           '関連企業'
+      daily_allowance:  '日当'
 
     attributes:
       user:
@@ -115,6 +116,14 @@ ja:
         bridge_company:                   '関連企業'
         login:                            '関連企業ログインID'
         password:                         '関連企業パスワード'
+      daily_allowance:
+        name:                             '日当の名前'
+        one_day_allowance:                '日帰り日当'
+        accommodation_day_allowance:      '宿泊日の日当'
+        return_day_allowance:             '帰着日の日当'
+        created_at:                       '登録日時'
+        updated_at:                       '更新日時'
+        view:                             '見出し'
 
   examples:
     user:

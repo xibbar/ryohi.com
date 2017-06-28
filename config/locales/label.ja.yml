@@ -75,6 +75,7 @@ ja:
     agreement: '利用規約'
     operating_company: '運営会社'
     legal: '特定商取引法に基づく表記'
+    daily_allowances: '日当の管理'
 
   form:
     require: 必須

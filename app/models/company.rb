@@ -7,6 +7,7 @@ class Company < ActiveRecord::Base
   has_many   :bridges, -> { order :position }, dependent: :destroy
   has_many   :bridge_companies, -> { order "bridges.position" }, through: :bridges
   has_many   :expense_templates, through: :employees
+  has_many   :daily_allowances, -> { order( :id ) }
 
   validates :name, presence: true
 end
