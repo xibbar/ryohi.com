@@ -76,6 +76,7 @@ ja:
     operating_company: '運営会社'
     legal: '特定商取引法に基づく表記'
     daily_allowances: '日当の管理'
+    accommodation_charges: '宿泊費の管理'
 
   form:
     require: 必須

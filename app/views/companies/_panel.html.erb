@@ -29,6 +29,17 @@
     </p>
     <p>
     <div class="row">
+      <div class="col-sm-7 pull-left"><strong><%= f AccommodationCharge %></strong></div>
+      <div class="col-sm-5">
+        <%= company.accommodation_charges.count %>
+        <%= link_to company_accommodation_charges_path(company), title: t('link.accommodation_charges'), class: 'btn btn-info btn-xs pull-right' do %>
+          <%= content_tag(:span, " "+t('link.manage'), class: 'glyphicon glyphicon-user') %> 
+        <% end %>
+      </div>
+    </div>
+    </p>
+    <p>
+    <div class="row">
       <div class="col-sm-7 pull-left"><strong>交通費テンプレート</strong></div>
       <div class="col-sm-5">
         <%= company.expense_templates.count %>

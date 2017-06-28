@@ -179,6 +179,23 @@ ja:
       title: '日当の変更'
       comment: |-
 
+  accommodation_charges:
+    index:
+      title: '宿泊費'
+      comment: |-
+    new:
+      title: '宿泊費の登録'
+      comment: |-
+    create:
+      title: '宿泊費の登録'
+      comment: |-
+    edit:
+      title: '宿泊費の変更'
+      comment: |-
+    update:
+      title: '宿泊費の変更'
+      comment: |-
+
   notice:
     password: ※パスワードはセキュリティのため非表示です※
 

@@ -34,6 +34,7 @@ Ryohiseisan::Application.routes.draw do
       end
     end
     resources :daily_allowances
+    resources :accommodation_charges
   end
   resources :schedules do
     resources :trip_expenses do
@@ -80,6 +81,7 @@ Ryohiseisan::Application.routes.draw do
 
     get '/' => "users#index", as: :rabbix
     resources :daily_allowances
+    resources :accommodation_charges
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

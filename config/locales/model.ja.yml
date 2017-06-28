@@ -9,9 +9,10 @@ ja:
       target_month:     '旅費清算書'
       schedule:         '出張'
       trip_expense:     '交通費'
-      expense_template: '旅費テンプレート'
+      expense_template: '出張費テンプレート'
       bridge:           '関連企業'
       daily_allowance:  '日当'
+      accommodation_charge:  '宿泊費'
 
     attributes:
       user:
@@ -124,6 +125,9 @@ ja:
         created_at:                       '登録日時'
         updated_at:                       '更新日時'
         view:                             '見出し'
+      accommodation_charge:
+        name:                             '宿泊費の名前'
+        amount:                           '宿泊費'
 
   examples:
     user:

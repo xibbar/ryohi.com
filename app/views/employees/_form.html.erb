@@ -2,9 +2,6 @@
   <%= f.input :name %>
   <%= error_messages_on f.object, :name %>
   <%= enter_convert t("examples.employee.name") %>
-  <%= f.input :accommodation_charges %> <%=t 'number.currency.format.unit' %>
-  <%= error_messages_on f.object, :accommodation_charges %>
-  <%= enter_convert t("examples.employee.accommodation_charges") %>
 
   <p>
   <%= f.button :submit %>

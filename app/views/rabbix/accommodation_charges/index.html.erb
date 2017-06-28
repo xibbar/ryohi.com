@@ -1,0 +1,31 @@
+<h1>Listing accommodation_charges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Name</th>
+      <th>Amount</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accommodation_charges.each do |accommodation_charge| %>
+      <tr>
+        <td><%= accommodation_charge.company_id %></td>
+        <td><%= accommodation_charge.name %></td>
+        <td><%= accommodation_charge.amount %></td>
+        <td><%= link_to 'Show', [:rabbix, accommodation_charge] %></td>
+        <td><%= link_to 'Edit', [:edit, :rabbix, accommodation_charge] %></td>
+        <td><%= link_to 'Destroy', [:rabbix,accommodation_charge], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Accommodation charge', :new_rabbix_accommodation_charge %>

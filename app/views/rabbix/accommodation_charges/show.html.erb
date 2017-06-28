@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @accommodation_charge.company_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @accommodation_charge.name %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @accommodation_charge.amount %>
+</p>
+
+<%= link_to 'Edit', edit_accommodation_charge_path(@accommodation_charge) %> |
+<%= link_to 'Back', accommodation_charges_path %>
