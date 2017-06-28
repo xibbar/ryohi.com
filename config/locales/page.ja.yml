@@ -147,19 +147,19 @@ ja:
 
   expense_templates:
     index:
-      title: '旅費テンプレート'
+      title: '交通費テンプレート'
       comment: |-
     new:
-      title: '旅費テンプレートの登録'
+      title: '交通費テンプレートの登録'
       comment: |-
     create:
-      title: '旅費テンプレートの登録'
+      title: '交通費テンプレートの登録'
       comment: |-
     edit:
-      title: '旅費テンプレートの変更'
+      title: '交通費テンプレートの変更'
       comment: |-
     update:
-      title: '旅費テンプレートの変更'
+      title: '交通費テンプレートの変更'
       comment: |-
 
   daily_allowances:
