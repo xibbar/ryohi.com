@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :require_login
-  before_action :expired_confirm, except: [ :index, :change_company ]
-  before_action :set_company, only: [ :show, :edit, :update, :destroy, :change_daily_allowance ]
+  before_action :expired_confirm, except: [ :index ]
+  before_action :set_company, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @companies = current_user.companies

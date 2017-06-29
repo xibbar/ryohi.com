@@ -49,7 +49,7 @@ class EmployeesController < ApplicationController
   end
 
   def employee_params
-    params.require(:employee).permit(:name, :daily_allowance, :accommodation_charges)
+    params.require(:employee).permit(:name)
   end
 
   def staff_restrict_confirm
