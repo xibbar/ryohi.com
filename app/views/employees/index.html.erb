@@ -15,9 +15,7 @@
   <table id='employeesTable' class='table'>
     <tr>
       <th><%=f Employee, :name %></th>
-      <th><%=f ExpenseTemplate %></th>
       <% unless current_user.expired?( @now ) -%>
-        <th></th>
         <th></th>
       <% end -%>
     </tr>

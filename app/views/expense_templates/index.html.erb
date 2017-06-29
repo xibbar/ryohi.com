@@ -1,7 +1,7 @@
 <h2><%=t "#{@page_name}.title" %></h2>
 <% unless current_user.expired?( @now ) -%>
   <p>
-  <%= link_to t('link.new'), new_company_employee_expense_template_path( @company, @employee ), title: t('link.new'), class: 'btn btn-primary' %>
+  <%= link_to t('link.new'), new_company_expense_template_path( @company ), title: t('link.new'), class: 'btn btn-primary' %>
   </p>
 <% end -%>
 
@@ -9,9 +9,6 @@
 <div class='table-responsive'>
   <table class='table'>
     <tr>
-      <% unless current_user.expired?( @now ) -%>
-        <th colspan='2'></th>
-      <% end -%>
       <th><%=f ExpenseTemplate, :view %></th>
       <% unless current_user.expired?( @now ) -%>
         <th></th>

@@ -1,7 +1,8 @@
 class ExpenseTemplate < ActiveRecord::Base
-  acts_as_list scope: :employee_id
+  acts_as_list scope: :company_id
 
   belongs_to :employee
+  belongs_to :company
 
   validates :section, :way, :price, presence: true
   validates :round, inclusion: [true, false]
@@ -22,6 +23,6 @@ class ExpenseTemplate < ActiveRecord::Base
   end
 
   def same_check
-    employee.expense_templates.where.not( id: id ).where( section: section, round: round, way: way, price: price ).any?
+    company.expense_templates.where.not( id: id ).where( section: section, round: round, way: way, price: price ).any?
   end
 end

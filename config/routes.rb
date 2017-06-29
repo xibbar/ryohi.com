@@ -26,15 +26,10 @@ Ryohiseisan::Application.routes.draw do
       collection do
         get 'close'
       end
-
-      resources :expense_templates, except: [:show] do
-        member do
-          get 'move/:move_type', to: 'expense_templates#move', as: :move
-        end
-      end
     end
     resources :daily_allowances
     resources :accommodation_charges
+    resources :expense_templates
   end
   resources :schedules do
     collection do
