@@ -10,7 +10,7 @@
 <div class="row">
   <% @companies.each do |company| %>
     <div class="col-sm-6 col-md-4">
-      <%= render partial: "panel", locals: {company: company} %>
+      <%= render "panel", company: company %>
     </div>
   <% end %>
 </div>

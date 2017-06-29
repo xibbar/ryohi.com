@@ -147,19 +147,53 @@ ja:
 
   expense_templates:
     index:
-      title: '旅費テンプレート'
+      title: '交通費テンプレート'
       comment: |-
     new:
-      title: '旅費テンプレートの登録'
+      title: '交通費テンプレートの登録'
       comment: |-
     create:
-      title: '旅費テンプレートの登録'
+      title: '交通費テンプレートの登録'
       comment: |-
     edit:
-      title: '旅費テンプレートの変更'
+      title: '交通費テンプレートの変更'
       comment: |-
     update:
-      title: '旅費テンプレートの変更'
+      title: '交通費テンプレートの変更'
+      comment: |-
+
+  daily_allowances:
+    index:
+      title: '日当'
+      comment: |-
+    new:
+      title: '日当の登録'
+      comment: |-
+    create:
+      title: '日当の登録'
+      comment: |-
+    edit:
+      title: '日当の変更'
+      comment: |-
+    update:
+      title: '日当の変更'
+      comment: |-
+
+  accommodation_charges:
+    index:
+      title: '宿泊費'
+      comment: |-
+    new:
+      title: '宿泊費の登録'
+      comment: |-
+    create:
+      title: '宿泊費の登録'
+      comment: |-
+    edit:
+      title: '宿泊費の変更'
+      comment: |-
+    update:
+      title: '宿泊費の変更'
       comment: |-
 
   notice:

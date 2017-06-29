@@ -23,7 +23,7 @@
       <tr class='active'>
         <th class='hidden-print'></th>
         <th><%= f Schedule, :date %></th>
-        <th><%= f Schedule, :daily_allowance %>/<%= f Schedule, :accommodation_charges %></th>
+        <th><%= f Schedule, :daily_allowance_amount %>/<%= f Schedule, :accommodation_charge_amount %></th>
         <th><%= f Schedule, :destination %>/<%= f Schedule, :business %></th>
       </tr>
       <% @schedules.each do |schedule| %>
@@ -32,14 +32,10 @@
             <%= link_to t("link.edit"), edit_schedule_path(schedule), class: 'btn btn-warning btn-xs hidden-print' %>
           </td>
           <td><%= schedule.date.strftime("%m/%d") %><small>（<%=days_view schedule.days %>）</small></td>
-          <% if schedule.trip_expense_only %>
-            <td><%= t("trip_expense_only_view.#{schedule.trip_expense_only}") %></td>
-          <% else %>
-            <td class='text-right'>
-              <%= number_with_delimiter schedule.daily_allowance%>円/
-              <%= number_with_delimiter schedule.accommodation_charges%>円
-            </td>
-          <% end %>
+          <td class='text-right'>
+            <%= number_with_delimiter schedule.daily_allowance_amount%>円/
+            <%= number_with_delimiter schedule.accommodation_charge_amount%>円
+          </td>
           <td colspan="5">
             <%= schedule.destination %>
             <small><%= schedule.business %></small>
@@ -78,14 +74,14 @@
 <div class='table-responsive'>
   <table class='table table-bordered'>
       <tr class='danger'>
-        <th class='text-right'><%= f Schedule, :daily_allowance %></th>
-        <th class='text-right'><%= f Schedule, :accommodation_charges %></th>
+        <th class='text-right'><%= f Schedule, :daily_allowance_amount %></th>
+        <th class='text-right'><%= f Schedule, :accommodation_charge_amount %></th>
         <th class='text-right'><%= f Schedule, :trip_expense_total %></th>
         <th class='text-right'><%= f Schedule, :total %>　</th>
       </tr>
       <tr>
-        <td class='text-right'><%= number_with_delimiter @schedules.sum(:daily_allowance)%>円</td>
-        <td class='text-right'><%= number_with_delimiter @schedules.sum(:accommodation_charges)%>円</td>
+        <td class='text-right'><%= number_with_delimiter @schedules.sum(:daily_allowance_amount)%>円</td>
+        <td class='text-right'><%= number_with_delimiter @schedules.sum(:accommodation_charge_amount)%>円</td>
         <td class='text-right'><%= number_with_delimiter @schedules.sum{|s|s.trip_expenses.sum(:price)}%>円</td>
         <td class='text-right'><strong><%= number_with_delimiter @schedules.sum{|s|s.total}%>円</strong></td>
       </tr>

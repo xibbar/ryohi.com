@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @employee_daily_allowance.employee_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @employee_daily_allowance.name %>
+</p>
+
+<p>
+  <strong>One day allowance:</strong>
+  <%= @employee_daily_allowance.one_day_allowance %>
+</p>
+
+<p>
+  <strong>Accommodation day allowance:</strong>
+  <%= @employee_daily_allowance.accommodation_day_allowance %>
+</p>
+
+<p>
+  <strong>Return day allowance:</strong>
+  <%= @employee_daily_allowance.return_day_allowance %>
+</p>
+
+<%= link_to 'Edit', [:edit, :rabbix, @employee_daily_allowance] %> |
+<%= link_to 'Back', [:rabbix, :employee_daily_allowances] %>

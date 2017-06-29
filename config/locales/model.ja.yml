@@ -9,8 +9,10 @@ ja:
       target_month:     '旅費清算書'
       schedule:         '出張'
       trip_expense:     '交通費'
-      expense_template: '旅費テンプレート'
+      expense_template: '出張費テンプレート'
       bridge:           '関連企業'
+      daily_allowance:  '日当'
+      accommodation_charge:  '宿泊費'
 
     attributes:
       user:
@@ -81,8 +83,8 @@ ja:
         days:                             '出張日数'
         destination:                      '訪問先'
         business:                         '用件'
-        daily_allowance:                   '日当'
-        accommodation_charges:            '宿泊料'
+        daily_allowance_amount:           '日当'
+        accommodation_charge_amount:      '宿泊料'
         created_at:                       '登録日時'
         updated_at:                       '更新日時'
         total:                            '合計'
@@ -115,6 +117,17 @@ ja:
         bridge_company:                   '関連企業'
         login:                            '関連企業ログインID'
         password:                         '関連企業パスワード'
+      daily_allowance:
+        name:                             '日当の名前'
+        one_day_allowance:                '日帰り日当'
+        accommodation_day_allowance:      '宿泊日の日当'
+        return_day_allowance:             '帰着日の日当'
+        created_at:                       '登録日時'
+        updated_at:                       '更新日時'
+        view:                             '見出し'
+      accommodation_charge:
+        name:                             '宿泊費の名前'
+        amount:                           '宿泊費'
 
   examples:
     user:

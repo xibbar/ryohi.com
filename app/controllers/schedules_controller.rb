@@ -49,8 +49,16 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def daily_allowances
+    @daily_allowances = current_user.employees.find(params[:employee_id]).company.daily_allowances
+  end
+
+  def accommodation_charges
+    @accommodation_charges = current_user.employees.find(params[:employee_id]).company.accommodation_charges
+  end
+
   private
   def schedule_params
-    params.require(:schedule).permit(:employee_id, :date, :days, :destination, :business, :trip_expense_only)
+    params.require(:schedule).permit(:employee_id, :date, :days, :destination, :business, :trip_expense_only, :daily_allowance_id, :accommodation_charge_id)
   end
 end

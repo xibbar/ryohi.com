@@ -1,7 +1,5 @@
 <tr id='<%= dom_id employee %>'>
   <td><%= employee.name %></td>
-  <td><%= number_to_currency employee.daily_allowance %></td>
-  <td><%= number_to_currency employee.accommodation_charges %></td>
   <td><%= link_to t('button.template'), company_employee_expense_templates_path(@company, employee), class: 'btn btn-info' %></td>
   <% unless current_user.expired?( @now ) -%>
     <td><%= link_to t('button.edit'), edit_company_employee_path(@company, employee), remote: true, class: 'btn btn-warning' %></td>

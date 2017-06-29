@@ -1,10 +1,16 @@
 <%= simple_form_for @schedule, class: 'form-horizontal' do |f| %>
   <%= f.input :date, as: :date_time_picker %>
   <%= f.input :days, as: :select, collection: 1..30, include_blank: false %>
-  <%= f.input :employee_id, as: :radio_buttons, collection: @employees.map{|e|["#{e.name} （#{e.company.name}）", e.id]} %>
   <%= f.input :destination %>
   <%= f.input :business, as: :text, input_html: {rows: 5}%>
-  <%= f.input :trip_expense_only %>
+  <%= f.input :employee_id, as: :radio_buttons, collection: @employees.map{|e|["#{e.name} （#{e.company.name}）", e.id]}, input_html: {class: "employee_selection"} %>
+  <div class="form-group radio_buttons optional schedule_daily_allowance_id" id="daily_allowances">
+    <%= render "daily_allowances", {daily_allowances: current_user.employees.find(@schedule.employee_id).company.daily_allowances, daily_allowance_id: @schedule.daily_allowance_id} if @schedule.employee_id %> 
+  </div>
+
+  <div class="form-group radio_buttons optional schedule_accommodation_charge_id" id="accommodation_charges">
+    <%= render "accommodation_charges", {accommodation_charges: current_user.employees.find(@schedule.employee_id).company.accommodation_charges, accommodation_charge_id: @schedule.accommodation_charge_id} if @schedule.employee_id %> 
+  </div>
   <%= f.button :submit, class: 'btn-success' %>
   <%= link_to t('link.back'), @schedule, class: 'btn btn-default'%>
 <% end %>
@@ -14,5 +20,16 @@ $(".form_datetime").datetimepicker({
   locale: "ja",
   format: "YYYY-MM-DD",
   sideBySide: true
+});
+$(".employee_selection").change(function(){
+  $.post(
+    '<%=daily_allowances_schedules_path%>',
+    {employee_id: $(this).val(), daily_allowance_id: '<%=@schedule.daily_allowance_id%>'}
+  );
+  $.post(
+    '<%=accommodation_charges_schedules_path%>',
+    {employee_id: $(this).val(), accommodation_charge_id: '<%=@schedule.accommodation_charge_id%>'}
+  );
+
 });
 </script>

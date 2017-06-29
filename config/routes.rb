@@ -1,4 +1,5 @@
 Ryohiseisan::Application.routes.draw do
+
   get "monthly_report/:employee_id(/:year/:month)", to: 'monthly_reports#show', as: :monthly_report
   get "monthly_reports", to: 'monthly_reports#index'
   resources :email, only: [:new, :create]
@@ -32,8 +33,14 @@ Ryohiseisan::Application.routes.draw do
         end
       end
     end
+    resources :daily_allowances
+    resources :accommodation_charges
   end
   resources :schedules do
+    collection do
+      post 'daily_allowances'
+      post 'accommodation_charges'
+    end
     resources :trip_expenses do
       member do
         get 'add_template'
@@ -77,6 +84,8 @@ Ryohiseisan::Application.routes.draw do
     post 'users' => "users#index", as: :search
 
     get '/' => "users#index", as: :rabbix
+    resources :daily_allowances
+    resources :accommodation_charges
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

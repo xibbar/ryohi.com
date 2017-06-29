@@ -1,0 +1,15 @@
+<%= simple_form_for([:rabbix, @daily_allowance]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :employee_id %>
+    <%= f.input :name %>
+    <%= f.input :one_day_allowance %>
+    <%= f.input :accommodation_day_allowance %>
+    <%= f.input :return_day_allowance %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

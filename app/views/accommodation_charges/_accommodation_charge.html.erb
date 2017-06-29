@@ -1,0 +1,8 @@
+<tr id='<%= accommodation_charge.id %>'>
+  <td><%= accommodation_charge.name%></td>
+  <td><%= accommodation_charge.amount%></td>
+  <td>
+    <%= link_to t('button.edit'), edit_company_accommodation_charge_path( @company, accommodation_charge ), class: 'btn btn-warning' %>  <%= link_to t('button.destroy'), company_accommodation_charge_path( @company, accommodation_charge ), method: :delete, confirm: t('Are you sure?'), class: 'btn btn-danger' %>
+  </td>
+</tr>
+
