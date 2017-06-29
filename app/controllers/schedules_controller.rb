@@ -50,11 +50,19 @@ class SchedulesController < ApplicationController
   end
 
   def daily_allowances
-    @daily_allowances = current_user.employees.find(params[:employee_id]).company.daily_allowances
+    if params[:employee_id]
+      @daily_allowances = current_user.employees.find(params[:employee_id]).company.daily_allowances
+    else
+      render js: "$('#daily_allowances').html('')"
+    end
   end
 
   def accommodation_charges
-    @accommodation_charges = current_user.employees.find(params[:employee_id]).company.accommodation_charges
+    if params[:employee_id] && params[:days] && params[:days].to_i > 1
+      @accommodation_charges = current_user.employees.find(params[:employee_id]).company.accommodation_charges
+    else
+      render js: "$('#accommodation_charges').html('')"
+    end
   end
 
   private

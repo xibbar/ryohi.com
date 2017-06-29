@@ -7,7 +7,8 @@ class Schedule < ActiveRecord::Base
 
   before_validation :create_charges#, :set_date
 
-  validates :employee_id, :days, :destination, :business, :daily_allowance_amount, :accommodation_charge_amount, :date, presence: true
+  validates :employee_id, :days, :destination, :business, :daily_allowance_amount, :accommodation_charge_amount, :date, :daily_allowance_id, presence: true
+  validates :accommodation_charge_id, presence: true, if: :accommodation_charge_id_required? # test required
 
   paginates_per 15
 
@@ -19,29 +20,34 @@ class Schedule < ActiveRecord::Base
     daily_allowance_amount + accommodation_charge_amount + trip_expenses.sum(:price)
   end
 
+  def accommodation_charge_id_required?
+    days && days > 1 
+  end
+
   private
 
   # test required
   def create_charges
     if days == 1
-      self.daily_allowance_amount = self.daily_allowance.one_day_allowance
-      self.accommodation_charge_amount = self.accommodation_charge.amount
+      if daily_allowance
+        self.daily_allowance_amount = daily_allowance.one_day_allowance
+        self.accommodation_charge_amount = 0
+        self.accommodation_charge_id = nil
+      end
     elsif days > 1
-      self.daily_allowance_amount =
-        self.daily_allowance.accommodation_day_allowance * (days-1) +
-        self.daily_allowance.return_day_allowance
-      self.accommodation_charge_amount = self.accommodation_charge.amount * (days - 1)
+      if daily_allowance && accommodation_charge
+        self.daily_allowance_amount =
+          self.daily_allowance.accommodation_day_allowance * (days-1) +
+          self.daily_allowance.return_day_allowance
+        self.accommodation_charge_amount = self.accommodation_charge.amount * (days - 1)
+      end
     end
   end
 
-   def set_date
-#     if date===String
-#       date = Date.parse(date)
-#       trip_date = date.day
-#     end
-#   end
-     if date && trip_date.blank?
-       trip_date = date.day
-     end
-   end
+  def set_date
+    if date && trip_date.blank?
+      trip_date = date.day
+    end
+  end
+
 end
