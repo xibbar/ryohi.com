@@ -37,6 +37,10 @@ Ryohiseisan::Application.routes.draw do
     resources :accommodation_charges
   end
   resources :schedules do
+    collection do
+      post 'daily_allowances'
+      post 'accommodation_charges'
+    end
     resources :trip_expenses do
       member do
         get 'add_template'
