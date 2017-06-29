@@ -9,7 +9,6 @@
 
 <%= simple_form_for @company, class: 'form-horizontal' do |f| %>
   <%= f.input :name %>
-  <%= f.input :daily_allowance %>
   <%= enter_convert t("examples.company.name") %>
   <p>
   <%= f.button :submit, t('link.create'), class: 'btn-primary' %>

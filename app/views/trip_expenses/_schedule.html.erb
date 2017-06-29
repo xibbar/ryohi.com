@@ -18,10 +18,6 @@
         <td><%= @schedule.destination %></td>
       </tr>
       <tr>
-        <th><%= f Schedule, :trip_expense_only %></th>
-        <td><%= t("trip_expense_only.#{@schedule.trip_expense_only}") %></td>
-      </tr>
-      <tr>
         <th><%= f Schedule, :daily_allowance %></th>
         <td><%= number_with_delimiter @schedule.daily_allowance%>円</td>
       </tr>

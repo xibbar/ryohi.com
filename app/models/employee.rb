@@ -5,6 +5,5 @@ class Employee < ActiveRecord::Base
   has_many   :expense_templates, -> { order( :position ) }
   has_many   :schedules, -> { order( date: :desc ) }
 
-  validates :name, :daily_allowance, :accommodation_charges, presence: true
-  validates :daily_allowance, :accommodation_charges, numericality: true
+  validates :name, presence: true
 end

@@ -41,7 +41,6 @@ ja:
         name:                             '企業名'
         created_at:                       '登録日時'
         updated_at:                       '更新日時'
-        daily_allowance:                   '日帰り出張の日当'
       email:
         company_id:                       '企業情報'
         activate_key:                     'アクチベートキー'
@@ -59,8 +58,6 @@ ja:
       employee:
         company_id:                       '企業情報'
         name:                             '氏名'
-        daily_allowance:                   '日当'
-        accommodation_charges:            '宿泊料'
         deleted_at:                       '削除日時'
         created_at:                       '登録日時'
         updated_at:                       '更新日時'
@@ -88,7 +85,6 @@ ja:
         created_at:                       '登録日時'
         updated_at:                       '更新日時'
         total:                            '合計'
-        trip_expense_only:                '交通費のみ'
         employee_id:                      '社員選択'
         trip_expense_total:               '交通費'
       trip_expense:
@@ -148,8 +144,6 @@ ja:
       email:                            '登録されているメールアドレスを入力してください。'
     employee:
       name:                             '社員の氏名を入力してください。'
-      daily_allowance:                   '半角数字で入力してください。'
-      accommodation_charges:            '半角数字で入力してください。'
     target_month:
       employee_id:                      '旅費清算書を作成する社員を選択してください。'
       year:                             '登録する年を選択してください。'
@@ -182,7 +176,6 @@ ja:
         days:                             '出張の日数を選択してください（日間）'
         destination:                      '出張の訪問先を入力してください'
         business:                         '出張の要件を入力してください'
-        trip_expense_only:                '交通費のみの精算の場合はチェックを入れてください'
       trip_expense:
         schedule_id:                      '選択してください。'
         section:                          '例）福島ー東京'

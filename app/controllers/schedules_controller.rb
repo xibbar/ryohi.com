@@ -59,6 +59,6 @@ class SchedulesController < ApplicationController
 
   private
   def schedule_params
-    params.require(:schedule).permit(:employee_id, :date, :days, :destination, :business, :trip_expense_only, :daily_allowance_id, :accommodation_charge_id)
+    params.require(:schedule).permit(:employee_id, :date, :days, :destination, :business, :daily_allowance_id, :accommodation_charge_id)
   end
 end

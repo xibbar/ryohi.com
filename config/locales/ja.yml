@@ -260,12 +260,6 @@ ja:
   round:
     "true": "往復"
     "false": "片道"
-  trip_expense_only:
-    "true": "はい"
-    "false": "いいえ"
-  trip_expense_only_view:
-    "true": "-"
-    "false": ""
   "company_destroy": |-
     社員%{users}名、
     旅費データが%{month}分、%{count}件の登録があります。

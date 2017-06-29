@@ -13,7 +13,6 @@
         <th><%= f Schedule, :date %></th>
         <th><%= f Schedule, :days %></th>
         <th><%= f Schedule, :destination %></th>
-        <th><%= f Schedule, :trip_expense_only %></th>
         <th class='text-right'><%= f Schedule, :total %>　</th>
         <th><%= f Company, :name %></th>
       </tr>
@@ -26,7 +25,6 @@
         <td>
           <%= schedule.destination %>
         </td>
-        <td><%= t("trip_expense_only.#{schedule.trip_expense_only}") %></td>
         <td class='text-right'><%= number_with_delimiter schedule.total%>円</td>
         <td><%= schedule.employee.company.name %></td>
       </tr>
