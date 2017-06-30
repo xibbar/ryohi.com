@@ -23,6 +23,6 @@ class ExpenseTemplate < ActiveRecord::Base
   end
 
   def same_check
-    company.expense_templates.where.not( id: id ).where( section: section, round: round, way: way, price: price ).any?
+    self.company.expense_templates.where.not( id: id ).where( section: section, round: round, way: way, price: price ).any?
   end
 end
