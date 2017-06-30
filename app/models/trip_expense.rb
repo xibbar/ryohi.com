@@ -13,7 +13,7 @@ class TripExpense < ActiveRecord::Base
   end
 
   def add_template
-    expense_template = schedule.employee.expense_templates.build
+    expense_template = schedule.employee.company.expense_templates.build
     expense_template.merge( self )
   end
 end

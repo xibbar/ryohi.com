@@ -6,9 +6,9 @@ class Company < ActiveRecord::Base
   has_many   :schedules, -> { order "schedules.trip_date ASC, schedules.days ASC" }, through: :target_months
   has_many   :bridges, -> { order :position }, dependent: :destroy
   has_many   :bridge_companies, -> { order "bridges.position" }, through: :bridges
-  has_many   :expense_templates, through: :employees
-  has_many   :daily_allowances, -> { order( :position ) }
-  has_many   :accommodation_charges, -> { order( :position ) }
+  has_many   :daily_allowances, -> { order( :position ) }, dependent: :destroy
+  has_many   :accommodation_charges, -> { order( :position ) }, dependent: :destroy
+  has_many   :expense_templates, -> { order( :position ) }, dependent: :destroy
 
   validates :name, presence: true
 end

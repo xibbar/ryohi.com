@@ -2,7 +2,7 @@
   <div class="form-group select">
     <label class='string col-sm-3 control-label'><%= t 'label.select_template' %></label>
     <div class='col-sm-9'>
-      <%= select_tag "template_id", options_for_select( @schedule.employee.expense_templates.map { |expense_template| [ expense_template.view, expense_template.id ] }.unshift( [ "", "" ] ) ), class: 'form-control' %>
+      <%= select_tag "template_id", options_for_select( @schedule.employee.company.expense_templates.map { |expense_template| [ expense_template.view, expense_template.id ] }.unshift( [ "", "" ] ) ), class: 'form-control' %>
       <p class="help-block"><%= t 'hints.select_template' %></p>
     </div>
   </div>

@@ -4,12 +4,14 @@
   <%= f.input :destination %>
   <%= f.input :business, as: :text, input_html: {rows: 5}%>
   <%= f.input :employee_id, as: :radio_buttons, collection: @employees.map{|e|["#{e.name} （#{e.company.name}）", e.id]}, input_html: {class: "employee_selection"} %>
-  <div class="form-group radio_buttons optional schedule_daily_allowance_id" id="daily_allowances">
+  <div class="form-group radio_buttons optional schedule_daily_allowance_id<%=" has-error" if @schedule.errors[:daily_allowance_id].any?%>" id="daily_allowances">
     <%= render "daily_allowances", {daily_allowances: current_user.employees.find(@schedule.employee_id).company.daily_allowances, daily_allowance_id: @schedule.daily_allowance_id} if @schedule.employee_id %> 
   </div>
 
-  <div class="form-group radio_buttons optional schedule_accommodation_charge_id" id="accommodation_charges">
+  <div class="form-group radio_buttons optional schedule_accommodation_charge_id<%=" has-error" if @schedule.errors[:accommodation_charge_id].any?%>" id="accommodation_charges">
+    <% if @schedule.accommodation_charge_id_required? %>
     <%= render "accommodation_charges", {accommodation_charges: current_user.employees.find(@schedule.employee_id).company.accommodation_charges, accommodation_charge_id: @schedule.accommodation_charge_id} if @schedule.employee_id %> 
+    <% end %>
   </div>
   <%= f.button :submit, class: 'btn-success' %>
   <%= link_to t('link.back'), @schedule, class: 'btn btn-default'%>
@@ -28,8 +30,20 @@ $(".employee_selection").change(function(){
   );
   $.post(
     '<%=accommodation_charges_schedules_path%>',
-    {employee_id: $(this).val(), accommodation_charge_id: '<%=@schedule.accommodation_charge_id%>'}
+    {employee_id: $(this).val(), accommodation_charge_id: '<%=@schedule.accommodation_charge_id%>', days: $('#schedule_days').val()}
   );
+
+});
+$("#schedule_days").change(function(){
+  $.post(
+    '<%=daily_allowances_schedules_path%>',
+    {employee_id: $('input[name="schedule[employee_id]"]:checked').val(), daily_allowance_id: '<%=@schedule.daily_allowance_id%>'}
+  );
+  $.post(
+    '<%=accommodation_charges_schedules_path%>',
+    {employee_id: $('input[name="schedule[employee_id]"]:checked').val(), accommodation_charge_id: '<%=@schedule.accommodation_charge_id%>', days: $(this).val()}
+  );
+  $('input[name=lang]:checked').val()
 
 });
 </script>
