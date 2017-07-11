@@ -65,6 +65,7 @@ Ryohiseisan::Application.routes.draw do
   get 'agreement', to: 'web'
   get 'operating_company', to: 'web'
   get 'legal', to: 'web'
+  get 'download_ryohikitei', to: 'session#download_ryohikitei'
 
   namespace 'rabbix' do
     resources :users, only: [ :index ] do

@@ -24,4 +24,11 @@ class SessionController < ApplicationController
 
     render layout: nil
   end
+
+  def download_ryohikitei
+    filepath = File.join(Rails.root, 'public', 'ryohikitei_sample.pdf')
+    stat = File::stat(filepath)
+    send_file(filepath, filename: '旅費規定サンプル.pdf', length: stat.size)
+
+  end
 end
