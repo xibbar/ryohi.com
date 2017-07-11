@@ -51,10 +51,10 @@ class AccommodationChargesController < ApplicationController
   # DELETE /accommodation_charges/1
   # DELETE /accommodation_charges/1.json
   def destroy
-    @accommodation_charge.destroy
-    respond_to do |format|
-      format.html { redirect_to accommodation_charges_url }
-      format.json { head :no_content }
+    if @accommodation_charge.destroy
+      redirect_to company_accommodation_charges_path( @company ), notice: t('notice.destroy', model_name: f(AccommodationCharge))
+    else
+      redirect_to company_accommodation_charges_path( @company ), notice: t('alert.cant_destroy', model_name: f(AccommodationCharge))
     end
   end
 

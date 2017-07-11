@@ -12,7 +12,7 @@ ja:
 
   alert:
     'cant_save': '入力内容に不備があります。'
-    'cant destroy': '削除できませんでした。'
+    'cant_destroy': '削除できませんでした。'
     'failer_login': 'ログインIDかパスワードが間違っています。'
     'code_missing': 'URLが間違っています。'
     'taken': '既に同じ情報が登録されています。'
