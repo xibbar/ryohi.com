@@ -3,7 +3,14 @@
   <%= f.input :days, as: :select, collection: 1..30, include_blank: false %>
   <%= f.input :destination %>
   <%= f.input :business, as: :text, input_html: {rows: 5}%>
-  <%= f.input :employee_id, as: :radio_buttons, collection: @employees.map{|e|["#{e.name} （#{e.company.name}）", e.id]}, input_html: {class: "employee_selection"} %>
+  <%= f.input :employee_id, as: :radio_buttons, collection: @employees.map{|e|
+    if e.company.daily_allowances.empty? || e.company.accommodation_charges.empty?
+      ["#{e.name} （#{e.company.name}）※ 日当または宿泊費が登録されていません", e.id, disabled: true]
+    else
+      ["#{e.name} （#{e.company.name}）", e.id]
+    end
+  }, input_html: {class: "employee_selection"} %>
+
   <div class="form-group radio_buttons optional schedule_daily_allowance_id<%=" has-error" if @schedule.errors[:daily_allowance_id].any?%>" id="daily_allowances">
     <%= render "daily_allowances", {daily_allowances: current_user.employees.find(@schedule.employee_id).company.daily_allowances, daily_allowance_id: @schedule.daily_allowance_id} if @schedule.employee_id %> 
   </div>
@@ -44,6 +51,8 @@ $("#schedule_days").change(function(){
     {employee_id: $('input[name="schedule[employee_id]"]:checked').val(), accommodation_charge_id: '<%=@schedule.accommodation_charge_id%>', days: $(this).val()}
   );
   $('input[name=lang]:checked').val()
-
 });
+$("input[type='radio']:disabled").each(function(){
+  $(this).closest('label').addClass('text-muted');
+})
 </script>

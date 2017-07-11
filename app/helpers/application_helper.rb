@@ -72,7 +72,8 @@ module ApplicationHelper
   # 旅費が登録されていなかったら登録を促す
   def navigation
     if logged_in?
-      if current_user.companies.empty?
+      # 会社が一社も登録されていない場合
+      if current_user.companies.where.not(id: nil).empty?
         content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
           content_tag(:div,  class: 'panel-heading') do
             (t('navigation.no_company')+
@@ -81,32 +82,51 @@ module ApplicationHelper
             ).html_safe
           end
         end
-      elsif current_user.employees.empty?
-        content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
-          content_tag(:div,  class: 'panel-heading') do
-            (t('navigation.no_employee')%{path: link_to(t('link.companies'), companies_path, class: '')}
-            ).html_safe
-          end
-        end
-      elsif current_user.target_months.empty?
-        content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
-          content_tag(:div,  class: 'panel-heading') do
-            (t('navigation.no_target_month')%{path: link_to(t('link.employees'), companies_path, class: '')}
-            ).html_safe
-          end
-        end
-      elsif current_user.schedules.empty?
-        content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
-          content_tag(:div,  class: 'panel-heading') do
-            (t('navigation.no_schedule')%{path: link_to(t('link.employees'), companies_path, class: '')}
-            ).html_safe
-          end
-        end
       else
-        ''
+        # 会社が登録されているが、社員が登録されていない場合
+        if current_user.companies.select{|c|c.employees.empty?}.any?
+          content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
+            content_tag(:div,  class: 'panel-heading') do
+              (t('navigation.no_employee')%{path: link_to(t('link.companies'), companies_path, class: '')}
+              ).html_safe
+            end
+          end
+        # 日当が登録されていない場合
+        elsif current_user.companies.select{|c|c.daily_allowances.empty?}.any?
+          content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
+            content_tag(:div,  class: 'panel-heading') do
+              (t('navigation.no_daily_allowance')%{path: link_to(t('link.companies'), companies_path, class: '')}
+              ).html_safe
+            end
+          end
+        # 宿泊費が登録されていない場合
+        elsif current_user.companies.select{|c|c.accommodation_charges.empty?}.any?
+          content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
+            content_tag(:div,  class: 'panel-heading') do
+              (t('navigation.no_accommodation_charge')%{path: link_to(t('link.companies'), companies_path, class: '')}
+              ).html_safe
+            end
+          end
+        elsif current_user.target_months.where.not(id: nil).empty?
+          content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
+            content_tag(:div,  class: 'panel-heading') do
+              (t('navigation.no_target_month')%{path: link_to(t('link.employees'), companies_path, class: '')}
+              ).html_safe
+            end
+          end
+        elsif current_user.schedules.where.not(id: nil).empty?
+          content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
+            content_tag(:div,  class: 'panel-heading') do
+              (t('navigation.no_schedule')%{path: link_to(t('link.employees'), companies_path, class: '')}
+              ).html_safe
+            end
+          end
+        else
+          ''.html_safe
+        end
       end
     else
-      ''
+      ''.html_safe
     end
   end
 

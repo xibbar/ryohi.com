@@ -5,8 +5,9 @@
     <div class="panel-title pull-left h4"><%= company.name %></div>
   </div>
   <div class="panel-body">
+    <% navicolor = company.employees.any? ? '' : ' text-danger'%>
     <p>
-    <div class="row">
+    <div class="row<%=navicolor%>">
       <div class="col-sm-7 pull-left"><strong><%= t "#{@page_name}.total_employees" %></strong></div>
       <div class="col-sm-5">
         <%= company.employees.count %>
@@ -17,8 +18,9 @@
     </div>
     </p>
     <p>
-    <div class="row">
-      <div class="col-sm-7 pull-left"><strong><%= f DailyAllowance %></strong></div>
+    <% navicolor = company.daily_allowances.any? ? '' : ' text-danger'%>
+    <div class="row<%=navicolor%>">
+      <div class="col-sm-7 pull-left<%=%>"><strong><%= f DailyAllowance %></strong></div>
       <div class="col-sm-5">
         <%= company.daily_allowances.count %>
         <%= link_to company_daily_allowances_path(company), title: t('link.daily_allowances'), class: 'btn btn-info btn-xs pull-right' do %>
@@ -28,7 +30,8 @@
     </div>
     </p>
     <p>
-    <div class="row">
+    <% navicolor = company.accommodation_charges.any? ? '' : ' text-danger'%>
+    <div class="row<%=navicolor%>">
       <div class="col-sm-7 pull-left"><strong><%= f AccommodationCharge %></strong></div>
       <div class="col-sm-5">
         <%= company.accommodation_charges.count %>
