@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :create_default_settings
   after_filter :discard_flash_if_xhr
+  before_filter :force_redirect_to_www
 
   private
 
@@ -31,6 +32,12 @@ class ApplicationController < ActionController::Base
 
   def redirect_back_or_default( default_url, options )
     redirect_to ( request.referer || default_url ), options
+  end
+
+  def force_redirect_to_www
+    if Rails.env == 'production' && request.host =~ /^ryohi\.com/
+      redirect_to 'https://www.ryohi.com/'
+    end
   end
 
 end
