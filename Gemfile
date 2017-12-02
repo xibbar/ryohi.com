@@ -58,8 +58,7 @@ group :development do
 
   gem 'i18n_generators'
 
-  gem 'capistrano', '=2.15.5'
-  gem 'capistrano_colors'
+  gem "capistrano", "~> 3.10"
 
   gem 'rails-footnotes'
   gem 'bullet'
