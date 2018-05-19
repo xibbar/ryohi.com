@@ -107,13 +107,14 @@ module ApplicationHelper
               ).html_safe
             end
           end
-        elsif current_user.target_months.where.not(id: nil).empty?
-          content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
-            content_tag(:div,  class: 'panel-heading') do
-              (t('navigation.no_target_month')%{path: link_to(t('link.employees'), companies_path, class: '')}
-              ).html_safe
-            end
-          end
+#         # ターゲット月が登録されていない場合
+#         elsif current_user.target_months.where.not(id: nil).empty?
+#           content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
+#             content_tag(:div,  class: 'panel-heading') do
+#               (t('navigation.no_target_month')%{path: link_to(t('link.employees'), companies_path, class: '')}
+#               ).html_safe
+#             end
+#           end
         elsif current_user.schedules.where.not(id: nil).empty?
           content_tag(:div,  class: 'panel panel-warning', id: 'navigation') do
             content_tag(:div,  class: 'panel-heading') do
