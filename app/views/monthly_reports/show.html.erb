@@ -82,8 +82,8 @@
       <tr>
         <td class='text-right'><%= number_with_delimiter @schedules.sum(:daily_allowance_amount)%>円</td>
         <td class='text-right'><%= number_with_delimiter @schedules.sum(:accommodation_charge_amount)%>円</td>
-        <td class='text-right'><%= number_with_delimiter @schedules.sum{|s|s.trip_expenses.sum(:price)}%>円</td>
-        <td class='text-right'><strong><%= number_with_delimiter @schedules.sum{|s|s.total}%>円</strong></td>
+        <td class='text-right'><%= number_with_delimiter @schedules.to_a.sum{|s|s.trip_expenses.sum(:price)}%>円</td>
+        <td class='text-right'><strong><%= number_with_delimiter @schedules.to_a.sum{|s|s.total}%>円</strong></td>
       </tr>
   </table>
 </div>
