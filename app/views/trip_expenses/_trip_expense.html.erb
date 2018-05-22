@@ -13,8 +13,8 @@
   <div class="col-sm-3">
   </div>
   <div class="col-sm-9">
-  <%= button_tag t('2_times'), onclick: "var price=parseInt($('#trip_expense_price').val()*2); $('#trip_expense_price').val(price)", class: 'btn btn-info btn-sm'%>
-  <%= button_tag t('divide_2'), onclick: "var price=parseInt($('#trip_expense_price').val()/2); $('#trip_expense_price').val(price)", class: 'btn btn-warning btn-sm'%>
+  <%= button_tag t('2_times'), onclick: "var price=parseInt($('#trip_expense_price').val()*2); $('#trip_expense_price').val(price); return false", class: 'btn btn-info btn-sm'%>
+  <%= button_tag t('divide_2'), onclick: "var price=parseInt($('#trip_expense_price').val()/2); $('#trip_expense_price').val(price); return false", class: 'btn btn-warning btn-sm'%>
   </div>
 </div>
 <div class='panel-footer'>
