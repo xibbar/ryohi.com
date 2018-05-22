@@ -102,5 +102,5 @@ production:
   <<: *defaults
   subject: 
   default_from: "support@ryohi.com"
-  url: "https://ryohi.com"
+  url: "https://www.ryohi.com"
 
