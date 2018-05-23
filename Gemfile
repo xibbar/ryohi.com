@@ -39,6 +39,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'settingslogic'
 
 gem 'puma'
+gem 'unicorn'
 
 gem 'sass-rails', '~> 4.0.0'
 group :assets do
@@ -67,7 +68,4 @@ group :development do
 
 end
 
-group :production do
-  gem 'puma'
-end
 
