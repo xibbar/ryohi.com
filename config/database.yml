@@ -48,5 +48,4 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: ryohiseisan_production
-  pool: 5
+  database: production

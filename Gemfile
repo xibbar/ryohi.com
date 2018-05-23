@@ -59,14 +59,15 @@ group :development do
   gem 'i18n_generators'
 
   gem "capistrano", "~> 3.10"
+  gem "capistrano-rails"
+  gem "capistrano-bundler"
 
   gem 'rails-footnotes'
   gem 'bullet'
 
 end
 
-group :production, :sample, :private_sample do
-  gem 'daemons'
-  gem 'rails_12factor'
+group :production do
+  gem 'puma'
 end
 
