@@ -1,12 +1,13 @@
-workers Integer(ENV['WEB_CONCURRENCY'] || 2)
+workers Integer(ENV['WEB_CONCURRENCY'] || 3)
 threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 5)
 threads threads_count, threads_count
 
 preload_app!
 
 rackup      DefaultRackup
-port        ENV['PORT']     || 3000
+port        ENV['PORT']     || 8080
 environment ENV['RACK_ENV'] || 'development'
+pidfile     'tmp/pids/puma.pid'
 
 on_worker_boot do
   # Worker specific setup for Rails 4.1+
