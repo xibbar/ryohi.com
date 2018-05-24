@@ -8,6 +8,7 @@ rackup      DefaultRackup
 port        ENV['PORT']     || 8080
 environment ENV['RACK_ENV'] || 'development'
 pidfile     'tmp/pids/puma.pid'
+daemonize   true
 
 on_worker_boot do
   # Worker specific setup for Rails 4.1+
