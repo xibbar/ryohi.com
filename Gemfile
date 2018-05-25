@@ -23,7 +23,6 @@ gem 'mail-iso-2022-jp'
 gem 'paranoia', "~> 2.0.0"
 gem 'acts_as_list'
 
-
 gem 'less-rails'
 gem 'therubyracer'
 gem 'execjs'
@@ -39,7 +38,6 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'settingslogic'
 
 gem 'puma'
-gem 'unicorn'
 
 gem 'sass-rails', '~> 4.0.0'
 group :assets do
@@ -62,6 +60,7 @@ group :development do
   gem "capistrano", "~> 3.10"
   gem "capistrano-rails"
   gem "capistrano-bundler"
+  gem "capistrano3-puma"
 
   gem 'rails-footnotes'
   gem 'bullet'
