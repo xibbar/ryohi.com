@@ -8,6 +8,7 @@ server "ryohi.com", user: "production", roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 set :deploy_to, "/home/production/ryohi.com"
+set :puma_conf, "/home/production/ryohi.com/shared/config/puma.rb"
 
 
 
