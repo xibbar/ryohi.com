@@ -1,7 +1,16 @@
-<div class='page-header'>
-  <h1>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.0&appId=268758906470077&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="row">
+  <h1 class="col-xs-8">
     旅費com
   </h1>
+  <div class="col-xs-4 text-right fb-like" data-href="https://ryohi.com/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 </div>
 <div id="carousel_sample" class="carousel slide" data-ride="carousel" data-interval="7000">
   <ol class="carousel-indicators">
@@ -162,6 +171,7 @@ facebookページのみとなっております。
 お問合わせや要望、不具合の報告などはfacebookページからお願いします。
 </p>
 <%= link_to 'facebookページへ', 'https://www.facebook.com/ryohicom/', class: 'btn btn-success btn-sm', roll: 'button', target: '_blank' %>
+<div class="fb-like" data-href="https://www.facebook.com/ryohicom/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 
 <h2 class='text-warning'>開発者の方へ</h2>
 <p>
