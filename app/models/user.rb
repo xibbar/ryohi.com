@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
 
   email_name_regex  = '[\w\.%\+\-]+'.freeze
   domain_head_regex = '(?:[A-Z0-9\-]+\.)+'.freeze
-  domain_tld_regex  = '(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|jobs|museum)'.freeze
+  domain_tld_regex  = '(?:[A-Z]{2,})'.freeze
   email_regex       = /\A#{email_name_regex}@#{domain_head_regex}#{domain_tld_regex}\z/i
   validates_each :email do |record, attr, value|
     record.errors.add(attr, :invalid_email) unless value.blank? || value =~ email_regex
