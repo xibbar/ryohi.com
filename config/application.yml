@@ -59,6 +59,9 @@ defaults: &defaults
     旅費com https://ryohi.com/ 旅費精算書作成システム
     株式会社ラビックス
   release_notes:
+    - version: '2.2'
+      date: 2019-03-26
+      description: "社名が変更できない不具合があったので修正しました。"
     - version: '2.1'
       date: 2018-09-16
       description: "パスワード変更画面にログイン窓が出ていたので、出ないようにしました。"
