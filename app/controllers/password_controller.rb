@@ -8,7 +8,7 @@ class PasswordController < ApplicationController
     user = User.find_by_email(params[:email])
     if user
       user.passwords.create unless user.password
-      Mailer.forgot_password(user).deliver
+      Mailer.forgot_password(user).deliver_now
       redirect_to root_path, notice: t('notice.send')
     else
       flash.now[:alert] = t('alert.cant_save')
