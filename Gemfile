@@ -57,7 +57,7 @@ group :development do
 
   gem 'i18n_generators'
 
-  gem "capistrano", "~> 3.10"
+  gem "capistrano", "~> 3.10.0"
   gem "capistrano-rails"
   gem "capistrano-bundler"
   gem "capistrano3-puma"

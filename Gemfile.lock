@@ -60,7 +60,7 @@ GEM
     bullet (5.9.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
-    capistrano (3.11.0)
+    capistrano (3.10.2)
       airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
@@ -297,7 +297,7 @@ DEPENDENCIES
   acts_as_list
   bootstrap3-datetimepicker-rails (~> 4.14.30)
   bullet
-  capistrano (~> 3.10)
+  capistrano (~> 3.10.0)
   capistrano-bundler
   capistrano-rails
   capistrano3-puma
