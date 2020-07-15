@@ -59,6 +59,9 @@ defaults: &defaults
     旅費com https://ryohi.com/ 旅費精算書作成システム
     株式会社ラビックス
   release_notes:
+    - version: '2.4'
+      date: 2020-07-15
+      description: "消費税の増税前に作成された旅費テンプレートをわかりやすくしました。"
     - version: '2.3'
       date: 2019-04-03
       description: "アカウントが仮登録の状態でパスワードの変更ができてしまう不具合がありましたので修正しました。"

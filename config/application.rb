@@ -23,3 +23,5 @@ module Ryohiseisan
     config.i18n.default_locale = :ja
   end
 end
+
+TaxIncreaseTime = Time.mktime(2019, 10, 1)

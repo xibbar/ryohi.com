@@ -1,5 +1,26 @@
 <tr id='<%= expense_template.position %>'>
-  <td><%= expense_template.view %></td>
+  <td>
+    <%= expense_template.section %>
+  </td>
+  <td>
+    <%= expense_template.way %>
+  </td>
+  <td>
+    <%= I18n.t('round.' + expense_template.round.to_s)%>
+  </td>
+  <td>
+    <%= ActionController::Base.helpers.number_to_currency expense_template.price %>
+  </td>
+  <% if expense_template.updated_at <= TaxIncreaseTime %>
+    <td class="text-danger">
+      <span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>
+      <%= expense_template.updated_at.strftime("%Y-%m-%d") %>
+    </td>
+  <% else %>
+    <td>
+      <%= expense_template.updated_at.strftime("%Y-%m-%d") %>
+    </td>
+  <% end %>
   <% unless current_user.expired?( @now ) -%>
     <td><%= link_to t('button.edit'), edit_company_expense_template_path( @company, expense_template ), class: 'btn btn-warning' %></td>
     <td><%= link_to t('button.destroy'), company_expense_template_path( @company, expense_template ), method: :delete, confirm: t('Are you sure?'), class: 'btn btn-danger' %></td>

@@ -11,7 +11,11 @@ class ExpenseTemplate < ActiveRecord::Base
   end
 
   def view
-    "#{section} #{way} (#{I18n.t('round.' + round.to_s)}) #{ ActionController::Base.helpers.number_to_currency price }"
+    if updated_at >= TaxIncreaseTime
+      "#{section} #{way} (#{I18n.t('round.' + round.to_s)}) #{ ActionController::Base.helpers.number_to_currency price }"
+    else
+      "（！） #{section} #{way} (#{I18n.t('round.' + round.to_s)}) #{ ActionController::Base.helpers.number_to_currency price }"
+    end
   end
 
   def merge( trip_expense )

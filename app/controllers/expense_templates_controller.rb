@@ -29,6 +29,7 @@ class ExpenseTemplatesController < ApplicationController
 
   def update
     if @expense_template.update( expense_template_params )
+      @expense_template.touch
       redirect_to company_expense_templates_path( @company ), notice: t('notice.update', model_name: f(ExpenseTemplate))
     else
       flash.now[:alert] = t('cant_save')

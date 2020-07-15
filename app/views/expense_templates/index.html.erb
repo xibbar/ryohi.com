@@ -9,7 +9,11 @@
 <div class='table-responsive'>
   <table class='table'>
     <tr>
-      <th><%=f ExpenseTemplate, :view %></th>
+      <th><%=f ExpenseTemplate, :section %></th>
+      <th><%=f ExpenseTemplate, :way %></th>
+      <th><%=f ExpenseTemplate, :round %></th>
+      <th><%=f ExpenseTemplate, :price %></th>
+      <th><%=f ExpenseTemplate, :updated_at %></th>
       <% unless current_user.expired?( @now ) -%>
         <th></th>
         <th></th>
