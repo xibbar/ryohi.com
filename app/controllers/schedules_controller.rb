@@ -2,7 +2,7 @@ class SchedulesController < ApplicationController
   before_action :require_login
   before_action :expired_confirm, except: [ :index, :change_company ]
   def index
-    @schedules = current_user.schedules.page(params[:page])
+    @schedules = current_user.schedules.order(date: "DESC").page(params[:page])
   end
 
   def new
