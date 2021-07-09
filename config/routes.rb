@@ -31,6 +31,8 @@ Ryohiseisan::Application.routes.draw do
     resources :accommodation_charges
     resources :expense_templates
   end
+  get ':year/schedules', to: "schedules#index"
+  get ':year/:month/schedules', to: "schedules#index"
   resources :schedules do
     collection do
       post 'daily_allowances'
