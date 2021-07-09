@@ -61,10 +61,10 @@ Ryohiseisan::Application.routes.draw do
 
   get 'menu' => 'session#menu', as: :menu
 
-  get 'privacy_policy', to: 'web'
-  get 'agreement', to: 'web'
-  get 'operating_company', to: 'web'
-  get 'legal', to: 'web'
+  get 'privacy_policy', controller: 'web'
+  get 'agreement', controller: 'web'
+  get 'operating_company', controller: 'web'
+  get 'legal', controller: 'web'
   get 'download_ryohikitei', to: 'session#download_ryohikitei'
 
   namespace 'rabbix' do
