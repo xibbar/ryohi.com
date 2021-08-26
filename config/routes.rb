@@ -1,5 +1,6 @@
 Ryohiseisan::Application.routes.draw do
 
+  get "monthly_report/export_to_yayoi/:company_id/:from_month/:to_month", to: 'monthly_reports#export_to_yayoi'
   get "monthly_report/:employee_id(/:year/:month)", to: 'monthly_reports#show', as: :monthly_report
   get "monthly_reports", to: 'monthly_reports#index'
   resources :email, only: [:new, :create]
