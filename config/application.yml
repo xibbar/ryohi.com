@@ -6,6 +6,8 @@ defaults: &defaults
   url: "http://localhost:3030"
   basic_name: <%= ENV['ADMIN_USER'] %>
   basic_pass: <%= ENV['ADMIN_PASS']%>
+  yayoi_export:
+    - 1
   prefectures:
     - 北海道
     - 青森県
