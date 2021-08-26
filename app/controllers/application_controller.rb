@@ -40,4 +40,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def csv_download( file_name, file_data )
+    send_data( file_data,
+              type: :csv,
+              filename: NKF.nkf( '-U -s -Lw', file_name ),
+              Disposition: 'download' )
+  end
 end
