@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
+  remote: https://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 1d93c5a77049b3d21d17c847ad0531d7714fa229
   branch: bootstrap3
   specs:
@@ -182,7 +182,7 @@ GEM
     pg (0.19.0)
     power_assert (1.2.0)
     public_suffix (4.0.5)
-    puma (4.3.8)
+    puma (4.3.12)
       nio4r (~> 2.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
