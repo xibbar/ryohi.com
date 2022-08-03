@@ -2,16 +2,13 @@ class SchedulesController < ApplicationController
   before_action :require_login
   before_action :expired_confirm, except: [ :index, :change_company ]
   def index
-    if params[:year]
-      if params[:month]
-        @date_range = Date.new(params[:year].to_i, params[:month].to_i)..Date.new(params[:year].to_i, params[:month].to_i).end_of_month
-      else
-        @date_range = Date.new(params[:year].to_i)..(Date.new(params[:year].to_i).end_of_year)
-      end
-      @schedules = current_user.schedules.where(date: @date_range).order(date: "DESC").page(params[:page])
+    if params[:target_month]
+      @target_month = Date.parse(params[:target_month])
     else
-      @schedules = current_user.schedules.order(date: "DESC").page(params[:page])
+      @target_month = Date.today.beginning_of_month
     end
+
+    @schedules = current_user.schedules.where(date: @target_month..@target_month.end_of_month).order(date: "DESC")
   end
 
   def new

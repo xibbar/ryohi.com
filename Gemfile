@@ -27,11 +27,11 @@ gem 'less-rails'
 gem 'therubyracer'
 gem 'execjs'
 gem 'twitter-bootstrap-rails'
-# gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
+# gem 'twitter-bootstrap-rails', :git => 'https://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
 gem 'simple_form'
 
 gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 
 # 設定ファイルの一元化用
