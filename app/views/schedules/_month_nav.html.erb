@@ -1,0 +1,19 @@
+<div class="btn-toolbar" role="toolbar">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%=link_to "|<", schedules_path(target_month: @target_month.last_year)%></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%=link_to "<<", schedules_path(target_month: @target_month-2.month)%></button>
+    <button type="button" class="btn btn-default"><%=link_to "<", schedules_path(target_month: @target_month-1.month)%></button>
+    <button type="button" class="btn btn-default"><%=link_to @target_month.strftime("%Y-%m"), schedules_path(target_month: @target_month)%></button>
+    <button type="button" class="btn btn-default"><%=link_to ">", schedules_path(target_month: @target_month+1.month)%></button>
+    <button type="button" class="btn btn-default"><%=link_to ">>", schedules_path(target_month: @target_month+2.month)%></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%=link_to ">|", schedules_path(target_month: @target_month.next_year)%></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%=link_to "Current", schedules_path(target_month: Date.today.beginning_of_month)%></button>
+  </div>
+</div>
+
