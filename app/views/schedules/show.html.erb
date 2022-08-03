@@ -38,4 +38,4 @@
     <% end %>
   </table>
 </div>
-<%= link_to t('link.back'), schedules_path(target_date: @schedule.date.beginning_of_month), class: 'btn btn-default hidden-print'%>
+<%= link_to t('link.back'), schedules_path(target_month: @schedule.date.beginning_of_month), class: 'btn btn-default hidden-print'%>
