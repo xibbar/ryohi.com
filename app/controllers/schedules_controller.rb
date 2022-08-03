@@ -4,18 +4,22 @@ class SchedulesController < ApplicationController
   def index
     if params[:year]
       if params[:month]
-        date_range = Date.new(params[:year].to_i, params[:month].to_i)..Date.new(params[:year].to_i, params[:month].to_i).end_of_month
+        @date_range = Date.new(params[:year].to_i, params[:month].to_i)..Date.new(params[:year].to_i, params[:month].to_i).end_of_month
       else
-        date_range = Date.new(params[:year].to_i)..(Date.new(params[:year].to_i).end_of_year)
+        @date_range = Date.new(params[:year].to_i)..(Date.new(params[:year].to_i).end_of_year)
       end
-      @schedules = current_user.schedules.where(date: date_range).order(date: "DESC").page(params[:page])
+      @schedules = current_user.schedules.where(date: @date_range).order(date: "DESC").page(params[:page])
     else
       @schedules = current_user.schedules.order(date: "DESC").page(params[:page])
     end
   end
 
   def new
-    @schedule = Schedule.new(date: Date.today)
+    if params[:date]
+      @schedule = Schedule.new(date: params[:date])
+    else
+      @schedule = Schedule.new(date: Date.today)
+    end
     @employees = current_user.employees
   end
 

@@ -2,7 +2,11 @@
   出張の一覧
 </div>
 <p>
+<%if @date_range%>
+<%= link_to t('link.new'), new_schedule_path(date: @date_range.first), class: 'btn btn-default'%>
+<%else%>
 <%= link_to t('link.new'), new_schedule_path, class: 'btn btn-default'%>
+<%end%>
 </p>
 <%= paginate @schedules %>
 <div class='table-responsive'>
