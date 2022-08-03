@@ -2,13 +2,25 @@
   出張の一覧
 </div>
 <p>
-<%if @date_range%>
-<%= link_to t('link.new'), new_schedule_path(date: @date_range.first), class: 'btn btn-default'%>
+<%if @target_month%>
+<%= link_to t('link.new'), new_schedule_path(date: @target_month), class: 'btn btn-default'%>
 <%else%>
 <%= link_to t('link.new'), new_schedule_path, class: 'btn btn-default'%>
 <%end%>
 </p>
-<%= paginate @schedules %>
+<div class="btn-toolbar" role="toolbar">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%=link_to @target_month.last_year.strftime("<< [ %Y-%m ]"), schedules_path(target_month: @target_month.last_year)%></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%=link_to @target_month.last_month.strftime("< %Y-%m"), schedules_path(target_month: @target_month.last_month)%></button>
+    <button type="button" class="btn btn-default"><%=link_to @target_month.strftime("%Y-%m"), schedules_path(target_month: @target_month)%></button>
+    <button type="button" class="btn btn-default"><%=link_to @target_month.next_month.strftime("%Y-%m >"), schedules_path(target_month: @target_month.next_month)%></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%=link_to @target_month.next_year.strftime("[ %Y-%m ] >>"), schedules_path(target_month: @target_month.next_year)%></button>
+  </div>
+</div>
 <div class='table-responsive'>
   <table class='table'>
       <tr>
@@ -35,4 +47,16 @@
     <% end %>
   </table>
 </div>
-<%= paginate @schedules %>
+<div class="btn-toolbar" role="toolbar">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%=link_to @target_month.last_year.strftime("<< [ %Y-%m ]"), schedules_path(target_month: @target_month.last_year)%></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%=link_to @target_month.last_month.strftime("< %Y-%m"), schedules_path(target_month: @target_month.last_month)%></button>
+    <button type="button" class="btn btn-default"><%=link_to @target_month.strftime("%Y-%m"), schedules_path(target_month: @target_month)%></button>
+    <button type="button" class="btn btn-default"><%=link_to @target_month.next_month.strftime("%Y-%m >"), schedules_path(target_month: @target_month.next_month)%></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%=link_to @target_month.next_year.strftime("[ %Y-%m ] >>"), schedules_path(target_month: @target_month.next_year)%></button>
+  </div>
+</div>
