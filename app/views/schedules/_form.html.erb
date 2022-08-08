@@ -21,7 +21,7 @@
     <% end %>
   </div>
   <%= f.button :submit, class: 'btn-success' %>
-  <%= link_to t('link.back'), @schedule, class: 'btn btn-default'%>
+  <%= link_to t('link.back'), schedules_path(target_month: @schedule.date.beginning_of_month), class: 'btn btn-default'%>
 <% end %>
 
 <script>
