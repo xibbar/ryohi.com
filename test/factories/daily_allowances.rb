@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :daily_allowance do
     employee_id 1
     name "MyString"
