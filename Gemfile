@@ -49,6 +49,7 @@ group :test, :development do
   gem 'terminal-notifier-guard'
   gem 'test-unit-rails'
   gem 'guard-test'
+  gem 'simplecov'
 end
 
 group :development do

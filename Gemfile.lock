@@ -82,6 +82,7 @@ GEM
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     daemons (1.3.1)
+    docile (1.3.5)
     erubis (2.7.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
@@ -221,6 +222,11 @@ GEM
     simple_form (4.0.0)
       actionpack (> 4)
       activemodel (> 4)
+    simplecov (0.17.1)
+      docile (~> 1.1)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
     sorcery (0.14.0)
       bcrypt (~> 3.1)
       oauth (~> 0.4, >= 0.4.4)
@@ -322,6 +328,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   settingslogic
   simple_form
+  simplecov
   sorcery
   terminal-notifier-guard
   test-unit-rails
