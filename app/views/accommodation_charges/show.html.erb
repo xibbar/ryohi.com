@@ -15,5 +15,5 @@
   <%= @accommodation_charge.amount %>
 </p>
 
-<%= link_to 'Edit', edit_accommodation_charge_path(@accommodation_charge) %> |
-<%= link_to 'Back', accommodation_charges_path %>
+<%= link_to 'Edit', edit_company_accommodation_charge_path(@accommodation_charge, company_id: @company.id) %> |
+<%= link_to 'Back', company_accommodation_charges_path(company_id: @company.id) %>

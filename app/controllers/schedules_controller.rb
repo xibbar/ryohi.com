@@ -60,7 +60,7 @@ class SchedulesController < ApplicationController
   end
 
   def daily_allowances
-    if params[:employee_id]
+    if params[:employee_id].present?
       @daily_allowances = current_user.employees.find(params[:employee_id]).company.daily_allowances
     else
       render js: "$('#daily_allowances').html('')"
