@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :accommodation_charge do
     company
-    name {"Accommodation Fee"}
+    name {"宿泊費"}
     amount {5000}
   end
 end

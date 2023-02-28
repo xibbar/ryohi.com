@@ -128,4 +128,51 @@ class UserTest < ActiveSupport::TestCase
     assert @user.invalid?(:email)
     assert_includes @user.errors[:current_password], I18n.t('errors.messages.mistake')
   end
+
+  test 'method active?' do
+    assert_not @user.active?
+
+    @user.activate!
+    assert @user.active?
+  end
+
+  test 'method staff_restrict_over?' do
+    company = create(:company, user: @user)
+    create(:employee, company: company)
+    assert_not @user.staff_restrict_over?
+
+    5.times {create(:employee, company: company)}
+    assert @user.staff_restrict_over?
+  end
+
+  test 'method expires_at_view' do
+    assert_equal @user.expires_at_view, I18n.t('none')
+
+    @user.expires_at = Date.today + 1.year
+    assert_equal @user.expires_at_view, I18n.l(@user.expires_at, format: :long)
+  end
+
+  test 'method expired?' do
+    assert_nil @user.expired?
+
+    @user.expires_at = Date.today - 1.month
+    assert @user.expired?
+
+    @user.expires_at = Date.today + 1.month
+    assert_not @user.expired?
+  end
+
+  test 'method search' do
+    assert User.search("sample", "id").blank?
+    assert User.search("User", "id").present?
+  end
+
+  test 'method trip_expenses' do
+    assert @user.trip_expenses
+  end
+
+  test 'method create_login_key' do
+    assert @user.login_key.present?
+    assert User.where(login_key: @user.login_key).where.not(id: @user.id).blank?
+  end
 end

@@ -19,13 +19,22 @@ FactoryBot.define do
     company
   end
   factory :schedule do
-    days {1}
     destination {'北都銀行仙台支店'}
     business {'資金移動'}
     date {Date.new(2023,1,10)}
     employee
     daily_allowance
     accommodation_charge
+    #days {1}
+
+    trait :one_day do
+      days {1}
+    end
+    trait :accommodation do
+      days {2}
+    end
+    factory :one_day_schedule, traits: [:one_day]
+    factory :accommodation_schedule, traits: [:accommodation]
   end
   factory :trip_expense do
     sequence(:section){|n| "福島ー仙台#{n}"}
