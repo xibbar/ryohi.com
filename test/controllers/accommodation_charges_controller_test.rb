@@ -21,11 +21,18 @@ class AccommodationChargesControllerTest < ActionController::TestCase
   end
 
   test "should create accommodation_charge" do
-    assert_difference('AccommodationCharge.count') do
+    assert_difference('AccommodationCharge.count', 1) do
       post :create, accommodation_charge: { amount: @accommodation_charge.amount, company_id: @accommodation_charge.company_id, name: @accommodation_charge.name }, company_id: @company.id
     end
 
     assert_redirected_to company_accommodation_charges_path(@company)
+  end
+
+  test "should fail to create accommodation_charge" do
+    assert_difference('AccommodationCharge.count', 0) do
+      post :create, accommodation_charge: { amount: @accommodation_charge.amount, company_id: @accommodation_charge.company_id, name: nil }, company_id: @company.id
+    end
+    assert_template :new
   end
 
   test "should show accommodation_charge" do
@@ -41,6 +48,12 @@ class AccommodationChargesControllerTest < ActionController::TestCase
   test "should update accommodation_charge" do
     patch :update, id: @accommodation_charge, accommodation_charge: { amount: @accommodation_charge.amount, company_id: @accommodation_charge.company_id, name: @accommodation_charge.name }, company_id: @company.id
     assert_redirected_to company_accommodation_charges_path(@company)
+  end
+
+  test "should fail to update accommodation_charge" do
+    patch :update, id: @accommodation_charge, accommodation_charge: { amount: @accommodation_charge.amount, company_id: @accommodation_charge.company_id, name: nil }, company_id: @company.id
+    assert_template :new
+    assert_equal I18n.t('cant_save'), flash[:alert]
   end
 
   test "should destroy accommodation_charge" do

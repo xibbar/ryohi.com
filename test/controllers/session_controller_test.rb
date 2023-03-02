@@ -17,6 +17,12 @@ class SessionControllerTest < ActionController::TestCase
     assert_equal I18n.t('notice.login_successfull'), flash[:notice]
   end
 
+  test "should fail to login as user" do
+    post :create, login: @user.login, password: "pass"
+    assert_template :new
+    assert_equal I18n.t('alert.failer_login'), flash[:alert]
+  end
+
   test "should logout" do
     login_user @user, signin_path
     get :destroy

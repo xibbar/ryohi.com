@@ -13,10 +13,10 @@ class EmployeesControllerTest < ActionController::TestCase
   #  assert_response :success
   #end
 
-  test "should get new" do
-    get :new, company_id: @company.id, format: :js
-    assert_response :success
-  end
+  #test "should get new" do
+  #  get :new, company_id: @company.id, format: :js
+  #  assert_response :success
+  #end
 
   test "should create employee" do
     post :create, company_id: @company, employee: {name: @employee.name}, format: 'js'

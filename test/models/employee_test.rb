@@ -20,7 +20,7 @@ class EmployeeTest < ActiveSupport::TestCase
   end
 
   test 'method monthly_total' do
-    create(:schedule, employee: @employee)
+    create(:one_day_schedule, employee: @employee)
     s_date = @employee.schedules.first.date
     assert @employee.monthly_total(s_date.year, s_date.month) >= 0
   end

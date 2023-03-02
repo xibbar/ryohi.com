@@ -8,7 +8,7 @@ class SchedulesControllerTest < ActionController::TestCase
     @daily_allowance = @company.daily_allowances.create(attributes_for(:daily_allowance))
     @employee = @company.employees.create(attributes_for(:employee))
     @accommodation_charge = @company.accommodation_charges.create(attributes_for(:accommodation_charge))
-    @schedule = create(:schedule, employee: @employee, daily_allowance: @daily_allowance)
+    @schedule = create(:one_day_schedule, employee: @employee, daily_allowance: @daily_allowance)
   end
 
   test "should get index if target_month exist" do
@@ -60,6 +60,14 @@ class SchedulesControllerTest < ActionController::TestCase
   test "should fail to update schedule" do
     patch :update, id: @schedule.id, schedule: {destination: nil}
     assert_template :edit
+  end
+
+  test "should destroy schedule" do
+    assert_difference('Schedule.count', -1) do
+      delete :destroy, id: @schedule.id
+    end
+    assert_redirected_to schedules_path
+    assert_equal I18n.t('notice.destroy', model_name: Schedule.model_name.human), flash[:notice]
   end
 
   test "should get daily_allowances" do

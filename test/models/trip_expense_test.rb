@@ -7,7 +7,7 @@ class TripExpenseTest < ActiveSupport::TestCase
     @daily_allowance = create(:daily_allowance, company: @company)
     @employee = create(:employee, company: @company)
     @accommodation_charge = create(:accommodation_charge, company: @company)
-    @schedule = create(:schedule, employee: @employee, daily_allowance: @daily_allowance)
+    @schedule = create(:one_day_schedule, employee: @employee, daily_allowance: @daily_allowance)
     @trip_expense = create(:trip_expense, schedule: @schedule)
   end
 
@@ -36,7 +36,7 @@ class TripExpenseTest < ActiveSupport::TestCase
   end
 
   test 'method date' do
-    assert_equal @trip_expense.schedule.date, @schedule.date
+    assert_equal @trip_expense.date, @schedule.date
   end
 
   test 'method section_view' do

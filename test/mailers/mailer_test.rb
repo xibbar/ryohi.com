@@ -31,8 +31,9 @@ class MailerTest < ActionMailer::TestCase
     assert_equal "#{Setting.subject}#{I18n.t('mail.user.activation.complete')}", email.subject
   end
 
-  test 'email' do
-    email = Mailer.email(@user)
+  test 'forgot_password' do
+    @user.passwords.create
+    email = Mailer.forgot_password(@user)
 
     assert_emails 1 do
       email.deliver_now
@@ -40,6 +41,6 @@ class MailerTest < ActionMailer::TestCase
 
     assert_equal ["development@ryohi.sakura.ne.jp"], email.from
     assert_equal [@user.email], email.to
-    assert_equal "#{Setting.subject}#{I18n.t('mail.user.activation.email')}", email.subject
+    assert_equal "#{Setting.subject}#{I18n.t('mail.user.forgot_password')}", email.subject
   end
 end

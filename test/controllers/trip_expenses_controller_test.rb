@@ -8,7 +8,7 @@ class TripExpensesControllerTest < ActionController::TestCase
     @daily_allowance = @company.daily_allowances.create(attributes_for(:daily_allowance))
     @employee = @company.employees.create(attributes_for(:employee))
     @expense_template = @company.expense_templates.create(attributes_for(:expense_template))
-    @schedule = create(:schedule, employee: @employee, daily_allowance: @daily_allowance)
+    @schedule = create(:one_day_schedule, employee: @employee, daily_allowance: @daily_allowance)
     @trip_expense = create(:trip_expense, schedule: @schedule)
   end
 
