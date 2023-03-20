@@ -10,19 +10,19 @@ class AccommodationChargesControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index, company_id: @company.id
+    get :index, params: {company_id: @company.id}
     assert_response :success
     assert_not_nil assigns(:accommodation_charges)
   end
 
   test "should get new" do
-    get :new, company_id: @company.id
+    get :new, params: {company_id: @company.id}
     assert_response :success
   end
 
   test "should create accommodation_charge" do
     assert_difference('AccommodationCharge.count', 1) do
-      post :create, accommodation_charge: { amount: @accommodation_charge.amount, company_id: @accommodation_charge.company_id, name: @accommodation_charge.name }, company_id: @company.id
+      post :create, params: {accommodation_charge: { amount: @accommodation_charge.amount, company_id: @accommodation_charge.company_id, name: @accommodation_charge.name }, company_id: @company.id}
     end
 
     assert_redirected_to company_accommodation_charges_path(@company)
@@ -30,35 +30,35 @@ class AccommodationChargesControllerTest < ActionController::TestCase
 
   test "should fail to create accommodation_charge" do
     assert_difference('AccommodationCharge.count', 0) do
-      post :create, accommodation_charge: { amount: @accommodation_charge.amount, company_id: @accommodation_charge.company_id, name: nil }, company_id: @company.id
+      post :create, params: {accommodation_charge: { amount: @accommodation_charge.amount, company_id: @accommodation_charge.company_id, name: nil }, company_id: @company.id}
     end
     assert_template :new
   end
 
   test "should show accommodation_charge" do
-    get :show, id: @accommodation_charge, company_id: @company.id
+    get :show, params: {id: @accommodation_charge, company_id: @company.id}
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @accommodation_charge, company_id: @company.id
+    get :edit, params: {id: @accommodation_charge, company_id: @company.id}
     assert_response :success
   end
 
   test "should update accommodation_charge" do
-    patch :update, id: @accommodation_charge, accommodation_charge: { amount: @accommodation_charge.amount, company_id: @accommodation_charge.company_id, name: @accommodation_charge.name }, company_id: @company.id
+    patch :update, params: {id: @accommodation_charge, accommodation_charge: { amount: @accommodation_charge.amount, company_id: @accommodation_charge.company_id, name: @accommodation_charge.name }, company_id: @company.id}
     assert_redirected_to company_accommodation_charges_path(@company)
   end
 
   test "should fail to update accommodation_charge" do
-    patch :update, id: @accommodation_charge, accommodation_charge: { amount: @accommodation_charge.amount, company_id: @accommodation_charge.company_id, name: nil }, company_id: @company.id
+    patch :update, params: {id: @accommodation_charge, accommodation_charge: { amount: @accommodation_charge.amount, company_id: @accommodation_charge.company_id, name: nil }, company_id: @company.id}
     assert_template :new
     assert_equal I18n.t('cant_save'), flash[:alert]
   end
 
   test "should destroy accommodation_charge" do
     assert_difference('AccommodationCharge.count', -1) do
-      delete :destroy, id: @accommodation_charge, company_id: @company.id
+      delete :destroy, params: {id: @accommodation_charge, company_id: @company.id}
     end
 
     assert_redirected_to company_accommodation_charges_path(@company)

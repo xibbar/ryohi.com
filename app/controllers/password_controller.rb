@@ -1,5 +1,5 @@
 class PasswordController < ApplicationController
-  before_filter :confirm_reset_code, only: [:edit, :update]
+  before_action :confirm_reset_code, only: [:edit, :update]
 
   def new
   end

@@ -19,7 +19,7 @@ class EmployeesControllerTest < ActionController::TestCase
   #end
 
   test "should create employee" do
-    post :create, company_id: @company, employee: {name: @employee.name}, format: 'js'
+    post :create, params: {company_id: @company, employee: {name: @employee.name}, format: 'js'}
     assert_equal I18n.t('notice.create', model_name: Employee.model_name.human), flash[:notice]
   end
 

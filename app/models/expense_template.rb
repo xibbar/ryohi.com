@@ -1,7 +1,7 @@
 class ExpenseTemplate < ActiveRecord::Base
   acts_as_list scope: :company_id, touch_on_update: false
 
-  belongs_to :employee
+  #belongs_to :employee
   belongs_to :company, required: true
 
   validates :section, :way, :price, presence: true

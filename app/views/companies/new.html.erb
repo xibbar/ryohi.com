@@ -7,12 +7,12 @@
 <%= enter_convert t("#{@page_name}.comment") %>
 </p>
 
-<%= simple_form_for @company, class: 'form-horizontal' do |f| %>
+<%= simple_form_for @company, wrapper: :horizontal_form do |f| %>
   <%= f.input :name %>
-  <%= enter_convert t("examples.company.name") %>
+  <%= f.hint enter_convert t("examples.company.name") %>
   <p>
   <%= f.button :submit, t('link.create'), class: 'btn-primary' %>
-  <%= link_to t('link.back'), companies_path, class: 'btn btn-default' %>
+  <%= link_to t('link.back'), companies_path, class: 'btn btn-secondary' %>
   </p>
 <% end %>
 

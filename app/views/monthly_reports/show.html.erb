@@ -1,26 +1,28 @@
-<div>
-  <div class='h4 col-xs-6'>
+<div class='row' id='monthly-report-show'>
+  <div class='h4 col-sm-6'>
     <%= @employee.company.name %>
     <%= @employee.name %>
   </div>
-  <div class='h4 text-right col-xs-6'>
-    <div class='hidden-print h5'>
-  <%= button_tag t("link.print"), onclick: 'window.print();return false;', class: 'btn btn-info hidden-print text-right'%>
-    </div>
-    <div class='hidden-print h5'>
-      <%= link_to @date.last_month.strftime("<<%Y-%m"), monthly_report_path(year: @date.last_month.year, month: @date.last_month.month) %>
-      <%= link_to "今月", monthly_report_path(@employee) %>
-      <%= link_to @date.next_month.strftime("%Y-%m>>"), monthly_report_path(year: @date.next_month.year, month: @date.next_month.month) %>
-    </div>
-    <%= @date.strftime("%Y年%m月") %>
+</div>
+<div class='row'>
+  <div class='hidden-print'>
+    <%= button_tag t("link.print"), class: "btn btn-info hidden-print float-end", id: "monthly_report_print" %>
   </div>
+</div>
+<div class='row'>
+  <div class='h4 text-end hidden-print'>
+    <%= link_to @date.last_month.strftime("<<%Y-%m"), monthly_report_path(year: @date.last_month.year, month: @date.last_month.month) %>
+    <%= link_to "今月", monthly_report_path(@employee) %>
+    <%= link_to @date.next_month.strftime("%Y-%m>>"), monthly_report_path(year: @date.next_month.year, month: @date.next_month.month) %>
+  </div>
+  <div class='h4 text-end' id='current-month'><%= @date.strftime("%Y年%m月") %></div>
 </div>
 <br />
 
 <div class='h4'>出張と宿泊費・日当</div>
 <div class='table-responsive'>
   <table class='table table-bordered'>
-      <tr class='active'>
+      <tr class='table-active'>
         <th class='hidden-print'></th>
         <th><%= f Schedule, :date %></th>
         <th><%= f Schedule, :daily_allowance_amount %>/<%= f Schedule, :accommodation_charge_amount %></th>
@@ -29,7 +31,7 @@
       <% @schedules.each do |schedule| %>
         <tr>
           <td class='hidden-print'>
-            <%= link_to t("link.edit"), edit_schedule_path(schedule), class: 'btn btn-warning btn-xs hidden-print' %>
+            <%= link_to t("link.edit"), edit_schedule_path(schedule), class: 'btn btn-warning btn-xs' %>
           </td>
           <td><%= schedule.date.strftime("%m/%d") %><small>（<%=days_view schedule.days %>）</small></td>
           <td class='text-right'>
@@ -48,7 +50,7 @@
 <div class='h4'>出張の交通費の明細</div>
 <div class='table-responsive'>
   <table class='table table-bordered'>
-    <tr class='active'>
+    <tr class='table-active'>
       <th class='text-sm'><%= f Schedule, :date %></th>
       <th><%= f(TripExpense, :section) %></td>
       <th><%= f(TripExpense, :round) %></td>
@@ -73,7 +75,7 @@
 <div class='h4'>合計</div>
 <div class='table-responsive'>
   <table class='table table-bordered'>
-      <tr class='danger'>
+      <tr class='table-danger'>
         <th class='text-right'><%= f Schedule, :daily_allowance_amount %></th>
         <th class='text-right'><%= f Schedule, :accommodation_charge_amount %></th>
         <th class='text-right'><%= f Schedule, :trip_expense_total %></th>
@@ -87,4 +89,4 @@
       </tr>
   </table>
 </div>
-<%= link_to t('link.back'), :monthly_reports, class: 'btn btn-default hidden-print'%>
+<span class='hidden-print'><%= link_to t('link.back'), :monthly_reports, class: 'btn btn-secondary' %></span>

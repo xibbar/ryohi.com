@@ -116,6 +116,7 @@ ja:
       accepted: を受諾してください。
       same_value: が現在と同じです。
       blank: を入力してください。
+      required: を入力してください。
       confirmation: と確認の入力が一致しません。
       empty: を入力してください。
       equal_to: は%{count}にしてください。

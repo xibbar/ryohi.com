@@ -18,37 +18,37 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should create company" do
-    post :create, company: {user_id: @user.id, name: @company.name}
+    post :create, params: {company: {user_id: @user.id, name: @company.name}}
     assert_redirected_to companies_path
     assert_equal I18n.t('notice.create', model_name: Company.model_name.human), flash[:notice]
   end
 
   test "should fail to create company" do
-    post :create, company: {user_id: @user.id, name: nil}
+    post :create, params: {company: {user_id: @user.id, name: nil}}
     assert_template :new
     assert_equal I18n.t('alert.cant_save'), flash[:alert]
   end
 
   test "should get edit" do
-    get :edit, id: @company
+    get :edit, params: {id: @company}
     assert_response :success
   end
 
   test "should update company" do
-    patch :update, id: @company, company: {name: @company.name}
+    patch :update, params: {id: @company, company: {name: @company.name}}
     assert_redirected_to companies_path
     assert_equal I18n.t('notice.update', model_name: Company.model_name.human), flash[:notice]
   end
 
   test "should fail to update company" do
-    patch :update, id: @company, company: {name: nil}
+    patch :update, params: {id: @company, company: {name: nil}}
     assert_template :edit
     assert_equal I18n.t('alert.cant_save'), flash[:alert]
   end
 
   test "should destroy company" do
     assert_difference("Company.count", -1) do
-      delete :destroy, id: @company
+      delete :destroy, params: {id: @company}
     end
     assert_redirected_to companies_path
     assert_equal I18n.t('notice.destroy', model_name: Company.model_name.human), flash[:notice]

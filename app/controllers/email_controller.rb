@@ -1,6 +1,6 @@
 class EmailController < ApplicationController
-  before_filter :require_login, except: [:activate]
-  before_filter :confirm_activate_code, only: [:activate]
+  before_action :require_login, except: [:activate]
+  before_action :confirm_activate_code, only: [:activate]
 
   def new
     current_user.emails.build if current_user.emails.empty?

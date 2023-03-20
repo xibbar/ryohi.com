@@ -1,8 +1,8 @@
 class Schedule < ActiveRecord::Base
-  belongs_to :target_month
-  belongs_to :employee, required: true
-  belongs_to :daily_allowance, required: true
-  belongs_to :accommodation_charge
+  #belongs_to :target_month
+  belongs_to :employee
+  belongs_to :daily_allowance
+  belongs_to :accommodation_charge, optional: true
   has_many :trip_expenses, -> { order created_at: :asc }, dependent: :destroy
 
   before_validation :create_charges#, :set_date

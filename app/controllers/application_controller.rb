@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery
-  before_filter :create_default_settings
-  after_filter :discard_flash_if_xhr
-#  before_filter :force_redirect_to_www
+  before_action :create_default_settings
+  after_action :discard_flash_if_xhr
+#  before_action :force_redirect_to_www
 
   private
 

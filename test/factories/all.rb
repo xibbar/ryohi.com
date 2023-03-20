@@ -44,7 +44,8 @@ FactoryBot.define do
     schedule
   end
   factory :expense_template do
-    employee
+    #employee
+    company
     sequence(:section) {|n| "福島ー東京#{n}"}
     way {'新幹線'}
     round {true}

@@ -2,7 +2,7 @@ class ExpenseTemplatesController < ApplicationController
   before_action :require_login
   before_action :expired_confirm, except: [ :index ]
   before_action :set_company
-  before_action :set_expense_template, only: [:move, :edit, :update, :destroy]
+  before_action :set_expense_template, only: [:edit, :update, :destroy]
 
   def index
     @expense_templates = @company.expense_templates

@@ -1,19 +1,19 @@
 <div class="btn-toolbar" role="toolbar">
   <div class="btn-group" role="group">
-    <%=link_to "|<", schedules_path(target_month: @target_month.last_year), class: "btn btn-default"%>
+    <%=link_to "|<", schedules_path(target_month: @target_month.last_year), class: "btn btn-light btn-outline-secondary" %>
   </div>
   <div class="btn-group" role="group">
-    <%=link_to "<<", schedules_path(target_month: @target_month-2.month), class: "btn btn-default"%>
-    <%=link_to "<", schedules_path(target_month: @target_month-1.month), class: "btn btn-default"%>
-    <%=link_to @target_month.strftime("%Y-%m"), schedules_path(target_month: @target_month), class: "btn btn-default"%>
-    <%=link_to ">", schedules_path(target_month: @target_month+1.month), class: "btn btn-default"%>
-    <%=link_to ">>", schedules_path(target_month: @target_month+2.month), class: "btn btn-default"%>
+    <%=link_to "<<", schedules_path(target_month: @target_month-2.month), class: "btn btn-light btn-outline-secondary" %>
+    <%=link_to "<", schedules_path(target_month: @target_month-1.month), class: "btn btn-light btn-outline-secondary" %>
+    <%=link_to @target_month.strftime("%Y-%m"), schedules_path(target_month: @target_month), class: "btn btn-light btn-outline-secondary" %>
+    <%=link_to ">", schedules_path(target_month: @target_month+1.month), class: "btn btn-light btn-outline-secondary" %>
+    <%=link_to ">>", schedules_path(target_month: @target_month+2.month), class: "btn btn-light btn-outline-secondary" %>
   </div>
   <div class="btn-group" role="group">
-    <%=link_to ">|", schedules_path(target_month: @target_month.next_year), class: "btn btn-default"%>
+    <%=link_to ">|", schedules_path(target_month: @target_month.next_year), class: "btn btn-light btn-outline-secondary" %>
   </div>
   <div class="btn-group" role="group">
-    <%=link_to "Current", schedules_path(target_month: Date.today.beginning_of_month), class: "btn btn-default"%>
+    <%=link_to t('button.current'), schedules_path(target_month: Date.today.beginning_of_month), class: "btn btn-light btn-outline-secondary" %>
   </div>
 </div>
 

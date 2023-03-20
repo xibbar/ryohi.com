@@ -12,14 +12,14 @@ class SessionControllerTest < ActionController::TestCase
 
   test "should login as user" do
     @user.update(state: "active")
-    post :create, login: @user.login, password: "password1234"
+    post :create, params: {login: @user.login, password: "password1234"}
     assert_redirected_to schedules_path
     assert_equal I18n.t('notice.login_successfull'), flash[:notice]
   end
 
   test "should fail to login as user" do
-    post :create, login: @user.login, password: "pass"
-    assert_template :new
+    post :create, params: {login: @user.login, password: "pass"}
+    assert_redirected_to root_path
     assert_equal I18n.t('alert.failer_login'), flash[:alert]
   end
 

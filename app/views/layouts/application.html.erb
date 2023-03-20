@@ -8,28 +8,30 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_pack_tag "application", media: "all" %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+    <%= favicon_link_tag 'apple-touch-icon-144x144.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
 
     <!-- For iPhone with high-resolution Retina display: -->
     <!-- Size should be 114 x 114 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+    <%= favicon_link_tag 'apple-touch-icon-114x114.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
 
     <!-- For first- and second-generation iPad: -->
     <!-- Size should be 72 x 72 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+    <%= favicon_link_tag 'apple-touch-icon-72x72.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
 
     <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
     <!-- Size should be 57 x 57 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+    <%= favicon_link_tag 'apple-touch-icon.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
 
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
-    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+    <%#= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
-    <%= javascript_include_tag "application" %>
+    <%#= javascript_include_tag "application" %>
+    <%= javascript_pack_tag "application" %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -37,48 +39,42 @@
     <![endif]-->
   </head>
   <body>
-    <header>
-      <nav class='navbar navbar-default'>
-        <div class='container-fluid'>
-          <div class="navbar-header">
-            <button class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button" aria-expanded="false">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <strong><%= link_to t('project.title'), root_path, class: 'navbar-brand'%></strong>
-          </div>
-          <div class="collapse navbar-collapse" id="navbar">
-            <%= menu_group do %>
-              <% if logged_in? %>
-                <%= content_tag(:li, class: active_current_controller?("schedules")){link_to t('link.schedules'), schedules_path }%>
-                <%= content_tag(:li, class: active_current_controller?("monthly_reports")){link_to t('link.monthly_reports'), monthly_reports_path }%>
-              <% end %>
-            <% end %>
-            <%= menu_group pull: :right do %>
-              <% if params[:controller]=='password' %> 
-              <% else %>
-                <% if logged_in? %>
-                  <%= content_tag(:li, class: active_current_controller?("companies")){link_to t('link.companies'), companies_path }%>
-                  <%= menu_item t('prefix.san', name: current_user.name), users_path %>
-                  <%= menu_item t("link.logout"), signout_path %>
-                <% else %>
-                  <%= form_tag signin_path, class: 'navbar-form navbar-right' do %>
-                    <div class="form-group">
-                      <%= text_field_tag :login, '', class: 'form-control', placeholder: f(User, :login), autocapitalize: 'off', style: 'ime-mode: inactive;'%>
-                    </div>
-                    <div class="form-group">
-                      <%= password_field_tag :password, '', class: 'form-control', placeholder: f(User, :password) %>
-                    </div>
-                    <div class="form-group">
-                      <%= submit_tag t('button.login'), class: 'btn btn-primary' %>
-                    </div>
-                    <div class="form-group small">
-                      <%= menu_item t('link.forgot_password'), password_index_path  %>
-                    </div>
-                  <% end %>
+    <header class='hidden-print'>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light border-bottom py-2">
+        <div class="container-fluid">
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#Navbar" aria-controls="Navbar" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <%= image_tag 'bag_b.png', class: 'd-inline-block', size: '40x40' %>
+          <strong><%= link_to t('project.title'), root_path, class: 'navbar-brand' %></strong>
+          <div class="collapse navbar-collapse d-flex" id="navbarNavAltMarkup">
+            <% if logged_in? %>
+              <ul class="navbar-nav">
+                <%= content_tag(:li, class: active_current_controller?("schedules")){link_to t('link.schedules'), schedules_path, class: 'nav-link'} %>
+                <%= content_tag(:li, class: active_current_controller?("monthly_reports")){link_to t('link.monthly_reports'), monthly_reports_path, class: 'nav-link'} %>
+              </ul>
+              <ul class="navbar-nav ms-auto">
+                <%= content_tag(:li, class: active_current_controller?("companies")){link_to t('link.companies'), companies_path, class: 'nav-link'} %>
+                <%= link_to t('prefix.san', name: current_user.name), users_path, class: 'nav-link' %>
+                <%= link_to t("link.logout"), signout_path, class: 'nav-link' %>
+              </ul>
+            <% else %>
+              <div class="ms-auto">
+                <%= form_with url: signin_path, class: 'row align-items-center', local: true do %>
+                  <div class="col-auto">
+                    <%= text_field_tag :login, '', class: 'form-control', placeholder: f(User, :login), autocapitalize: 'off', style: 'ime-mode: inactive;' %>
+                  </div>
+                  <div class="col-auto">
+                    <%= password_field_tag :password, '', class: 'form-control', placeholder: f(User, :password) %>
+                  </div>
+                  <div class="col-auto">
+                    <%= submit_tag t('button.login'), class: 'btn btn-primary' %>
+                  </div>
+                  <div class="form-group small col-auto">
+                    <%= link_to t('link.forgot_password'), password_index_path, class: "position-relative top-50" %>
+                  </div>
                 <% end %>
-              <% end %>
+              </div>
             <% end %>
           </div>
         </div>
@@ -87,7 +83,7 @@
 
 
     <% if logged_in? && current_user.expired? %>
-      <div class="container">
+      <div class="container hidden-print">
         <div class="panel panel-danger">
           <div class="panel-heading">
             <h4>
@@ -102,36 +98,34 @@
         </div>
       </div>
     <% end %>
-    <div class="container">
+    <div class="container py-3 border-bottom">
       <span id='bodyFlash' class="hidden-print">
-        <%= bootstrap_flash %>
-        <%= navigation %>
+        <%#= bootstrap_flash %>
+        <%#= navigation %>
+        <%= render 'layouts/flash' %>
       </span>
       <%= yield %>
-
-
     </div> <!-- /container -->
-    <footer class='footer'>
-      <div class='container small'>
-        <hr class='hidden-print' />
-        <ul class='list-inline'>
-          <li class=''>
+    <footer class='footer pt-3 hidden-print'>
+      <div class='container small text-center'>
+        <div class='row align-items-center'>
+          <div class='col-sm-auto border-end'>
             <span class='text-muted'><%= t('project.title') %></span>
             <span class='text-muted footer-padding'><%= t('project.copyright') %></span>
-          </li>
-          <li class='footer-bar hidden-print'>
+          </div>
+          <div class='col-sm-auto border-end'>
             <%= link_to t('link.privacy_policy'), privacy_policy_path, class: 'footer-padding'%>
-          </li>
-          <li class='footer-bar hidden-print'>
+          </div>
+          <div class='col-sm-auto border-end'>
             <%= link_to t('link.agreement'), agreement_path, class: 'footer-padding'%>
-          </li>
-          <li class='footer-bar hidden-print'>
+          </div>
+          <div class='col-sm-auto border-end'>
             <%= link_to t('link.operating_company'), operating_company_path, class: 'footer-padding'%>
-          </li>
-          <li class='footer-bar hidden-print'>
+          </div>
+          <div class='col-sm-auto'>
             <%= link_to t('link.legal'), legal_path, class: 'footer-padding'%>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </footer>
   </body>

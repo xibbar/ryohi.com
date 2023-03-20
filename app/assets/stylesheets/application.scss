@@ -13,3 +13,39 @@
  *= require_tree .
  */
 
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+
+#ryohikitei {
+  background-color: $cyan-300;
+}
+
+.text-explain {
+  color: $cyan-700;
+}
+
+.text-yellow700{
+  color: $yellow-700;
+}
+
+#signup_btn {
+  color: white;
+  background-color: $blue-400;
+}
+
+.navbar-nav {
+  li {
+    padding: 3px 7px;
+  }
+  li.active{
+    background-color: $gray-300;
+  }
+}
+
+.release_note {
+  color: $orange-600;
+}
+
+.print-off {
+  display: none;
+}

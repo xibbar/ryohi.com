@@ -14,7 +14,7 @@ class MonthlyReportsControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show, employee_id: @employee.id
+    get :show, params: {employee_id: @employee.id}
     assert_response :success
   end
 end

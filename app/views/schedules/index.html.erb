@@ -3,9 +3,9 @@
 </div>
 <p>
 <%if @target_month%>
-<%= link_to t('link.new'), new_schedule_path(date: @target_month), class: 'btn btn-default'%>
+<%= link_to t('link.new'), new_schedule_path(date: @target_month), class: 'btn btn-primary' %>
 <%else%>
-<%= link_to t('link.new'), new_schedule_path, class: 'btn btn-default'%>
+<%= link_to t('link.new'), new_schedule_path, class: 'btn btn-primary' %>
 <%end%>
 </p>
 <%= render "month_nav" %>

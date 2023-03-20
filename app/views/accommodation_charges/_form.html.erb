@@ -1,11 +1,11 @@
-<%= simple_form_for @accommodation_charge, url: [@company, @accommodation_charge] do |f| %>
+<%= simple_form_for @accommodation_charge, url: [@company, @accommodation_charge], wrapper: :horizontal_form do |f| %>
 
-  <div class="form-inputs">
+  <div class="form-inputs mb-3">
     <%= f.input :name %>
     <%= f.input :amount %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions mb-3">
     <%= f.button :submit, class: 'btn-primary' %>
   </div>
 <% end %>

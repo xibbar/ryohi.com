@@ -13,45 +13,45 @@ class TripExpensesControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new, schedule_id: @schedule.id
+    get :new, params: {schedule_id: @schedule.id}
     assert_response :success
   end
 
   test "should create trip_expense" do
-    post :create, schedule_id: @schedule.id, trip_expense: {section: @trip_expense.section, round: @trip_expense.round, way: @trip_expense.way, price: @trip_expense.price}
+    post :create, params: {schedule_id: @schedule.id, trip_expense: {section: @trip_expense.section, round: @trip_expense.round, way: @trip_expense.way, price: @trip_expense.price}}
     assert_redirected_to schedule_path(@schedule)
     assert_equal I18n.t('notice.create', model_name: TripExpense.model_name.human), flash[:notice]
   end
 
   test "should fail to create trip_expense" do
-    post :create, schedule_id: @schedule.id, trip_expense: {section: nil}
+    post :create, params: {schedule_id: @schedule.id, trip_expense: {section: nil}}
     assert_template :new
   end
 
   test "should get edit" do
-    get :edit, schedule_id: @schedule.id, id: @trip_expense.id
+    get :edit, params: {schedule_id: @schedule.id, id: @trip_expense.id}
     assert_response :success
   end
 
   test "should update trip_expense" do
-    patch :update, schedule_id: @schedule.id, id: @trip_expense.id, trip_expense: {section: @trip_expense.section}
+    patch :update, params: {schedule_id: @schedule.id, id: @trip_expense.id, trip_expense: {section: @trip_expense.section}}
     assert_redirected_to schedule_path(@schedule)
     assert_equal I18n.t('notice.update', model_name: TripExpense.model_name.human), flash[:notice]
   end
 
   test "should fail to update trip_expense" do
-    patch :update, schedule_id: @schedule.id, id: @trip_expense.id, trip_expense: {section: nil}
+    patch :update, params: {schedule_id: @schedule.id, id: @trip_expense.id, trip_expense: {section: nil}}
     assert_template :edit
   end
 
   test "should destroy trip_expense" do
-    delete :destroy, schedule_id: @schedule.id, id: @trip_expense.id
+    delete :destroy, params: {schedule_id: @schedule.id, id: @trip_expense.id}
     assert_redirected_to schedule_path(@schedule)
     assert_equal I18n.t('notice.destroy', model_name: TripExpense.model_name.human), flash[:notice]
   end
 
   test "should render valid expense_template" do
-    post :merge_template, schedule_id: @schedule.id, expense_template_id: @expense_template.id
+    post :merge_template, params: {schedule_id: @schedule.id, expense_template_id: @expense_template.id}
     json_response = JSON.parse(response.body)
     assert_equal @expense_template.section, json_response["section"]
     assert_equal @expense_template.round, json_response["round"]
@@ -60,7 +60,7 @@ class TripExpensesControllerTest < ActionController::TestCase
   end
 
   test "should render invalid expense_template" do
-    post :merge_template, schedule_id: @schedule.id
+    post :merge_template, params: {schedule_id: @schedule.id}
     json_response = JSON.parse(response.body)
     assert_equal "", json_response["section"]
     assert_equal true, json_response["round"]
@@ -69,14 +69,14 @@ class TripExpensesControllerTest < ActionController::TestCase
   end
 
   test "should add expense_template" do
-    get :add_template, schedule_id: @schedule.id, id: @trip_expense.id
+    get :add_template, params: {schedule_id: @schedule.id, id: @trip_expense.id}
     assert_redirected_to schedule_path(@schedule)
     assert_equal I18n.t('notice.add', model_name: ExpenseTemplate.model_name.human), flash[:notice]
   end
 
   test "should fail to add expense_template" do
     @trip_expense.update(section: @expense_template.section)
-    get :add_template, schedule_id: @schedule.id, id: @trip_expense.id
+    get :add_template, params: {schedule_id: @schedule.id, id: @trip_expense.id}
     assert_redirected_to schedule_path(@schedule)
     assert_equal I18n.t('alert.taken'), flash[:alert]
   end
