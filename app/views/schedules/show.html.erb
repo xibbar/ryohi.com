@@ -1,8 +1,8 @@
 <div class='h2 mb-3' id='schedule-show'>
-  出張の詳細
+  <%=t '.title' %>
 </div>
 <div class='row border-bottom pb-1'>
-  <div class='h4 col-sm-6'>出張の内容</div>
+  <div class='h4 col-sm-6'><%=t '.content' %></div>
   <div class='col-sm-6 float-end hidden-print'>
     <%#= button_tag t("link.print"), onclick: 'window.print();return false;', class: 'btn btn-info hidden-print'%>
     <%= button_tag t("link.print"), class: "btn btn-info", id: "schedule-print" %>
@@ -12,7 +12,7 @@
 </div>
 <%= render "schedule" %>
 <div class='row border-bottom'>
-  <div class='h4 col-sm-6 mt-3'>出張の交通費</div>
+  <div class='h4 col-sm-6 mt-3'><%=t '.expense' %></div>
   <div class='col-sm-6 float-end hidden-print'>
     <%= link_to t("link.new"), new_schedule_trip_expense_path(@schedule), class: 'btn btn-primary' %>
   </div>
@@ -31,7 +31,7 @@
         <td><%= trip_expense.section %></td>
         <td><%= t "round.#{trip_expense.round}" %></td>
         <td><%= trip_expense.way %></td>
-        <td><%= number_with_delimiter trip_expense.price %>円</td>
+        <td><%= number_with_delimiter trip_expense.price %><%=t 'yen' %></td>
         <td class='hidden-print'>
           <%= link_to add_template_schedule_trip_expense_path(@schedule, trip_expense), data: { confirm: t('add_confirm') }, title: t('button.titles.add_template'), class: 'btn btn-info btn-sm' do %>
             <%= content_tag(:i, t("button.add_template"),class: 'glyphicon glyphicon-save') -%>

@@ -4,7 +4,7 @@
   <td><%= user.prefecture %></td>
   <td>
     <%= user.employees.count %>
-    （<span class='staff_restrict'><%= link_to t( "number_to_restrict", count: user.staff_restrict ), edit_staff_restrict_rabbix_user_path( user ), data: { remote: true } %></span>）
+    (<span class='staff_restrict'><%= link_to t( "number_to_restrict", count: user.staff_restrict ), edit_staff_restrict_rabbix_user_path( user ), data: { remote: true } %></span>)
   </td>
   <td><%= user.schedules.count %> / <%= user.trip_expenses.count %></td>
   <td><%=l user.created_at, format: :date%></td>

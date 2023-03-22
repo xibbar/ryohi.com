@@ -5,9 +5,9 @@
   <%= f.input :business, as: :text, input_html: {rows: 5} %>
   <%= f.input :employee_id, as: :radio_buttons, collection: @employees.map{|e|
     if e.company.daily_allowances.empty? || e.company.accommodation_charges.empty?
-      ["#{e.name} （#{e.company.name}）※ 日当または宿泊費が登録されていません", e.id, disabled: true]
+      [t('.no_accommodation_expense', name: e.name, company: e.company.name), e.id, disabled: true]
     else
-      ["#{e.name} （#{e.company.name}）", e.id]
+      [t('.name_company', name: e.name, company: e.company.name), e.id]
     end
   }, input_html: {class: "employee_selection"}, wrapper: :horizontal_collection %>
 

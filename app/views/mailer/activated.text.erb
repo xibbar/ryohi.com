@@ -1,7 +1,4 @@
-<%= @user.name %> 様
-
-旅費清算システムにアカウント登録が完了致しました。
-以下のURLからログインしてシステムをご利用ください。
+<%=t '.body', name: @user.name %>
 
 <%= Setting.url %>
 <%= Setting.signature %>

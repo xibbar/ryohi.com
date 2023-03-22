@@ -42,6 +42,7 @@ ja:
       default: ! '%Y/%m/%d'
       long: ! '%Y年%m月%d日(%a)'
       short: ! '%m/%d'
+      short_ja: '%Y年%m月'
     month_names:
     -
     - 1月
@@ -250,6 +251,7 @@ ja:
       next: '&rsaquo;'
       last: '&rsaquo;|'
       truncate: '...'
+
   "Are you sure?": '本当によろしいですか？'
   'add_confirm': '定型に追加してよろしいですか？'
   "cant_save": '入力内容に不備があります。'
@@ -267,8 +269,10 @@ ja:
 
     企業を削除すると全て消えてしまいますがよろしいですか？
 
+  app_name: '旅費com'
   number_to_restrict: "%{count} 名まで"
   none: "設定なし"
+  yen: '円'
   datepicker:
     dformat: '%Y/%m/%d'             # display format of the date (this is the default, can be ommited)
     pformat: 'YYYY/MM/DD'           # picking format of the date (this is the default, can be ommited)

@@ -1,7 +1,4 @@
-<%= @user.name %> 様
-
-旅費清算システムに登録されているメールアドレスの変更を受け付けました。
-以下のURLにアクセスして、変更を有効にしてください。
+<%=t '.body', name: @user.name %>
 
 <%= Setting.url %><%= url_for email_activate_path(login_key: @user.login_key, activate_key: @user.emails.first.activate_key) %>
 <%= Setting.signature %>

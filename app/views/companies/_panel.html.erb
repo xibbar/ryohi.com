@@ -43,7 +43,7 @@
     </p>
     <p>
     <div class="row">
-      <div class="col-sm-8 pull-left"><strong>交通費テンプレート</strong></div>
+      <div class="col-sm-8 pull-left"><strong><%=t '.template' %></strong></div>
       <div class="col-sm-4">
         <%= company.expense_templates.count %>
         <%= link_to company_expense_templates_path(company), title: t('link.accommodation_charges'), class: 'btn btn-info btn-sm float-end' do %>
@@ -54,7 +54,7 @@
     </p>
     <p>
     <div class="row">
-      <div class="col-sm-5"><strong>登録日</strong></div>
+      <div class="col-sm-5"><strong><%=t '.registration_date' %></strong></div>
       <div class="col-sm-7 text-end">
         <%=l company.created_at, format: :date %>
       </div>

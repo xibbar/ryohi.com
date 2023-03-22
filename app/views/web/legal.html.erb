@@ -1,79 +1,47 @@
 <h3>
-  <span class='label label-primary'>特定商取引法に基づく表記</span>
+  <span class='label label-primary'><%=t '.title' %></span>
 </h3>
 <div class='table-responsive'>
   <table class='table'>
     <tr>
-      <th>運営事業者</th>
-      <td>株式会社 ラビックス</td>
+      <th><%=t '.topic1' %></th>
+      <td><%= enter_convert t('.content1') %></td>
     </tr>
     <tr>
-      <th>代表者</th>
-      <td>藤岡 岳之</td>
+      <th><%=t '.topic2' %></th>
+      <td><%= enter_convert t('.content2') %></td>
     </tr>
     <tr>
-      <th>所在地</th>
-      <td>
-        〒960-8031<br />
-        福島県福島市栄町7-31　KYBビル3F
-      </td>
+      <th><%=t '.topic3' %></th>
+      <td><%= enter_convert t('.content3') %></td>
     </tr>
     <tr>
-      <th>連絡先</th>
-      <td>
-        TEL : 024-563-7851<br />
-        MAIL: xibbar@gmail.com<br />
-
-        <p>
-        現在このサービスは藤岡の個人プロジェクト扱いですので、
-        問い合わせはメールで上記藤岡のgmail宛にお願いします。
-        </p>
-
-      </td>
+      <th><%=t '.topic4' %></th>
+      <td><%= enter_convert t('.content4') %></td>
     </tr>
     <tr>
-      <th>お支払い方法</th>
-      <td>
-        ■ 銀行振込<br />
-        　 ジャパンネット銀行　すずめ支店（スズメ）<br />
-        　 普通 7110129<br />
-        　 カ) ラビックス<br />
-        <br />
-        ■ クレジットカード決済<br />
-        　 MASTER CARD / VISA / AMERICAN EXPRESS / JCB
-      </td>
+      <th><%=t '.topic5' %></th>
+      <td><%= enter_convert t('.content5') %></td>
     </tr>
     <tr>
-      <th>利用価格</th>
-      <td>
-        1つのアカウントで5名まで無料です。6名以上でのご利用希望は有料となります。詳しくはお問い合わせください。
-      </td>
+      <th><%=t '.topic6' %></th>
+      <td><%= enter_convert t('.content6') %></td>
     </tr>
     <tr>
-      <th>商品代金以外の<br />必要料金</th>
-      <td>
-        ・銀行振込時の振込手数料<br />
-        ・クレジットカード決済時の決済手数料<br />
-        ・インターネット接続料金、通信料金等
-      </td>
+      <th><%=t '.topic7' %></th>
+      <td><%= enter_convert t('.content7') %></td>
     </tr>
     <tr>
-      <th>商品の引渡し</th>
-      <td>
-        ■ 銀行振込<br />
-        　 指定口座への振込を確認後、2営業日中に反映いたします。<br />
-        <br />
-        ■ クレジットカード決済<br />
-        　 ご購入手続き後、2営業日以内に反映いたします。。
-      </td>
+      <th><%=t '.topic8' %></th>
+      <td><%= enter_convert t('.content8') %></td>
     </tr>
     <tr>
-      <th>キャンセルについて</th>
-      <td>購入後のキャンセルはお受けできません。</td>
+      <th><%=t '.topic9' %></th>
+      <td><%= enter_convert t('.content9') %></td>
     </tr>
   </table>
 </div>
 <br />
 <p>
-<%= link_to t('link.back'), root_path, class: 'btn btn-default' %>
+<%= link_to t('link.back'), root_path, class: 'btn btn-secondary' %>
 </p>

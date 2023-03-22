@@ -1,14 +1,16 @@
-<div class='panel panel-default'>
-  <div class='panel-heading'>
-    <div class='panel-title'>
+<div class='card'>
+  <div class='card-header'>
+    <div class='card-title'>
       <div class='h3'>
-        出張の交通費の更新
+        <%=t '.title' %>
       </div>
     </div>
   </div>
-  <%= simple_form_for @trip_expense, url: schedule_trip_expense_path(@schedule, @trip_expense), method: :patch, class: 'form-horizontal' do |f| %>
-    <%= render "trip_expense", f: f %>
-  <% end %>
+  <div class='card-body'>
+    <%= simple_form_for @trip_expense, url: schedule_trip_expense_path(@schedule, @trip_expense), method: :patch, class: 'form-horizontal' do |f| %>
+      <%= render "trip_expense", f: f %>
+    <% end %>
+  </div>
 </div>
 <%= javascript_tag <<-JAVASCRIPT
       $('#template_id').on('change', function(){
@@ -28,4 +30,3 @@ JAVASCRIPT
 
 <%= render 'schedules/schedule' %>
 <%= render "trip_expenses" %>
-
