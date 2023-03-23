@@ -1,0 +1,9 @@
+document.getElementById('form').innerHTML = '';
+document.getElementById('newLink').style.display = 'block';
+
+var close_alerts = document.getElementsByClassName('alert');
+if(close_alerts){
+  for(let i = close_alerts.length;i > 0;i--){
+    close_alerts[i - 1].remove();
+  }
+}
