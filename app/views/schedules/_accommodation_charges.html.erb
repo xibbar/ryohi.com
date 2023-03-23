@@ -1,6 +1,6 @@
 <% if accommodation_charges.present? %>
   <label class="col-sm-3 col-form-label radio_buttons optional"><%= f AccommodationCharge%></label>
-  <div class="col-sm-9">
+  <div class="col-sm-9 vstack">
     <% accommodation_charges.each do |accommodation_charge|%>
       <span class="radio">
         <label for="schedule_accommodation_charge_id_<%=accommodation_charge.id%>">

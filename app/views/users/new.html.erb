@@ -1,6 +1,7 @@
 <h2><%=t "#{@page_name}.title" %></h2>
 
-<p><%=t '.top' %></p>
+<p><%= enter_convert t('.top') %></p>
+
 <div class="container">
   <%= simple_form_for @user, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f| %>
     <%= f.input :login, placeholder: t('examples.user.login') %>
@@ -11,7 +12,7 @@
     <%= f.input :prefecture, prompt: t("examples.user.prefecture"), collection: Setting.prefectures %>
 
     <%= f.button :submit, t('button.create'), class: 'btn-primary' %>
-    <%= link_to t('link.back'), root_path, class: 'btn btn-default' %>
+    <%= link_to t('link.back'), root_path, class: 'btn btn-secondary' %>
   <% end %>
 </div>
 
