@@ -1,7 +1,7 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :accommodation_charge do
-    company_id 1
-    name "MyString"
-    amount 1
+    company
+    name {"宿泊費"}
+    amount {5000}
   end
 end

@@ -22,19 +22,19 @@
       </tr>
       <tr>
         <th><%= f Schedule, :daily_allowance_amount %></th>
-        <td><%= number_with_delimiter @schedule.daily_allowance_amount%>円</td>
+        <td><%= number_with_delimiter @schedule.daily_allowance_amount%><%=t 'yen' %></td>
       </tr>
       <tr>
         <th><%= f Schedule, :accommodation_charge_amount %></th>
-        <td><%= number_with_delimiter @schedule.accommodation_charge_amount%>円</td>
+        <td><%= number_with_delimiter @schedule.accommodation_charge_amount%><%=t 'yen' %></td>
       </tr>
       <tr>
         <th><%= f Schedule, :trip_expense_total %></th>
-        <td><%= number_with_delimiter @schedule.trip_expenses.sum(:price)%>円</td>
+        <td><%= number_with_delimiter @schedule.trip_expenses.sum(:price)%><%=t 'yen' %></td>
       </tr>
       <tr>
         <th><%= f Schedule, :total %></th>
-        <td><%= number_with_delimiter @schedule.total%>円</td>
+        <td><%= number_with_delimiter @schedule.total%><%=t 'yen' %></td>
       </tr>
       <tr>
         <th><%= f Company, :name %></th>

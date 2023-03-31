@@ -1,36 +1,37 @@
-<%= simple_form_for @schedule, class: 'form-horizontal' do |f| %>
+<%= simple_form_for @schedule, wrapper: :horizontal_form do |f| %>
   <%= f.input :date, as: :date_time_picker %>
-  <%= f.input :days, as: :select, collection: 1..30, include_blank: false %>
+  <%= f.input :days, as: :select, collection: 1..30, include_blank: false, wrapper: :horizontal_select %>
   <%= f.input :destination %>
-  <%= f.input :business, as: :text, input_html: {rows: 5}%>
+  <%= f.input :business, as: :text, input_html: {rows: 5} %>
   <%= f.input :employee_id, as: :radio_buttons, collection: @employees.map{|e|
     if e.company.daily_allowances.empty? || e.company.accommodation_charges.empty?
-      ["#{e.name} （#{e.company.name}）※ 日当または宿泊費が登録されていません", e.id, disabled: true]
+      [t('.no_accommodation_expense', name: e.name, company: e.company.name), e.id, disabled: true]
     else
-      ["#{e.name} （#{e.company.name}）", e.id]
+      [t('.name_company', name: e.name, company: e.company.name), e.id]
     end
-  }, input_html: {class: "employee_selection"} %>
+  }, input_html: {class: "employee_selection"}, wrapper: :horizontal_collection %>
 
-  <div class="form-group radio_buttons optional schedule_daily_allowance_id<%=" has-error" if @schedule.errors[:daily_allowance_id].any?%>" id="daily_allowances">
-    <%= render "daily_allowances", {daily_allowances: current_user.employees.find(@schedule.employee_id).company.daily_allowances, daily_allowance_id: @schedule.daily_allowance_id} if @schedule.employee_id %> 
+  <div class="row form-group radio_buttons optional schedule_daily_allowance_id<%=" has-error mb-2" if @schedule.errors[:daily_allowance_id].any?%>" id="daily_allowances">
+    <%= render "daily_allowances", {daily_allowances: current_user.employees.find(@schedule.employee_id).company.daily_allowances, daily_allowance_id: @schedule.daily_allowance_id, f: f} if @schedule.employee_id %> 
   </div>
 
-  <div class="form-group radio_buttons optional schedule_accommodation_charge_id<%=" has-error" if @schedule.errors[:accommodation_charge_id].any?%>" id="accommodation_charges">
+  <div class="row form-group radio_buttons optional schedule_accommodation_charge_id<%=" has-error mb-2" if @schedule.errors[:accommodation_charge_id].any?%>" id="accommodation_charges">
     <% if @schedule.accommodation_charge_id_required? %>
     <%= render "accommodation_charges", {accommodation_charges: current_user.employees.find(@schedule.employee_id).company.accommodation_charges, accommodation_charge_id: @schedule.accommodation_charge_id} if @schedule.employee_id %> 
     <% end %>
   </div>
-  <%= f.button :submit, class: 'btn-success' %>
-  <%= link_to t('link.back'), schedules_path(target_month: @schedule.date.beginning_of_month), class: 'btn btn-default'%>
+  <%= f.button :submit, class: 'btn-success mt-3' %>
+  <%= link_to t('link.back'), schedules_path(target_month: @schedule.date.beginning_of_month), class: 'btn btn-secondary mt-3' %>
 <% end %>
 
 <script>
-$(".form_datetime").datetimepicker({
+  flatpickr(document.getElementById("schedule_date"), {'locale': 'ja'});
+/*$(".form_datetime").datetimepicker({
   locale: "ja",
   format: "YYYY-MM-DD",
   sideBySide: true
-});
-$(".employee_selection").change(function(){
+});*/
+/*$(".employee_selection").change(function(){
   $.post(
     '<%=daily_allowances_schedules_path%>',
     {employee_id: $(this).val(), daily_allowance_id: '<%=@schedule.daily_allowance_id%>'}
@@ -54,5 +55,5 @@ $("#schedule_days").change(function(){
 });
 $("input[type='radio']:disabled").each(function(){
   $(this).closest('label').addClass('text-muted');
-})
+})*/
 </script>

@@ -1,17 +1,17 @@
-<div id='<%=dom_id company%>' class='panel panel-default'>
-  <div class="panel-heading">
-    <%= link_to t('button.destroy'), company_path( company ), method: :delete, data: { confirm: t('company_destroy', users: company.employees.count, month: distance_of_time_in_words_to_now( company.registed_months.count.size.months.ago ), count: company.schedules.count ) }, class: "btn btn-danger pull-right btn-xs#{expired_tag}", title: et('link.destroy') %>
-    <%= link_to t('button.edit'), edit_company_path( company ), class: "btn btn-warning btn-xs text-left#{expired_tag}", title: et('link.edit') %>
-    <div class="panel-title pull-left h4"><%= company.name %></div>
+<div id='<%=dom_id company%>' class='card h-70'>
+  <div class="card-header">
+    <span class="card-title h6"><%= company.name %></span>
+    <%= link_to t('button.edit'), edit_company_path( company ), class: "btn btn-warning btn-sm text-left#{expired_tag}", title: et('link.edit') %>
+    <%= link_to t('button.destroy'), company_path( company ), method: :delete, data: { confirm: t('company_destroy', users: company.employees.count, month: distance_of_time_in_words_to_now( company.registed_months.count.size.months.ago ), count: company.schedules.count ) }, class: "btn btn-danger float-end btn-sm#{expired_tag}", title: et('link.destroy') %>
   </div>
-  <div class="panel-body">
+  <div class="card-body">
     <% navicolor = company.employees.any? ? '' : ' text-danger'%>
     <p>
     <div class="row<%=navicolor%>">
-      <div class="col-sm-7 pull-left"><strong><%= t "#{@page_name}.total_employees" %></strong></div>
-      <div class="col-sm-5">
+      <div class="col-sm-8"><strong><%= t "#{@page_name}.total_employees" %></strong></div>
+      <div class="col-sm-4">
         <%= company.employees.count %>
-        <%= link_to company_employees_path( company ), title: t('link.employees'), class: 'btn btn-info btn-xs pull-right' do %>
+        <%= link_to company_employees_path( company ), title: t('link.employees'), class: 'btn btn-info btn-sm float-end' do %>
           <%= content_tag(:span, " "+t('link.manage'), class: 'glyphicon glyphicon-user') %> 
         <% end %>
       </div>
@@ -20,10 +20,10 @@
     <p>
     <% navicolor = company.daily_allowances.any? ? '' : ' text-danger'%>
     <div class="row<%=navicolor%>">
-      <div class="col-sm-7 pull-left<%=%>"><strong><%= f DailyAllowance %></strong></div>
-      <div class="col-sm-5">
+      <div class="col-sm-8 pull-left<%=%>"><strong><%= f DailyAllowance %></strong></div>
+      <div class="col-sm-4">
         <%= company.daily_allowances.count %>
-        <%= link_to company_daily_allowances_path(company), title: t('link.daily_allowances'), class: 'btn btn-info btn-xs pull-right' do %>
+        <%= link_to company_daily_allowances_path(company), title: t('link.daily_allowances'), class: 'btn btn-info btn-sm float-end' do %>
           <%= content_tag(:span, " "+t('link.manage'), class: 'glyphicon glyphicon-user') %> 
         <% end %>
       </div>
@@ -32,10 +32,10 @@
     <p>
     <% navicolor = company.accommodation_charges.any? ? '' : ' text-danger'%>
     <div class="row<%=navicolor%>">
-      <div class="col-sm-7 pull-left"><strong><%= f AccommodationCharge %></strong></div>
-      <div class="col-sm-5">
+      <div class="col-sm-8 pull-left"><strong><%= f AccommodationCharge %></strong></div>
+      <div class="col-sm-4">
         <%= company.accommodation_charges.count %>
-        <%= link_to company_accommodation_charges_path(company), title: t('link.accommodation_charges'), class: 'btn btn-info btn-xs pull-right' do %>
+        <%= link_to company_accommodation_charges_path(company), title: t('link.accommodation_charges'), class: 'btn btn-info btn-sm float-end' do %>
           <%= content_tag(:span, " "+t('link.manage'), class: 'glyphicon glyphicon-user') %> 
         <% end %>
       </div>
@@ -43,10 +43,10 @@
     </p>
     <p>
     <div class="row">
-      <div class="col-sm-7 pull-left"><strong>交通費テンプレート</strong></div>
-      <div class="col-sm-5">
+      <div class="col-sm-8 pull-left"><strong><%=t '.template' %></strong></div>
+      <div class="col-sm-4">
         <%= company.expense_templates.count %>
-        <%= link_to company_expense_templates_path(company), title: t('link.accommodation_charges'), class: 'btn btn-info btn-xs pull-right' do %>
+        <%= link_to company_expense_templates_path(company), title: t('link.accommodation_charges'), class: 'btn btn-info btn-sm float-end' do %>
           <%= content_tag(:span, " "+t('link.manage'), class: 'glyphicon glyphicon-user') %> 
         <% end %>
       </div>
@@ -54,8 +54,8 @@
     </p>
     <p>
     <div class="row">
-      <div class="col-sm-7 pull-left"><strong>登録日</strong></div>
-      <div class="col-sm-5">
+      <div class="col-sm-5"><strong><%=t '.registration_date' %></strong></div>
+      <div class="col-sm-7 text-end">
         <%=l company.created_at, format: :date %>
       </div>
     </div>

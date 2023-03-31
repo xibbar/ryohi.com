@@ -1,13 +1,13 @@
 class ExpenseTemplate < ActiveRecord::Base
   acts_as_list scope: :company_id, touch_on_update: false
 
-  belongs_to :employee
-  belongs_to :company
+  #belongs_to :employee
+  belongs_to :company, required: true
 
   validates :section, :way, :price, presence: true
   validates :round, inclusion: [true, false]
   validates_each :section do |record, attr, value|
-    record.errors.add(attr, :token) if record.same_check
+    record.errors.add(:section, :taken) if record.same_check
   end
 
   def view
@@ -27,6 +27,8 @@ class ExpenseTemplate < ActiveRecord::Base
   end
 
   def same_check
-    self.company.expense_templates.where.not( id: id ).where( section: section, round: round, way: way, price: price ).any?
+    if self.company
+      self.company.expense_templates.where.not( id: id ).where( section: section, round: round, way: way, price: price ).any?
+    end
   end
 end

@@ -57,10 +57,11 @@ class UsersController < ApplicationController
   def update_prefecture
     @user = current_user
     @user.attributes = params[:user].permit(:prefecture, :current_password)
-    if @user.valid?(:prefecture)
+    if current_user.valid_password?(params[:user][:current_password]) && @user.valid?(:prefecture)
       @user.save!
       redirect_to users_path, notice: t('notice.update', model_name: f(User))
     else
+      current_user.errors.add(:current_password, :mistake)
       flash.now[:alert] = t('alert.cant_save')
       render 'prefecture'
     end
@@ -71,7 +72,7 @@ class UsersController < ApplicationController
 
   def update_password
     if current_user.valid_password?( params[ :user ][ :current_password ] )
-      current_user.attributes = params[:user].permit(:password, :password_confirmation)
+      current_user.attributes = params[:user].permit(:password, :password_confirmation, :current_password)
       return redirect_to users_path, notice: t('notice.update', model_name: f(User)) if current_user.save(context: :password)
     else
       current_user.errors.add( :current_password, :mistake)

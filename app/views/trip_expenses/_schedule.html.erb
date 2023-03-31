@@ -1,4 +1,4 @@
-<div class='h3'>出張の内容</div>
+<div class='h3'><%=t '.title' %></div>
 <div class='table-responsive'>
   <table class='table'>
       <tr>
@@ -19,19 +19,19 @@
       </tr>
       <tr>
         <th><%= f Schedule, :daily_allowance %></th>
-        <td><%= number_with_delimiter @schedule.daily_allowance%>円</td>
+        <td><%= number_with_delimiter @schedule.daily_allowance%><%=t 'yen' %></td>
       </tr>
       <tr>
         <th><%= f Schedule, :accommodation_charges %></th>
-        <td><%= number_with_delimiter @schedule.accommodation_charges%>円</td>
+        <td><%= number_with_delimiter @schedule.accommodation_charges%><%=t 'yen' %></td>
       </tr>
       <tr>
         <th><%= f Schedule, :trip_expense_total %></th>
-        <td><%= number_with_delimiter @schedule.trip_expenses.sum(:price)%>円</td>
+        <td><%= number_with_delimiter @schedule.trip_expenses.sum(:price)%><%=t 'yen' %></td>
       </tr>
       <tr>
         <th><%= f Schedule, :total %></th>
-        <td><%= number_with_delimiter @schedule.total%>円</td>
+        <td><%= number_with_delimiter @schedule.total%><%=t 'yen' %></td>
       </tr>
       <tr>
         <th><%= f Company, :name %></th>

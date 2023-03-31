@@ -1,0 +1,13 @@
+document.getElementById('form').innerHTML = '';
+document.getElementById('newLink').style.display = 'block';
+
+var update_alerts = document.getElementsByClassName('alert');
+if(update_alerts){
+  for(let i = update_alerts.length;i > 0;i--){
+    update_alerts[i - 1].remove();
+  }
+}
+
+document.getElementById('employee_<%= @employee.id %>').innerHTML = "<%=j render 'employee', employee: @employee %>";
+
+document.getElementById('bodyFlash').innerHTML = "<%=j render 'layouts/flash' %>";

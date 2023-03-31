@@ -1,16 +1,7 @@
-
 <h2><%=t "#{@page_name}.title" %></h2>
 
-<p>
-ここで入力される情報は第三者に無断で公開するようなことは決してありません。
-</p>
-<p>
-このサービスは広告収入により維持されております。
-広告の表示と広告の配信がされることをご承知ください。
-</p>
-<p>
-広告を非表示・非配信にしたい場合は有償となります。
-</p>
+<p><%= enter_convert t('.top') %></p>
+
 <div class="container">
   <%= simple_form_for @user, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f| %>
     <%= f.input :login, placeholder: t('examples.user.login') %>
@@ -21,7 +12,7 @@
     <%= f.input :prefecture, prompt: t("examples.user.prefecture"), collection: Setting.prefectures %>
 
     <%= f.button :submit, t('button.create'), class: 'btn-primary' %>
-    <%= link_to t('link.back'), root_path, class: 'btn btn-default' %>
+    <%= link_to t('link.back'), root_path, class: 'btn btn-secondary' %>
   <% end %>
 </div>
 

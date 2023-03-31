@@ -1,0 +1,10 @@
+document.getElementById("employee_<%= @employee.id %>").remove();
+
+var destroy_alerts = document.getElementsByClassName('alert');
+if(destroy_alerts){
+  for(let i = destroy_alerts.length;i > 0;i--){
+    destroy_alerts[i - 1].remove();
+  }
+}
+
+document.getElementById('bodyFlash').innerHTML = "<%=j render 'layouts/flash' %>";

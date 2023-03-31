@@ -1,51 +1,52 @@
 <h3>
-  <span class='label label-primary'>運営会社について</span>
+  <span class='label label-primary'><%=t '.title' %></span>
 </h3>
 
-<p>
-現在、このサービスはラビックス社内における藤岡岳之の個人プロジェクト扱いです。
-そのため、問い合わせは本人へお願いします。
-</p>
+<p><%= enter_convert t('.top') %></p>
 
 <div class='table-responsive'>
   <table class='table'>
     <tr>
-      <th>会社名</th>
+      <th><%=t '.topic1' %></th>
       <td>
-        株式会社 ラビックス
+        <%= enter_convert t('.content1') %>
       </td>
     </tr>
     <tr>
-      <th>
-        URI
-      </th>
+      <th><%=t '.topic2' %></th>
       <td>
         <%= link_to 'http://www.rabbix.jp/', 'http://www.rabbix.jp/', target: '_blank' %>
       </td>
     </tr>
     <tr>
-      <th>所在地</th>
+      <th><%=t '.topic3' %></th>
       <td>
-        〒960-8031
-        福島県福島市栄町7-31　KYBビル3F
+        <%= enter_convert t('.content2') %>
       </td>
     </tr>
     <tr>
-      <th>設立</th><td>2002年6月25日</td>
+      <th><%=t '.topic4' %></th>
+      <td>
+        <%= enter_convert t('.content3') %>
+      </td>
     </tr>
 
     <tr>
-      <th>資本金</th><td>1,000万円</td>
+      <th><%=t '.topic5' %></th>
+      <td>
+        <%= enter_convert t('.content4') %>
+      </td>
     </tr>
 
     <tr>
-      <th>代表者</th><td>代表取締役 藤岡 岳之</td>
+      <th><%=t '.topic6' %></th>
+      <td>
+        <%= enter_convert t('.content5') %>
+      </td>
     </tr>
   </table>
   <br />
   <p>
-  <%= link_to t('link.back'), root_path, class: 'btn btn-default' %>
+  <%= link_to t('link.back'), root_path, class: 'btn btn-secondary' %>
   </p>
 </div>
-
-

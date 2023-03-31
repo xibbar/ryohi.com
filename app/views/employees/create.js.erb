@@ -1,0 +1,14 @@
+document.getElementById('form').innerHTML = '';
+document.getElementById('newLink').style.display = 'block';
+
+var create_alerts = document.getElementsByClassName('alert');
+if(create_alerts){
+  for(let i = create_alerts.length;i > 0;i--){
+    create_alerts[i - 1].remove();
+  }
+}
+
+var target = document.getElementById('employeesTable');
+target.innerHTML = target.innerHTML + "<%=j render 'employee', employee: @employee %>";
+
+document.getElementById('bodyFlash').innerHTML = "<%=j render 'layouts/flash' %>";

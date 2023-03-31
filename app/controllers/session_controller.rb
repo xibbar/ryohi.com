@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
-  before_action :require_login, except: [:new, :create]
+  before_action :require_login, except: [:new, :create, :download_ryohikitei]
 
   def new
   end
@@ -8,8 +8,8 @@ class SessionController < ApplicationController
     if login(params[:login], params[:password])
       redirect_to schedules_path, notice: t('notice.login_successfull')
     else
-      flash.now[:alert] = t('alert.failer_login')
-      render 'new'
+      flash[:alert] = t('alert.failer_login')
+      redirect_to root_path
     end
   end
 
@@ -29,6 +29,5 @@ class SessionController < ApplicationController
     filepath = File.join(Rails.root, 'public', 'ryohikitei_sample.pdf')
     stat = File::stat(filepath)
     send_file(filepath, filename: '旅費規定サンプル.pdf', length: stat.size)
-
   end
 end

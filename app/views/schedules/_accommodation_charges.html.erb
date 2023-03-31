@@ -1,11 +1,13 @@
-<label class="col-sm-3 control-label radio_buttons optional"><%= f AccommodationCharge%></label>
-<div class="col-sm-9">
-  <% accommodation_charges.each do |accommodation_charge|%>
-    <span class="radio">
-      <label for="schedule_accommodation_charge_id_<%=accommodation_charge.id%>">
-        <%= radio_button_tag "schedule[accommodation_charge_id]", accommodation_charge.id, accommodation_charge.id == accommodation_charge_id, class: 'radio_buttons optional', id: "schedule_accommodation_charge_id_#{accommodation_charge.id}"%>
-        <%= accommodation_charge.name %> ( <%= number_to_currency accommodation_charge.amount %> )
-      </label>
-    </span>
-  <% end %>
-</div>
+<% if accommodation_charges.present? %>
+  <label class="col-sm-3 col-form-label radio_buttons optional"><%= f AccommodationCharge%></label>
+  <div class="col-sm-9 vstack">
+    <% accommodation_charges.each do |accommodation_charge|%>
+      <span class="radio">
+        <label for="schedule_accommodation_charge_id_<%=accommodation_charge.id%>">
+          <%= radio_button_tag "schedule[accommodation_charge_id]", accommodation_charge.id, accommodation_charge.id == accommodation_charge_id, class: 'radio_buttons optional', id: "schedule_accommodation_charge_id_#{accommodation_charge.id}"%>
+          <%= accommodation_charge.name %> ( <%= number_to_currency accommodation_charge.amount %> )
+        </label>
+      </span>
+    <% end %>
+  </div>
+<% end %>

@@ -1,10 +1,9 @@
 <%= simple_form_for @employee, url: [ @company, @employee ], remote: true do |f| %>
   <%= f.input :name %>
-  <%= error_messages_on f.object, :name %>
   <%= enter_convert t("examples.employee.name") %>
 
   <p>
-  <%= f.button :submit %>
-  <%= link_to t('link.close'), close_company_employees_path( @company ), remote: true, class: 'btn btn-default' %>
+  <%= f.button :submit, class: 'btn-primary' %>
+  <%= link_to t('link.close'), close_company_employees_path( @company ), remote: true, class: 'btn btn-secondary' %>
   </p>
 <% end %>

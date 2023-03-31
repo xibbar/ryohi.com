@@ -1,18 +1,18 @@
 <h2><%=t "#{@page_name}.title" %></h2>
 
 
-<div>
+<div class="mb-3">
   <%= t("#{@page_name}.comment") %>
 </div>
 
 <%= form_tag password_path, method: :post, class: 'form-horizontal' do %>
-  <div class="form-group string required">
+  <div class="form-group string required mb-2">
     <%= label_tag :email, f(Password, :email), class: 'string required control-label' %>
     <%= text_field_tag :email, '', class: 'form-control', placeholder: t("examples.password.email") %>
   </div>
 
   <%= submit_tag t('link.forgot_password_new'), class: 'btn btn-primary' %>
-  <%= link_to t('link.back'), root_path, class: 'btn btn-default' %>
+  <%= link_to t('link.back'), root_path, class: 'btn btn-secondary' %>
 <% end %>
 
 

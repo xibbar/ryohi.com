@@ -81,7 +81,8 @@ class User < ActiveRecord::Base
 #  end
 
   def trip_expenses
-    TripExpense.joins(:schedule=>{:target_month=>{:employee=>{:company=>:user}}}).where("users.id = ?",self.id)
+    #TripExpense.joins(:schedule=>{:target_month=>{:employee=>{:company=>:user}}}).where("users.id = ?",self.id)
+    TripExpense.joins(schedule: [employee: :company]).where(companies: {user_id: self.id})
   end
 
   private

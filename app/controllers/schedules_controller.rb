@@ -60,18 +60,21 @@ class SchedulesController < ApplicationController
   end
 
   def daily_allowances
-    if params[:employee_id]
+    if params[:employee_id].present?
       @daily_allowances = current_user.employees.find(params[:employee_id]).company.daily_allowances
-    else
-      render js: "$('#daily_allowances').html('')"
+      render partial: 'daily_allowances', locals: {daily_allowances: @daily_allowances, daily_allowance_id: params[:daily_allowance_id]}
+    #else
+      #render js: "$('#daily_allowances').html('')"
     end
   end
 
   def accommodation_charges
     if params[:employee_id] && params[:days] && params[:days].to_i > 1
       @accommodation_charges = current_user.employees.find(params[:employee_id]).company.accommodation_charges
+      render partial: 'accommodation_charges', locals: {accommodation_charges: @accommodation_charges, accommodation_charge_id: params[:accommodation_charge_id]}
     else
-      render js: "$('#accommodation_charges').html('')"
+      #render js: "$('#accommodation_charges').html('')"
+      render plain: ""
     end
   end
 

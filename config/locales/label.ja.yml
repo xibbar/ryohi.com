@@ -29,6 +29,7 @@ ja:
     add_template: 'テンプレート化'
     template: 'テンプレート'
     create_trip_expenses: '交通費'
+    current: '今月'
 
     titles:
       add_template: 'テンプレートとして登録します。'

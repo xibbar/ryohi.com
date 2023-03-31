@@ -1,16 +1,21 @@
-<div class='h2'>
-  出張の詳細
+<div class='h2 mb-3' id='schedule-show'>
+  <%=t '.title' %>
 </div>
-<div class='h3 col-sm-6'>出張の内容</div>
-<div class='col-sm-6 text-right'>
-<%= button_tag t("link.print"), onclick: 'window.print();return false;', class: 'btn btn-info hidden-print'%>
-<%= link_to t("link.edit"), edit_schedule_path(@schedule), class: 'btn btn-warning hidden-print' %>
-<%= link_to t("link.destroy"), schedule_path(@schedule), method: :delete, confirm: t('Are you sure?'), class: 'btn btn-danger hidden-print' %>
+<div class='row border-bottom pb-1'>
+  <div class='h4 col-sm-6'><%=t '.content' %></div>
+  <div class='col-sm-6 float-end hidden-print'>
+    <%#= button_tag t("link.print"), onclick: 'window.print();return false;', class: 'btn btn-info hidden-print'%>
+    <%= button_tag t("link.print"), class: "btn btn-info", id: "schedule-print" %>
+    <%= link_to t("link.edit"), edit_schedule_path(@schedule), class: 'btn btn-warning hidden-print' %>
+    <%= link_to t("link.destroy"), schedule_path(@schedule), method: :delete, confirm: t('Are you sure?'), class: 'btn btn-danger' %>
+  </div>
 </div>
 <%= render "schedule" %>
-<div class='h3 col-sm-6'>出張の交通費</div>
-<div class='text-right col-sm-6'>
-  <%= link_to t("link.new"), new_schedule_trip_expense_path(@schedule), class: 'btn btn-primary hidden-print' %>
+<div class='row border-bottom'>
+  <div class='h4 col-sm-6 mt-3'><%=t '.expense' %></div>
+  <div class='col-sm-6 float-end hidden-print'>
+    <%= link_to t("link.new"), new_schedule_trip_expense_path(@schedule), class: 'btn btn-primary' %>
+  </div>
 </div>
 <div class='table-responsive'>
   <table class='table'>
@@ -26,16 +31,16 @@
         <td><%= trip_expense.section %></td>
         <td><%= t "round.#{trip_expense.round}" %></td>
         <td><%= trip_expense.way %></td>
-        <td><%= number_with_delimiter trip_expense.price %>円</td>
-        <td>
-          <%= link_to add_template_schedule_trip_expense_path(@schedule, trip_expense), data: { confirm: t('add_confirm') }, title: t('button.titles.add_template'), class: 'btn btn-info btn-sm hidden-print' do %>
-                  <%= content_tag(:i, t("button.add_template"),class: 'glyphicon glyphicon-save') -%>
-                <% end %>
-          <%= link_to t('link.edit'), edit_schedule_trip_expense_path(@schedule, trip_expense), class: 'btn btn-warning btn-sm hidden-print' %>
-          <%= link_to t('link.destroy'), schedule_trip_expense_path(@schedule, trip_expense), method: :delete, confirm: t('Are you sure?'), class: 'btn btn-danger btn-sm hidden-print' %>
+        <td><%= number_with_delimiter trip_expense.price %><%=t 'yen' %></td>
+        <td class='hidden-print'>
+          <%= link_to add_template_schedule_trip_expense_path(@schedule, trip_expense), data: { confirm: t('add_confirm') }, title: t('button.titles.add_template'), class: 'btn btn-info btn-sm' do %>
+            <%= content_tag(:i, t("button.add_template"),class: 'glyphicon glyphicon-save') -%>
+          <% end %>
+          <%= link_to t('link.edit'), edit_schedule_trip_expense_path(@schedule, trip_expense), class: 'btn btn-warning btn-sm' %>
+          <%= link_to t('link.destroy'), schedule_trip_expense_path(@schedule, trip_expense), method: :delete, confirm: t('Are you sure?'), class: 'btn btn-danger btn-sm' %>
         </td>
       </tr>
     <% end %>
   </table>
 </div>
-<%= link_to t('link.back'), schedules_path(target_month: @schedule.date.beginning_of_month), class: 'btn btn-default hidden-print'%>
+<span class='hidden-print'><%= link_to t('link.back'), schedules_path(target_month: @schedule.date.beginning_of_month), class: 'btn btn-secondary'%></span>

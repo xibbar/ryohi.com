@@ -1,0 +1,9 @@
+document.getElementById('form').innerHTML = "<%=j render 'form' %>";
+document.getElementById('newLink').style.display = 'none';
+
+var new_alerts = document.getElementsByClassName('alert');
+if(new_alerts){
+  for(let i = new_alerts.length;i > 0;i--){
+    new_alerts[i - 1].remove();
+  }
+}

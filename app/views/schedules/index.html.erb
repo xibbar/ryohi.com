@@ -1,11 +1,11 @@
 <div class='h2'>
-  出張の一覧
+  <%=t '.title' %>
 </div>
 <p>
 <%if @target_month%>
-<%= link_to t('link.new'), new_schedule_path(date: @target_month), class: 'btn btn-default'%>
+<%= link_to t('link.new'), new_schedule_path(date: @target_month), class: 'btn btn-primary' %>
 <%else%>
-<%= link_to t('link.new'), new_schedule_path, class: 'btn btn-default'%>
+<%= link_to t('link.new'), new_schedule_path, class: 'btn btn-primary' %>
 <%end%>
 </p>
 <%= render "month_nav" %>
@@ -17,19 +17,19 @@
         <th><%= f Schedule, :date %></th>
         <th><%= f Schedule, :days %></th>
         <th><%= f Schedule, :destination %></th>
-        <th class='text-right'><%= f Schedule, :total %>　</th>
+        <th class='text-right'><%= f Schedule, :total %></th>
         <th><%= f Company, :name %></th>
       </tr>
     <% @schedules.each do |schedule| %>
       <tr>
-        <td><%= link_to content_tag(:span, "詳細", class: 'glyphicon glyphicon-file'), schedule_path(schedule), class: 'btn btn-info btn-sm' %></td>
+        <td><%= link_to content_tag(:span, t('button.show'), class: 'glyphicon glyphicon-file'), schedule_path(schedule), class: 'btn btn-info btn-sm' %></td>
         <td><%= schedule.employee.name %></td>
         <td><%= schedule.date %></td>
         <td><%= schedule.days %></td>
         <td>
           <%= schedule.destination %>
         </td>
-        <td class='text-right'><%= number_with_delimiter schedule.total%>円</td>
+        <td class='text-right'><%= number_with_delimiter schedule.total%><%=t 'yen' %></td>
         <td><%= schedule.employee.company.name %></td>
       </tr>
     <% end %>

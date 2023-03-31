@@ -1,4 +1,6 @@
 ENV["RAILS_ENV"] ||= "test"
+require 'simplecov'
+SimpleCov.start
 require File.expand_path('../../config/environment', __FILE__)
 require 'test/unit'
 require 'test/unit/rails/test_help'
@@ -13,6 +15,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  include FactoryGirl::Syntax::Methods
+  include FactoryBot::Syntax::Methods
+
+  include Sorcery::TestHelpers::Rails::Controller
 end
 

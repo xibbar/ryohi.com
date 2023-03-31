@@ -7,67 +7,49 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <div class="row">
-  <h1 class="col-xs-8">
-    旅費com
+  <h1 class="col-sm-8">
+    <%=t 'app_name' %>
   </h1>
-  <div class="col-xs-4 text-right fb-like" data-href="https://ryohi.com/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+  <div class="col-sm-4 fb-like float-end" data-href="https://ryohi.com/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 </div>
-<div id="carousel_sample" class="carousel slide" data-ride="carousel" data-interval="7000">
-  <ol class="carousel-indicators">
-
-    <!--
-        Carouselのid名を合わせる、スライダーの数だけ用意する
-            data-slide-toで何番目のスライドへ移動するか指定する、0から始めるので１つめのスライドなら0を指定
-     -->
-    <li data-target="#carousel_sample" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel_sample" data-slide-to="1" class=""></li>
-    <li data-target="#carousel_sample" data-slide-to="2" class=""></li>
-    <li data-target="#carousel_sample" data-slide-to="3" class=""></li>
-    <li data-target="#carousel_sample" data-slide-to="4" class=""></li>
-    <li data-target="#carousel_sample" data-slide-to="5" class=""></li>
-
-  </ol>
-    <!-- ここからCarouselの中身 -->
+<div id="topCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
-
-    <!-- item = １ページ、activeを入れたところが最初に表示される -->
-    <div class="item active">
-      <%= image_tag 'ryohi.jpg', class: 'img-responsive'%>
+    <div class="carousel-item active">
+      <%= image_tag 'ryohi.jpg', class: 'img-responsive' %>
     </div>
-    <div class="item">
-      <%= image_tag 'ryohi2.jpg', class: 'img-responsive'%>
+    <div class="carousel-item">
+      <%= image_tag 'ryohi2.jpg', class: 'img-responsive' %>
     </div>
-    <div class="item">
-      <%= image_tag 'ryohi6.jpg', class: 'img-responsive'%>
+    <div class="carousel-item">
+      <%= image_tag 'ryohi6.jpg', class: 'img-responsive' %>
     </div>
-    <div class="item">
-      <%= image_tag 'ryohi7.jpg', class: 'img-responsive'%>
+    <div class="carousel-item">
+      <%= image_tag 'ryohi7.jpg', class: 'img-responsive' %>
     </div>
-    <div class="item">
-      <%= image_tag 'ryohi4.jpg', class: 'img-responsive'%>
+    <div class="carousel-item">
+      <%= image_tag 'ryohi4.jpg', class: 'img-responsive' %>
     </div>
-    <div class="item">
-      <%= image_tag 'ryohi5.jpg', class: 'img-responsive'%>
+    <div class="carousel-item">
+      <%= image_tag 'ryohi5.jpg', class: 'img-responsive' %>
     </div>
-
   </div>
-
-  <!-- ページ送りボタン、ここもCarouselのid名を合わせる -->
-  <a class="left carousel-control" href="#carousel_sample" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel_sample" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
+  <button type="button" class="carousel-control-prev" data-bs-target="#topCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Prev</span>
+  </button>
+  <button type="button" class="carousel-control-next" data-bs-target="#topCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 <p>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class='text-warning'>リリースノート</h3>
-  </div>
-  <div class="panel-body">
+<div class="card">
+  <h3 class="card-header" style="padding:20px 0;">
+    <span class="release_note "><%=t '.release_note' %></span>
+  </h3>
+  <div class="card-body">
     <% Setting.release_notes.each do |note| %>
-      <h5><span class="label label-default"><%= note['date'] %></span>ver.<%= note['version'] %></h5>
+      <h6><span class="text-bg-secondary rounded" style="padding:3px 2px;"><%= note['date'] %></span> ver.<%= note['version'] %></h6>
       <p><%= note['description'] %></p>
     <% end %>
   </div>
@@ -76,118 +58,59 @@
 
 <p />
 
-<h3 class='text-info'>このシステムについて</h3>
-<p>このシステムは旅費精算書を簡単に入力し、綺麗に印刷するためのシステムです。
-１つのアカウントで複数の会社、複数の人の旅費を簡単に登録し、綺麗に印刷できることを目標にしています。</p>
+<h3 class='text-explain'><%=t '.title1' %></h3>
+<p><%= enter_convert t('.explain1') %></p>
 
-<h3 class='text-info'>使うべき人</h3>
-<p>このシステムは、出張の日当・宿泊費・交通費を、旅費精算書を使って精算している、
-複数の会社を経営しているオーナー社長を想定しています。</p>
+<h3 class='text-explain'><%=t '.title2' %></h3>
+<p><%= enter_convert t('.explain2') %></p>
 
-<h3 class='text-info'>旅費精算書での精算とは？</h3>
+<h3 class='text-explain'><%=t '.title3' %></h3>
+<p><%= enter_convert t('.explain3') %></p>
 <p>
-旅費精算書での精算とは、法人で旅費規定を決めておき、出張旅費を領収書ではなく
-旅費規定にのっとって旅費精算書を作成して精算する方法です。
-旅費規定のサンプルをダウンロードできるように置いておきます。
+<%= link_to t('.ryohikitei_sample'),  download_ryohikitei_path, target: '_blank', class: 'btn ', id: 'ryohikitei' %>
 </p>
-<p>
-<%= link_to '旅費規定のサンプル',  download_ryohikitei_path, target: '_blank', class: 'btn btn-info'%>
-</p>
-<p>
+<p><%= enter_convert t('.explain4') %></p>
 
-これにより、いちいち切符を買うたびに領収書を発行する必要がなくなります。
-また、同時に日当や宿泊費も、あらかじめ旅費規定で定められた金額を受け取ることができます。
-ホテルの領収書も不要になります。領収書を保存しておく必要はなくなります。
-出張の確認できるものは必要です。
-</p>
+<h3 class='text-explain'><%=t '.title4' %></h3>
+<p><%= enter_convert t('.explain5') %></p>
 
-<h3 class='text-info'>旅費精算書を作るのに苦労していませんか？</h3>
+<h3 class='text-explain'><%=t '.title5' %></h3>
 <p>
-複数の会社を持っている役員の場合、旅費精算書を作ることは非常に手間で時間がかかります。 
-私も最初は表計算ソフトであるエクセルを使ってやっていました。 
-しかし、エクセルはデータベースでないため、月ごとに保存していくとシートがどんどん増えていきます。 
-例えば合計金額の一覧を表示するのは合計金額を表示するシートを作成しなければなりません。
+  <%= enter_convert t('.explain6') %>
+  <ul>
+    <li><%=t '.item1' %></li>
+    <li><%=t '.item2' %></li>
+  </ul>
+  <%= enter_convert t('.explain7') %>
 </p>
 
-<h3 class='text-info'>
-  旅費comを作ったわけ
-</h3>
-<p>
-私と面識がない人ははじめまして。xibbarこと藤岡です。
-大学院を修了した2002年からIT会社（株）ラビックスを起業して随分たちました。
-それと平行して、2007年から不動産賃貸事業をはじめて、こちらも随分たちました。
-この間、自分でほしいと思ったソフトウェアは自力で作ってきました。今も会社では
+<h3 class='text-explain'><%=t '.title6' %></h3>
 <ul>
-  <li>スケジューラー・日報</li>
-  <li>請求管理システム</li>
-</ul>
-を自社のためだけに作って利用しています。
-この旅費精算書システムもその一環で自社で開発して利用してきました。
-最近、facebookを中心に不動産事業を営んでいる友人が増えてきました。
-そして、みなさん旅費精算書を作るのが面倒だと言っているのもわかってきました。
-そのため、簡単に旅費精算書を作ることができて、
-簡単に印刷できるシステムを私は使っていました。
-これを誰にでも使えるように修正して作りなおしたのが旅費comです。
-</p>
-
-<h3 class='text-info'>旅費comを使うと</h3>
-<ul>
-  <li>出張の日当を自動で計算できる</li>
-  <li>出張の宿泊費を自動で計算できる</li>
-  <li>出張の交通費をテンプレートにして、わざわざその都度調べなくても計算できる</li>
-  <li>綺麗な旅費計算書を印刷することができる</li>
+  <li><%=t '.item3' %></li>
+  <li><%=t '.item4' %></li>
+  <li><%=t '.item5' %></li>
+  <li><%=t '.item6' %></li>
 </ul>
 
-<h3 class='text-info'>ずっと無料で使えます</h3>
-<p>
-5名まではすべての機能を無料で使えます。
-たくさんの人に使っていただき、いろいろな意見をお聞きしたいので、
-無料で使えるように公開しております。
-</p>
+<h3 class='text-explain'><%=t '.title7' %></h3>
+<p><%= enter_convert t('.explain8') %></p>
 
-<h3 class='text-info'>もっと大人数で使いたい場合</h3>
-<p>
-6名以上で使いたいという場合はお問い合わせください。
-6名以上の場合は、5名につき、月額500円（税抜）でご利用可能です。
-例として、10名までで500円（税抜）、15名だと1000円（税抜）となります。
-xibbar@gmail.com までご連絡ください。
-</p>
+<h3 class='text-explain'><%=t '.title8' %></h3>
+<p><%= enter_convert t('.explain9') %></p>
 
-<h3 class='text-info'>最後に</h3>
-<p>
-誰でも無料で使えるシステムですので、
-ぜひ下記のリンクからユーザー登録をしていただき、
-ご意見でもいただければ幸いです。
-</p>
+<h3 class='text-explain'><%=t '.title9' %></h3>
+<p><%= enter_convert t('.explain10') %></p>
 
 <div class="text-right">
-  <%= link_to(new_user_path, class: 'btn btn-primary btn-lg'){content_tag(:li, t('button.account_new'), class: 'glyphicon glyphicon-plus')} %>
+  <%= link_to(new_user_path, class: 'btn btn-lg', id: 'signup_btn'){content_tag(:li, t('button.account_new'), class: 'glyphicon glyphicon-plus')} %>
 </div>
 
-<h2 class='text-warning'>お問い合わせ</h2>
-<p>
-現在、お問合わせについてはお問い合わせフォームなどは用意しておらず、
-facebookページのみとなっております。
-お問合わせや要望、不具合の報告などはfacebookページからお願いします。
-</p>
-<%= link_to 'facebookページへ', 'https://www.facebook.com/ryohicom/', class: 'btn btn-success btn-sm', roll: 'button', target: '_blank' %>
+<h2 class='text-yellow700 mt-3'><%=t '.title10' %></h2>
+<p><%= enter_convert t('.explain11') %></p>
+<%= link_to t('.to_facebook'), 'https://www.facebook.com/ryohicom/', class: 'btn btn-success btn-sm', roll: 'button', target: '_blank' %>
 <div class="fb-like" data-href="https://www.facebook.com/ryohicom/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 
-<h2 class='text-warning'>開発者の方へ</h2>
-<p>
-このシステムはgithubにて公開しております。
-言語とフレームワークはRuby on Railsです。
-サーバは、herokuの有料プランを使って、SSLを導入しております。
-</p>
-<p>
-開発を手伝ってくれる方がいらっしゃいましたらば、
-githubでお手伝いいただければ幸いです。
-</p>
-<p>
-もちろん不具合を発見して、issueへの登録などでも十分ですので、よろしくお願いします。
-</p>
+<h2 class='text-yellow700 mt-3'><%=t '.title11' %></h2>
+<p><%= enter_convert t('.explain12') %></p>
 
-<%= link_to '開発サイトへ', 'https://github.com/xibbar/ryohi.com', class: 'btn btn-warning btn-sm', roll: 'button', target: '_blank' %>
-
-
-
+<%= link_to t('.to_site'), 'https://github.com/xibbar/ryohi.com', class: 'btn btn-warning btn-sm', roll: 'button', target: '_blank' %>
