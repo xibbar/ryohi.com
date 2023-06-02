@@ -4,7 +4,7 @@ ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rails', '~> 4.2.0'
-gem 'rails', '6.0.6.1'
+gem 'rails', '6.1.7.3'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -55,6 +55,7 @@ group :test, :development do
   gem 'guard-test'
   gem 'simplecov'
   gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
 end
 
 group :development do
